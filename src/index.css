@@ -1,1 +1,74 @@
 @import "tailwindcss";
+
+@custom-variant hover (&:hover);
+
+@layer base {
+}
+@layer components {
+	[id] {
+		scroll-margin-top: 7.5rem;
+	}
+
+	.hamburger {
+		cursor: pointer;
+		width: 24px;
+		height: 24px;
+		transition: all 0.25s;
+		position: relative;
+	}
+
+	.hamburger-top,
+	.hamburger-middle,
+	.hamburger-bottom {
+		position: absolute;
+		width: 24px;
+		height: 2px;
+		top: 0;
+		left: 0;
+		background: #fff;
+		transform: rotate(0);
+		transition: all 0.5s;
+	}
+
+	.hamburger-middle {
+		transform: translateY(7px);
+	}
+
+	.hamburger-bottom {
+		transform: translateY(14px);
+	}
+
+	.open {
+		transform: rotate(90deg);
+	}
+
+	.open .hamburger-top {
+		transform: rotate(45deg) translateY(6px) translateX(6px);
+	}
+
+	.open .hamburger-middle {
+		display: none;
+	}
+
+	.open .hamburger-bottom {
+		transform: rotate(-45deg) translateY(6px) translateX(-6px);
+	}
+
+	.mobile-menu {
+		@apply absolute top-0 bottom-0 left-0 flex-col justify-start items-center w-full 
+		min-h-screen space-y-8 mt-header-height text-lg text-white uppercase bg-custom-pink/98;
+	}
+
+	.mobile-menu a {
+		@apply text-2xl text-primary-dark transition-colors duration-200 tracking-wider 
+		hover:text-white hover:underline underline-offset-4 decoration-white;
+	}
+}
+@theme {
+	/* custom colors */
+	--color-primary-dark: #721028;
+	--color-custom-pink: #b4787d;
+	--color-primary-light: #eadfdf;
+	/* custom spacing */
+	--spacing-header-height: 7.5rem;
+}
