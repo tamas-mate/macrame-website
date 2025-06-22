@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 const Main = () => {
 	return (
 		<main className="mt-header-height bg-primary-light">
@@ -72,24 +74,24 @@ const Main = () => {
 						itaque rem. Nostrum modi ipsa accusantium impedit aperiam ratione facilis consectetur officiis laudantium.
 					</p>
 					<div className="grid grid-cols-1 gap-4 justify-items-center mt-6 md:grid-cols-3">
-						<div className="h-120 aspect-square md:h-auto">
+						<Link to="/category/bracelets" className="h-120 aspect-square md:h-auto hover:cursor-pointer">
 							<img src="./images/category-bracelets.jpg" alt="cat1" className="w-full h-full" />
-						</div>
-						<div className="h-120 aspect-square md:h-auto">
+						</Link>
+						<Link to="/category/decorations" className="h-120 aspect-square md:h-auto hover:cursor-pointer">
 							<img src="./images/category-decorations.jpg" alt="cat2" className="w-full h-full" />
-						</div>
-						<div className="h-120 aspect-square md:h-auto">
+						</Link>
+						<Link to="/category/earrings" className="h-120 aspect-square md:h-auto hover:cursor-pointer">
 							<img src="./images/category-earrings.jpg" alt="cat3" className="w-full h-full" />
-						</div>
-						<div className="h-120 aspect-square md:h-auto">
+						</Link>
+						<Link to="/category/necklaces" className="h-120 aspect-square md:h-auto hover:cursor-pointer">
 							<img src="./images/category-necklaces.jpg" alt="cat4" className="w-full h-full" />
-						</div>
-						<div className="h-120 aspect-square md:h-auto">
+						</Link>
+						<Link to="/category/rings" className="h-120 aspect-square md:h-auto hover:cursor-pointer">
 							<img src="./images/category-rings.jpg" alt="cat5" className="w-full h-full" />
-						</div>
-						<div className="h-120 aspect-square md:h-auto">
+						</Link>
+						<Link to="/category/sets" className="h-120 aspect-square md:h-auto hover:cursor-pointer">
 							<img src="./images/category-sets.jpg" alt="cat6" className="w-full h-full" />
-						</div>
+						</Link>
 					</div>
 				</div>
 			</section>

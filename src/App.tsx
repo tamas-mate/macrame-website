@@ -1,6 +1,6 @@
-import Footer from "./components/ui/Footer";
 import Header from "./components/ui/Header";
-import Main from "./components/ui/Main";
+import Main from "./components/Main";
+import Footer from "./components/ui/Footer";
 
 const App = () => {
 	return (
