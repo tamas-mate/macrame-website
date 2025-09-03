@@ -1,15 +1,19 @@
-import Header from "./components/ui/Header";
-import Main from "./components/Main";
+import { Outlet } from "react-router";
+
+import ScrollToAnchor from "./components/ScrollToAnchor";
 import Footer from "./components/ui/Footer";
+import Header from "./components/ui/Header";
 
 const App = () => {
 	return (
 		<>
 			<Header />
-			<Main />
+			<Outlet />
+			<ScrollToAnchor />
 			<Footer />
 		</>
 	);
 };
 
 export default App;
+

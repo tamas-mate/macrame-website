@@ -3,7 +3,11 @@
 @custom-variant hover (&:hover);
 
 @layer base {
+	body {
+		@apply bg-primary-light;
+	}
 }
+
 @layer components {
 	[id] {
 		scroll-margin-top: 7.5rem;
@@ -55,20 +59,21 @@
 	}
 
 	.mobile-menu {
-		@apply absolute top-0 bottom-0 left-0 flex-col justify-start items-center w-full 
-		min-h-screen space-y-8 mt-header-height text-lg text-white uppercase bg-custom-pink/98;
+		@apply mt-header-height bg-custom-pink/98 absolute top-0 bottom-0 left-0 min-h-screen w-full flex-col items-center justify-start space-y-8 text-lg text-white uppercase;
 	}
 
 	.mobile-menu a {
-		@apply text-2xl text-primary-dark transition-colors duration-200 tracking-wider 
-		hover:text-white hover:underline underline-offset-4 decoration-white;
+		@apply text-primary-dark text-2xl tracking-wider decoration-white underline-offset-4 transition-colors duration-200 hover:text-white hover:underline;
+	}
+
+	.category-link {
+		@apply aspect-square transition-all duration-150 hover:scale-95;
 	}
 }
 @theme {
-	/* custom colors */
 	--color-primary-dark: #721028;
 	--color-custom-pink: #b4787d;
 	--color-primary-light: #eadfdf;
-	/* custom spacing */
 	--spacing-header-height: 7.5rem;
 }
+

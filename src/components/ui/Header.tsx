@@ -1,60 +1,112 @@
+import { useEffect, useRef, useState, type MouseEvent } from "react";
+import { Link, useLocation } from "react-router";
+
+import { cl } from "@/utils/utils";
+import Logo from "../../assets/images/logo.png";
+
+const navlinks = [
+	{
+		name: "Macrame",
+		href: "#macrame",
+		backURL: "/#macrame",
+	},
+	{
+		name: "Artist",
+		href: "#artist",
+		backURL: "/#artist",
+	},
+	{
+		name: "Products",
+		href: "#products",
+		backURL: "/#products",
+	},
+	{
+		name: "Contact",
+		href: "#footer",
+		backURL: "/#footer",
+	},
+];
+
 const Header = () => {
-	const handleMenuToggle = (e: React.MouseEvent) => {
+	const [isRoot, setIsRoot] = useState(true);
+	const menuBtnRef = useRef<HTMLButtonElement>(null);
+	const menuRef = useRef<HTMLDivElement>(null);
+	const location = useLocation();
+
+	useEffect(() => {
+		setIsRoot(location.pathname === "/");
+	}, [location]);
+
+	const handleMenuToggle = (e: MouseEvent) => {
 		e.stopPropagation();
-		const menuBtn = document.getElementById("menu-btn") as HTMLDivElement;
-		const menu = document.getElementById("menu") as HTMLDivElement;
-		menuBtn.classList.toggle("open");
-		menu.classList.toggle("hidden");
-		menu.classList.toggle("flex");
+		menuBtnRef.current?.classList.toggle("open");
+		menuRef.current?.classList.toggle("hidden");
+		menuRef.current?.classList.toggle("flex");
 	};
 
 	return (
-		<header className="fixed top-0 left-0 w-full h-header-height flex justify-between items-center px-30 bg-primary-dark">
-			<div className="flex justify-center items-center rounded-full w-25 h-25 bg-white">
-				<img src="images/logo.png" alt="website-logo" className="h-12.5" />
-			</div>
-			<nav>
-				<div className="hidden md:flex md:justify-center md:items-center">
-					<a href="#macrame" className="p-2 text-white">
-						Macrame
-					</a>
-					<a href="#artist" className="p-2 text-white">
-						Artist
-					</a>
-					<a href="#products" className="p-2 text-white">
-						Products
-					</a>
-					<a href="#footer" className="p-2 text-white">
-						Contact
-					</a>
-				</div>
-				{/* Hamburger Button  */}
-				<div className="md:hidden">
-					<button
-						id="menu-btn"
-						type="button"
-						className="z-40 block hamburger md:hidden focus:outline-none hover:cursor-pointer"
-						onClick={handleMenuToggle}
+		<header className="h-header-height bg-primary-dark fixed top-0 left-0 z-10 flex w-full items-center justify-between px-20">
+			<Link to="/" className="flex h-25 w-25 items-center justify-center rounded-full bg-white hover:cursor-pointer">
+				<img src={Logo} alt="website-logo" className="h-12.5" />
+			</Link>
+			<nav className="flex items-center gap-x-4">
+				{isRoot ? (
+					<ul className="hidden md:flex md:items-center md:justify-center">
+						{navlinks.map((link) => (
+							<li key={link.name}>
+								<a
+									href={link.href}
+									className="hover: p-2 text-white underline-offset-4 transition hover:text-pink-300 hover:underline"
+								>
+									{link.name}
+								</a>
+							</li>
+						))}
+					</ul>
+				) : (
+					<Link
+						to="/"
+						className={cl(
+							"items-center justify-center gap-1 p-2 text-white transition hover:text-pink-300",
+							!isRoot && "hidden md:flex",
+						)}
 					>
-						<span className="hamburger-top"></span>
-						<span className="hamburger-middle"></span>
-						<span className="hamburger-bottom"></span>
-					</button>
-				</div>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							className="relative top-[1px] h-4 w-4"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+							strokeWidth={2}
+						>
+							<path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+						</svg>
+						<span className="text-lg leading-none">Go Back</span>
+					</Link>
+				)}
+				<button
+					ref={menuBtnRef}
+					type="button"
+					className="hamburger z-40 flex hover:cursor-pointer focus:outline-none md:hidden"
+					onClick={handleMenuToggle}
+				>
+					<span className="hamburger-top"></span>
+					<span className="hamburger-middle"></span>
+					<span className="hamburger-bottom"></span>
+				</button>
 			</nav>
-			<div id="menu" className="hidden mobile-menu" onClick={handleMenuToggle}>
-				<a href="#macrame" className="mt-10" onClick={handleMenuToggle}>
-					Macrame
-				</a>
-				<a href="#artist" onClick={handleMenuToggle}>
-					Artist
-				</a>
-				<a href="#products" onClick={handleMenuToggle}>
-					Products
-				</a>
-				<a href="#footer" onClick={handleMenuToggle}>
-					Contact
-				</a>
+			<div ref={menuRef} className="mobile-menu hidden" onClick={handleMenuToggle}>
+				<nav className="pt-10">
+					<ul className="flex w-full flex-col items-center gap-y-10">
+						{navlinks.map((link) => (
+							<li key={link.name}>
+								<a href={isRoot ? link.href : link.backURL} onClick={handleMenuToggle}>
+									{link.name}
+								</a>
+							</li>
+						))}
+					</ul>
+				</nav>
 			</div>
 		</header>
 	);
