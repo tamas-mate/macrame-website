@@ -11,6 +11,7 @@
 @layer components {
 	[id] {
 		scroll-margin-top: 7.5rem;
+		/* scroll-margin-top: 10.6rem; */
 	}
 
 	.hamburger {
@@ -48,6 +49,7 @@
 
 	.open .hamburger-top {
 		transform: rotate(45deg) translateY(6px) translateX(6px);
+		background: white;
 	}
 
 	.open .hamburger-middle {
@@ -56,14 +58,15 @@
 
 	.open .hamburger-bottom {
 		transform: rotate(-45deg) translateY(6px) translateX(-6px);
+		background: white;
 	}
 
 	.mobile-menu {
-		@apply mt-header-height bg-custom-pink/98 absolute top-0 bottom-0 left-0 min-h-screen w-full flex-col items-center justify-start space-y-8 text-lg text-white uppercase;
+		@apply bg-primary-dark/90 absolute top-0 bottom-0 left-0 min-h-screen w-full flex-col items-center justify-start text-lg text-white uppercase;
 	}
 
 	.mobile-menu a {
-		@apply text-primary-dark text-2xl tracking-wider decoration-white underline-offset-4 transition-colors duration-200 hover:text-white hover:underline;
+		@apply hover:text-darker-pink decoration-darker-pink text-2xl tracking-wider text-white underline-offset-4 transition-colors duration-200 hover:underline;
 	}
 
 	.category-link {
@@ -72,7 +75,7 @@
 }
 @theme {
 	--color-primary-dark: #721028;
-	--color-custom-pink: #b4787d;
+	--color-darker-pink: #b4787d;
 	--color-primary-light: #eadfdf;
-	--spacing-header-height: 7.5rem;
+	--breakpoint-xsl: 21.25rem;
 }

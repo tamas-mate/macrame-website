@@ -53,69 +53,63 @@ export const ContactUs = () => {
 			.replace(",", "");
 	};
 
-	const onChange = (value: string | null) => {
-		console.log("Captcha value:", value);
-	};
-
 	return (
-		// TODO: Add form validation and error handling
-		<form ref={form} action={action}>
-			<input type="hidden" name="time" value={getFormattedDate()}></input>
-			<div className="mb-2 flex flex-col">
+		<div className="xsl:px-0 xsl:w-auto flex w-full flex-col gap-y-10 px-5">
+			<h2 className="self-center text-2xl md:self-start">Leave a Message</h2>
+			<form ref={form} action={action} className="flex flex-col gap-y-5">
+				<input type="hidden" name="time" value={getFormattedDate()}></input>
 				<label htmlFor="name">Name:</label>
 				<input
 					type="text"
 					id="name"
 					name="name"
 					required
-					className="bg-white text-black outline-none"
+					className="bg-white p-3 text-black outline-none"
 					placeholder="Your Name"
 					autoComplete="name"
 				/>
-			</div>
-			<div className="mb-2 flex flex-col">
 				<label htmlFor="email">Email:</label>
 				<input
 					type="email"
 					id="email"
 					name="email"
 					required
-					className="bg-white text-black outline-none"
+					className="bg-white p-3 text-black outline-none"
 					placeholder="Your Email"
 					autoComplete="email"
 				/>
-			</div>
-			<div className="mb-2 flex flex-col">
 				<label htmlFor="title">Subject:</label>
 				<input
 					type="text"
 					id="title"
 					name="title"
 					required
-					className="bg-white text-black outline-none"
+					className="bg-white p-3 text-black outline-none"
 					placeholder="Subject"
 					autoComplete="off"
 				/>
-			</div>
-			<div className="mb-4 flex flex-col">
 				<label htmlFor="message">Message:</label>
 				<textarea
 					id="message"
 					name="message"
 					required
-					className="resize bg-white text-black outline-none"
+					className="resize-y bg-white p-3 text-black outline-none"
 					placeholder="Your Message"
 					autoComplete="off"
 				/>
-			</div>
-			<div className="min-h-19.5">
-				<ReCAPTCHA ref={recaptcha} sitekey="6LccW50rAAAAAMJhy0koL3hKIlWXBQlFhWsCJtXL" onChange={onChange} />
-			</div>
-			<div className="mt-2 flex items-center justify-center">
-				<button type="submit" disabled={isPending} className="hover:cursor-pointer disabled:cursor-not-allowed">
-					{isPending ? "Sending ..." : "Send"}
-				</button>
-			</div>
-		</form>
+				<div className="xsl:w-auto xsl:overflow-auto min-h-19.5 w-full overflow-hidden">
+					<ReCAPTCHA ref={recaptcha} sitekey="6LccW50rAAAAAMJhy0koL3hKIlWXBQlFhWsCJtXL" />
+				</div>
+				<div className="flex items-center justify-center">
+					<button
+						type="submit"
+						disabled={isPending}
+						className="hover:bg-darker-pink w-1/3 rounded-full bg-white px-5 py-3 text-black hover:cursor-pointer hover:text-white disabled:cursor-not-allowed"
+					>
+						{isPending ? "Sending ..." : "Send"}
+					</button>
+				</div>
+			</form>
+		</div>
 	);
 };

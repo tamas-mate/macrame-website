@@ -7,7 +7,7 @@ const categories = ["earrings", "necklaces", "bracelets", "rings", "decorations"
 
 const Home = () => {
 	return (
-		<main className="pt-header-height bg-primary-light">
+		<main className="flex w-full flex-col items-center gap-y-15 px-5 sm:container sm:px-10 2xl:px-0">
 			<Macrame />
 			<Artist />
 			<Products categories={categories} />
