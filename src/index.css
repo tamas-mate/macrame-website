@@ -14,6 +14,10 @@
 		/* scroll-margin-top: 10.6rem; */
 	}
 
+	.custom-background {
+		@apply bg-[url('./assets/images/bg-small.png')] bg-cover bg-no-repeat md:bg-[url('./assets/images/bg.png')] 2xl:bg-[url('./assets/images/bg-large.png')];
+	}
+
 	.hamburger {
 		cursor: pointer;
 		width: 24px;
@@ -77,5 +81,7 @@
 	--color-primary-dark: #721028;
 	--color-darker-pink: #b4787d;
 	--color-primary-light: #eadfdf;
+	--color-custom-red: #e63946;
+	--color-bright-red: #ff6b6b;
 	--breakpoint-xsl: 21.25rem;
 }

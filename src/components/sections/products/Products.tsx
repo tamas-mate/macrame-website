@@ -15,7 +15,7 @@ const Products = ({ categories }: ProductsType) => {
 				and color choice. The collection is thoughtfully divided into six categories, each reflecting a different
 				expression of her craft:
 			</p>
-			<ul className="flex list-disc flex-col gap-y-2 pl-10 text-pretty">
+			<ul className="flex list-disc flex-col gap-y-2 pl-5 text-pretty sm:pl-10">
 				<li className="text-pretty">
 					Earrings - Light, elegant designs that combine threadwork with delicate beads and stones.
 				</li>

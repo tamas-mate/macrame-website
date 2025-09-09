@@ -10,7 +10,7 @@ const ProductCategories = ({ categories }: ProductCategoriesType) => {
 	const categoryImages = useMemo(() => getCategoryImages(categories), [categories]);
 
 	return (
-		<div className="grid w-3/4 grid-cols-1 justify-items-center gap-4 self-center sm:w-auto sm:grid-cols-2 lg:grid-cols-3 2xl:max-w-6xl">
+		<div className="grid w-3/4 grid-cols-1 justify-items-center gap-4 self-center sm:w-auto sm:grid-cols-2 lg:grid-cols-3 2xl:max-w-7xl">
 			{categoryImages.map((categoryImage, index) => (
 				<ProductCategoryItem key={index} image={categoryImage} category={categories[index]} />
 			))}
