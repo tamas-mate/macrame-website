@@ -2,6 +2,7 @@ import clsx, { type ClassValue } from "clsx";
 import { twMerge } from "./../../node_modules/tailwind-merge/src/lib/tw-merge";
 
 import logo from "@/assets/images/logo.png";
+import { Bounce, type ToastPosition } from "react-toastify";
 import categoryBracelet from "../assets/images/category-bracelets.jpg";
 import categoryDecorations from "../assets/images/category-decorations.jpg";
 import categoryEarringst from "../assets/images/category-earrings.jpg";
@@ -21,6 +22,19 @@ export const imageMap: Record<string, string> = {
 
 export const cl = (...classes: ClassValue[]) => {
 	return twMerge(clsx(...classes));
+};
+
+export const toastContainerConfig = {
+	position: "bottom-center" as ToastPosition,
+	autoClose: 5000,
+	hideProgressBar: false,
+	newestOnTop: false,
+	closeOnClick: true,
+	rtl: false,
+	pauseOnFocusLoss: true,
+	draggable: true,
+	pauseOnHover: true,
+	transition: Bounce,
 };
 
 export const getFormattedDate = () => {

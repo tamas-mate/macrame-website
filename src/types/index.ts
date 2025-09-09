@@ -4,6 +4,14 @@ export type ChildrenType = {
 	children: ReactNode;
 };
 
+export type FormData = {
+	name: string;
+	email: string;
+	title: string;
+	message: string;
+	time: string;
+};
+
 export type AnchorMap = Map<string, Ref<HTMLElement>>;
 
 export type ProductsType = {
