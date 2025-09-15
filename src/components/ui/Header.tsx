@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type MouseEvent } from "react";
-import { Link, useLocation } from "react-router";
+import { Link } from "react-router";
 
+import type { HeaderType } from "@/types";
 import { cl, imageMap } from "@/utils/utils";
 
 const navlinks = [
@@ -26,16 +27,10 @@ const navlinks = [
 	},
 ];
 
-const Header = () => {
+const Header = ({ isHome }: HeaderType) => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
-	const [isRoot, setIsRoot] = useState(true);
 	const menuBtnRef = useRef<HTMLButtonElement>(null);
 	const menuRef = useRef<HTMLDivElement>(null);
-	const location = useLocation();
-
-	useEffect(() => {
-		setIsRoot(location.pathname === "/");
-	}, [location]);
 
 	useEffect(() => {
 		document.body.style.overflow = isMenuOpen ? "hidden" : "auto";
@@ -51,7 +46,7 @@ const Header = () => {
 	};
 
 	return (
-		<header className="sticky top-0 z-10 flex h-28 w-full items-center justify-between bg-black px-5 py-5 sm:h-17 sm:px-10">
+		<header className="sticky top-0 z-20 flex h-28 w-full items-center justify-between bg-black px-5 py-5 sm:h-17 sm:px-10">
 			<div className="flex-1">
 				<Link
 					to="/"
@@ -60,27 +55,27 @@ const Header = () => {
 					<img src={imageMap.logo} alt="website-logo" className="h-9.5 sm:h-8.5" />
 				</Link>
 			</div>
-			<h1 className="hidden flex-1 text-center text-2xl font-bold text-white lg:block">Máté Ilona Macramé</h1>
+			<h1 className="flex-1 text-center text-base font-bold text-white lg:block lg:text-2xl">Máté Ilona Macramé</h1>
 			<nav className="flex flex-1 justify-end gap-x-4">
-				{isRoot ? (
+				{isHome ? (
 					<ul className="hidden md:flex md:items-center md:justify-center">
 						{navlinks.map((link) => (
 							<li key={link.name}>
-								<a
-									href={link.href}
+								<Link
+									to={link.href}
 									className="hover:text-primary-dark p-2 text-white underline-offset-4 transition hover:underline"
 								>
 									{link.name}
-								</a>
+								</Link>
 							</li>
 						))}
 					</ul>
 				) : (
 					<Link
-						to="/"
+						to="/#products"
 						className={cl(
 							"hover:text-primary-dark items-center justify-center gap-1 p-2 text-white transition",
-							!isRoot && "hidden md:flex",
+							!isHome && "hidden md:flex",
 						)}
 					>
 						<svg
@@ -112,9 +107,9 @@ const Header = () => {
 					<ul className="flex w-full flex-col items-center gap-y-10">
 						{navlinks.map((link) => (
 							<li key={link.name}>
-								<a href={isRoot ? link.href : link.backURL} onClick={handleMenuToggle}>
+								<Link to={isHome ? link.href : link.backURL} onClick={handleMenuToggle}>
 									{link.name}
-								</a>
+								</Link>
 							</li>
 						))}
 					</ul>

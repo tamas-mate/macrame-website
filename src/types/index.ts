@@ -4,6 +4,16 @@ export type ChildrenType = {
 	children: ReactNode;
 };
 
+export type HeaderType = {
+	isHome: boolean;
+};
+
+export type CategoryItemType = {
+	src: string;
+	alt: string;
+	onLoaded: () => void;
+};
+
 export type FormData = {
 	name: string;
 	email: string;

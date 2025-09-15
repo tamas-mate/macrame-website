@@ -80,7 +80,7 @@ export const ContactUs = () => {
 	};
 
 	return (
-		<div className="xsl:px-0 xsl:w-auto flex w-full flex-col gap-y-10 px-5">
+		<div className="xsm:px-0 xsm:w-auto flex w-full flex-col gap-y-10 px-5">
 			<h2 className="self-center text-2xl md:self-start">Leave a Message</h2>
 			<form className="flex flex-col gap-y-3" onSubmit={handleSubmit(onSubmit)}>
 				<label htmlFor="name">Name:</label>
@@ -154,7 +154,7 @@ export const ContactUs = () => {
 					placeholder="Your Message"
 				/>
 				{errors.message && <p className="text-bright-red text-xs">{errors.message.message}</p>}
-				<div className="xsl:w-auto xsl:overflow-auto min-h-19.5 w-full overflow-hidden">
+				<div className="xsm:w-auto xsm:overflow-auto min-h-19.5 w-full overflow-hidden">
 					<ReCAPTCHA ref={recaptcha} sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY} />
 				</div>
 				<div className="flex items-center justify-center">

@@ -1,15 +1,8 @@
-import { useAnchor } from "@/context/anchor-context";
 import { ContactUs } from "../ContactUs";
 
 const Footer = () => {
-	const ref = useAnchor("contact");
-
 	return (
-		<footer
-			ref={ref}
-			id="contact"
-			className="bg-primary-dark flex w-full flex-col items-center gap-y-7.5 pt-7.5 text-white"
-		>
+		<footer id="contact" className="bg-primary-dark flex w-full flex-col items-center gap-y-7.5 pt-7.5 text-white">
 			<ContactUs />
 			<div className="flex w-full flex-col items-center gap-y-5 bg-black py-5 sm:flex-row sm:justify-center sm:gap-x-5">
 				<p className="sm:border-r sm:border-white sm:pr-5">

@@ -9,6 +9,7 @@ import categoryEarringst from "../assets/images/category-earrings.jpg";
 import categoryNecklaces from "../assets/images/category-necklaces.jpg";
 import categoryRings from "../assets/images/category-rings.jpg";
 import categorySets from "../assets/images/category-sets.jpg";
+import artist from "../assets/images/mi.jpg";
 
 export const imageMap: Record<string, string> = {
 	logo,
@@ -18,6 +19,7 @@ export const imageMap: Record<string, string> = {
 	necklaces: categoryNecklaces,
 	rings: categoryRings,
 	sets: categorySets,
+	artist,
 };
 
 export const cl = (...classes: ClassValue[]) => {

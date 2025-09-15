@@ -1,14 +1,11 @@
 import type { ProductsType } from "@/types";
 
-import { useAnchor } from "@/context/anchor-context";
 import ProductCategories from "./ProductCategories";
 
 const Products = ({ categories }: ProductsType) => {
-	const ref = useAnchor("products");
-
 	return (
-		<section ref={ref} id="products" className="flex flex-col gap-y-7.5">
-			<h2 className="text-2xl">Handmade with Heart — Explore the Collection</h2>
+		<section id="products" className="flex flex-col gap-y-7.5">
+			<h2 className="text-2xl">Handmade with Heart - Explore the Collection</h2>
 			<p className="text-pretty">
 				Every piece in this collection is lovingly handcrafted by Máté Ilona, blending traditional macramé techniques
 				with her own creative flair. Her attention to detail and passion for design shine through in every knot, bead,
