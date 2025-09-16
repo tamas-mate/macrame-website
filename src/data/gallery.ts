@@ -7,12 +7,15 @@ type Image = {
 };
 
 const RawImages: Record<CategoryType, Record<string, string>> = {
-	earrings: import.meta.glob("../assets/images/earrings/*.{jpg,jpeg,png}", { eager: true, import: "default" }),
-	necklaces: import.meta.glob("../assets/images/necklaces/*.{jpg,jpeg,png}", { eager: true, import: "default" }),
-	bracelets: import.meta.glob("../assets/images/bracelets/*.{jpg,jpeg,png}", { eager: true, import: "default" }),
-	rings: import.meta.glob("../assets/images/rings/*.{jpg,jpeg,png}", { eager: true, import: "default" }),
-	decorations: import.meta.glob("../assets/images/decorations/*.{jpg,jpeg,png}", { eager: true, import: "default" }),
-	sets: import.meta.glob("../assets/images/sets/*.{jpg,jpeg,png}", { eager: true, import: "default" }),
+	earrings: import.meta.glob("../assets/images/earrings/*.{jpg,jpeg,png,JPG}", { eager: true, import: "default" }),
+	necklaces: import.meta.glob("../assets/images/necklaces/*.{jpg,jpeg,png,JPG}", { eager: true, import: "default" }),
+	bracelets: import.meta.glob("../assets/images/bracelets/*.{jpg,jpeg,png,JPG}", { eager: true, import: "default" }),
+	rings: import.meta.glob("../assets/images/rings/*.{jpg,jpeg,png,JPG}", { eager: true, import: "default" }),
+	decorations: import.meta.glob("../assets/images/decorations/*.{jpg,jpeg,png,JPG}", {
+		eager: true,
+		import: "default",
+	}),
+	sets: import.meta.glob("../assets/images/sets/*.{jpg,jpeg,png,JPG}", { eager: true, import: "default" }),
 };
 
 const rawImagesToArray = (obj: Record<string, string>, cat: CategoryType) =>
