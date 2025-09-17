@@ -3,25 +3,27 @@ import { Link } from "react-router";
 
 import type { HeaderType } from "@/types";
 import { cl, imageMap } from "@/utils/utils";
+import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "../language-switcher/LanguageSwitcher";
 
 const navlinks = [
 	{
-		name: "Macrame",
+		name: "header.nav.macrame",
 		href: "#macrame",
 		backURL: "/#macrame",
 	},
 	{
-		name: "Artist",
+		name: "header.nav.about",
 		href: "#artist",
 		backURL: "/#artist",
 	},
 	{
-		name: "Products",
+		name: "header.nav.products",
 		href: "#products",
 		backURL: "/#products",
 	},
 	{
-		name: "Contact",
+		name: "header.nav.contact",
 		href: "#contact",
 		backURL: "/#contact",
 	},
@@ -31,6 +33,7 @@ const Header = ({ isHome }: HeaderType) => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const menuBtnRef = useRef<HTMLButtonElement>(null);
 	const menuRef = useRef<HTMLDivElement>(null);
+	const { t } = useTranslation();
 
 	useEffect(() => {
 		document.body.style.overflow = isMenuOpen ? "hidden" : "auto";
@@ -39,7 +42,8 @@ const Header = ({ isHome }: HeaderType) => {
 	const handleMenuToggle = (e: MouseEvent) => {
 		e.stopPropagation();
 		menuBtnRef.current?.classList.toggle("open");
-		menuBtnRef.current?.classList.toggle("top-1");
+		menuBtnRef.current?.classList.toggle("top-3");
+		menuBtnRef.current?.classList.toggle("top-2");
 		menuRef.current?.classList.toggle("hidden");
 		menuRef.current?.classList.toggle("flex");
 		setIsMenuOpen(!isMenuOpen);
@@ -52,11 +56,13 @@ const Header = ({ isHome }: HeaderType) => {
 					to="/"
 					className="flex h-15 w-15 items-center justify-center rounded-full bg-white hover:cursor-pointer sm:h-13 sm:w-13"
 				>
-					<img src={imageMap.logo} alt="website-logo" className="h-9.5 sm:h-8.5" />
+					<img src={imageMap.logo} alt="website-logo" className="h-9.5 sm:h-8.5" aria-hidden />
 				</Link>
 			</div>
-			<h1 className="flex-1 text-center text-base font-bold text-white lg:block lg:text-2xl">Máté Ilona Macramé</h1>
-			<nav className="flex flex-1 justify-end gap-x-4">
+			<h1 className="flex-1 text-center text-base font-bold text-white lg:block lg:text-2xl">
+				{t("header.siteTitle")}
+			</h1>
+			<nav className="flex flex-1 justify-end gap-x-2 md:gap-x-0">
 				{isHome ? (
 					<ul className="hidden md:flex md:items-center md:justify-center">
 						{navlinks.map((link) => (
@@ -65,7 +71,7 @@ const Header = ({ isHome }: HeaderType) => {
 									to={link.href}
 									className="hover:text-primary-dark p-2 text-white underline-offset-4 transition hover:underline"
 								>
-									{link.name}
+									{t(link.name)}
 								</Link>
 							</li>
 						))}
@@ -88,13 +94,14 @@ const Header = ({ isHome }: HeaderType) => {
 						>
 							<path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
 						</svg>
-						<span className="text-lg leading-none">Go Back</span>
+						<span className="text-lg leading-none">{t("header.nav.back")}</span>
 					</Link>
 				)}
+				<LanguageSwitcher />
 				<button
 					ref={menuBtnRef}
 					type="button"
-					className="hamburger group top-1 z-40 hover:cursor-pointer focus:outline-none md:hidden"
+					className="hamburger group top-3 z-40 hover:cursor-pointer focus:outline-none md:hidden"
 					onClick={handleMenuToggle}
 				>
 					<span className="hamburger-top group-hover:bg-white"></span>
@@ -108,7 +115,7 @@ const Header = ({ isHome }: HeaderType) => {
 						{navlinks.map((link) => (
 							<li key={link.name}>
 								<Link to={isHome ? link.href : link.backURL} onClick={handleMenuToggle}>
-									{link.name}
+									{t(link.name)}
 								</Link>
 							</li>
 						))}

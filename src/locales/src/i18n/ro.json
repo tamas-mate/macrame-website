@@ -1,0 +1,74 @@
+{
+    "header": {
+        "siteTitle": "Máté Ilona Macramé",
+        "nav": {
+            "macrame": "Macramé",
+            "about": "Despre mine",
+            "products": "Produse",
+            "contact": "Contact",
+            "back": "Înapoi"
+        }
+    },
+    "home": {
+        "macrame_intro": {
+            "title": "Bijuterii și decorațiuni macramé de Máté Ilona",
+            "body": {
+                "p1": "Macramé-ul este o artă textilă veche de secole, care transformă simplele sfori în modele complexe prin practica pricepută a nodării. Spre deosebire de țesut sau tricotat, macramé-ul nu depinde de unelte—ci doar de mâinile artistului, creativitatea și răbdarea acestuia. Având rădăcini în culturile antice din Arabia, China și America de Sud, macramé-ul a cunoscut o renaștere în ultimii ani, îmbinând tradițiile vechi cu sensibilitățile designului modern.",
+                "p2": "Fiecare piesă de macramé este mai mult decât o simplă decorațiune—este o compoziție intenționată de modele, texturi și tehnici. De la decorațiuni murale minimaliste și suporturi pentru plante elaborate, până la bijuterii și accesorii vibrante, această artă oferă posibilități nesfârșite. Artiștii aleg cu grijă tipurile de sfoară, grosimea și culorile, adesea adăugând mărgele, pietre sau alte elemente naturale pentru a completa lucrarea finală.",
+                "p3": "Ceea ce face macramé-ul atât de special este versatilitatea și nota personală. Nicio piesă nu este identică cu alta, iar fiecare nod poartă o parte din intenția și măiestria creatorului. Este atât meditativ, cât și expresiv—necesită răbdare, concentrare și un ochi format pentru echilibru și simetrie. Folosit în decorul casei, modă sau artă funcțională, macramé-ul ne invită să apreciem frumusețea designului lucrat manual într-o lume digitală aflată în continuă viteză."
+            }
+        },
+        "meet_ilona": {
+            "title": "Cunoaște-o pe Máté Ilona - Un vis de-o viață devenit realitate",
+            "body": {
+                "p1": "O mare parte din viața mea am lucrat în lumea cifrelor - gestionând cu meticulozitate registre, rapoarte și termene ca contabil. Deși am abordat acea muncă cu grijă și profesionalism, am purtat mereu în suflet o dorință tăcută: aceea de a crea cu mâinile mele. Inima mea nu aparținea foilor de calcul, ci firelor, texturilor și ritmului liniștit al creației.",
+                "p2": "În copilărie, am admirat meșteșugurile tradiționale, în special frumusețea delicată a macramé-ului. Dar viața, așa cum se întâmplă adesea, m-a condus pe o cale mai practică. Abia mai târziu - când momentul a fost în sfârșit potrivit - mi-am permis să mă întorc la această pasiune veche. Ceea ce a început ca o simplă curiozitate s-a transformat rapid într-o chemare.",
+                "p3": "Astăzi îmi pun sufletul în fiecare piesă pe care o creez, împletind răbdare, tradiție și creativitate în fiecare nod. Munca mea nu este doar decorativă - este personală. Fiecare brățară, colier și decorațiune de perete reflectă bucuria de a face, în sfârșit, ceea ce iubesc cu adevărat.",
+                "p4": "Povestea mea este o amintire că nu este niciodată prea târziu să urmezi ceea ce îți aprinde sufletul. Fiecare creație realizată manual poartă acest mesaj: frumusețea făcută de mână este, de asemenea, frumusețea făcută din inimă."
+            }
+        },
+        "collection_overview": {
+            "title": "Creat cu suflet - Descoperă colecția",
+            "intro": "Fiecare piesă din colecția mea este realizată cu drag, îmbinând tehnicile tradiționale de macramé cu propriul meu stil creativ. Atenția mea la detalii și pasiunea pentru design se reflectă în fiecare nod, mărgea și alegere de culoare. Am împărțit colecția în șase categorii, fiecare reprezentând o expresie diferită a meșteșugului meu.",
+            "categories": {
+                "earrings": "Cercei - Designuri ușoare și elegante care îmbină lucrătura cu fire și mărgele delicate.",
+                "necklaces": "Coliere - Atât piese de impact, cât și modele subtile, toate evidențiind frumusețea atemporală a artei țesute manual.",
+                "bracelets": "Brățări - Piese complexe pentru încheietură, de la șnururi minimaliste până la modele îndrăznețe și stratificate.",
+                "rings": "Inele - Inele mici, dar sofisticate, confortabile de purtat și atrăgătoare la vedere.",
+                "decorations": "Decorațiuni - Agățători de perete și piese ornamentale artistice, care aduc căldură și textură în orice spațiu.",
+                "sets": "Seturi - Seturi de bijuterii coordonate, incluzând coliere, cercei și brățări, perfecte pentru ocazii speciale sau cadouri cu semnificație."
+            },
+            "outro": "Fiecare obiect spune o poveste - nu doar despre viziunea artistică, ci și despre o femeie care și-a urmat în sfârșit visul. Fie că ești în căutarea unui accesoriu unic sau a unui cadou din suflet, sper ca în colecția mea să găsești ceva cu adevărat special."
+        }
+    },
+    "contact_footer": {
+        "title": "Trimite un mesaj",
+        "form": {
+            "name": "Nume",
+            "e-mail": "E-mail",
+            "subject": "Subiect",
+            "message": "Mesaj"
+        },
+        "validation": {
+            "checkInputs": "Vă rugăm să verificați datele introduse!",
+            "recaptchaFailed": "Verificarea reCAPTCHA a eșuat!",
+            "success": "Mesajul a fost trimis cu succes!",
+            "sendFailed": "Trimiterea mesajului a eșuat!",
+            "nameRequired": "Numele este obligatoriu!",
+            "nameMax": "Numele trebuie să aibă mai puțin de {{value}} caractere!",
+            "e-mailRequired": "E-mailul este obligatoriu!",
+            "e-mailMin": "E-mailul trebuie să aibă cel puțin {{value}} caractere!",
+            "e-mailMax": "E-mailul trebuie să aibă mai puțin de {{value}} caractere!",
+            "subjectRequired": "Subiectul este obligatoriu!",
+            "subjectMax": "Subiectul trebuie să aibă mai puțin de {{value}} caractere!",
+            "messageRequired": "Mesajul este obligatoriu!",
+            "messageMin": "Mesajul trebuie să aibă cel puțin {{value}} caractere!",
+            "messageMax": "Mesajul trebuie să aibă mai puțin de {{value}} caractere!"
+        },
+        "button": {
+            "send": "Trimite",
+            "sending": "Se trimite…"
+        },
+        "copyright": "Toate drepturile rezervate"
+    }
+}

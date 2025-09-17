@@ -7,19 +7,19 @@ import translationRO from "./locales/src/i18n/ro.json";
 
 void i18n.use(initReactI18next).init({
 	debug: import.meta.env.MODE === "development",
-	lng: localStorage.getItem("i18nextLng") ?? "en",
+	lng: localStorage.getItem("i18nextLng") ?? "hu",
 	interpolation: {
 		escapeValue: false,
 	},
 	resources: {
-		en: {
-			translation: translationEN,
-		},
 		hu: {
 			translation: translationHU,
 		},
 		ro: {
 			translation: translationRO,
+		},
+		en: {
+			translation: translationEN,
 		},
 	},
 });

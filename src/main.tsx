@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import MainLayout from "./App.tsx";
 import Category from "./components/pages/Category.tsx";
 import Home from "./components/pages/Home.tsx";
+import "./i18n";
 import "./index.css";
 import { toastContainerConfig } from "./utils/utils.ts";
 

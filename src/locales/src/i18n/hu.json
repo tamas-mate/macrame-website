@@ -1,0 +1,74 @@
+{
+    "header": {
+        "siteTitle": "Máté Ilona Makramé",
+        "nav": {
+            "macrame": "Makramé",
+            "about": "Rólam",
+            "products": "Termékek",
+            "contact": "Kapcsolat",
+            "back": "Vissza"
+        }
+    },
+    "home": {
+        "macrame_intro": {
+            "title": "Máté Ilona kézműves makraméi",
+            "body": {
+                "p1": "A makramé egy évszázadok óta ismert textilművészeti ág, amely egyszerű zsinórokat alakít át bonyolult mintákká a csomózás művészi gyakorlatával. A szövéssel vagy kötéshez képest a makraméhoz nincsenek szükséges eszközök—csak a művész keze, kreativitása és türelme. Gyökerei egészen az arab, kínai és dél-amerikai kultúrákig nyúlnak vissza, és az utóbbi években újra virágkorát éli, ötvözve a régi hagyományokat a modern formatervezéssel.",
+                "p2": "Minden makramé alkotás több mint puszta dísz—egy tudatosan felépített kompozíció mintákból, textúrákból és technikákból. A minimalista fali díszektől és részletes növénytartóktól kezdve az élénk ékszereken és kiegészítőkön át a művészeti forma végtelen lehetőségeket kínál. Az alkotók gondosan választják ki a fonalak típusát, vastagságát és színeit, gyakran gyöngyökkel, kövekkel vagy más természetes elemekkel egészítve ki a művet.",
+                "p3": "A makramét az teszi igazán különlegessé, hogy sokoldalú és személyes. Nincs két teljesen egyforma darab, minden csomóban ott rejlik a készítő szándéka és kézműves tudása. Meditatív és kifejező egyszerre—türelmet, összpontosítást, valamint az egyensúly és szimmetria iránti érzéket kíván. Legyen szó lakberendezésről, divatról vagy funkcionális művészetről, a makramé arra hív minket, hogy a digitális világ rohanásában is értékeljük a kézzel készült alkotások szépségét."
+            }
+        },
+        "meet_ilona": {
+            "title": "Ismerd meg Máté Ilonát - Egy életre szóló álom valóra válása",
+            "body": {
+                "p1": "Életem nagy részét a számok világában töltöttem - könyvelőként aprólékosan vezettem főkönyveket, jelentéseket és határidőket. Bár gondosan és hivatástudattal végeztem a munkámat, mindig ott lapult bennem egy csendes vágy: az alkotás iránti igény. A szívem nem a táblázatokhoz, hanem a fonalakhoz, textúrákhoz és a kézműves munka nyugodt ritmusához húzott.",
+                "p2": "Gyerekként csodálattal figyeltem a hagyományos kézművességet, különösen a makramé finom szépségét. Az élet azonban - ahogy gyakran teszi - egy gyakorlatiasabb útra terelt. Csak később, amikor végre eljött a megfelelő idő, engedtem meg magamnak, hogy visszatérjek ehhez a régóta dédelgetett szenvedélyhez. Ami egyszerű kíváncsiságként indult, hamarosan hivatássá nőtte ki magát.",
+                "p3": "Ma minden darabba a szívemet öntöm, türelmet, hagyományt és kreativitást szövök bele minden egyes csomóba. A munkám nem csupán dísz - személyes. Minden karkötő, nyaklánc és fali dísz annak az örömnek a tükre, hogy végre azt tehetem, amit igazán szeretek.",
+                "p4": "Az én történetem tanulsága: soha nem késő követni azt, ami lángra lobbantja a lelkünket. Minden kézzel készült alkotásom ezt az üzenetet hordozza: a kézzel készült szépség egyben a szívből fakadó szépség is."
+            }
+        },
+        "collection_overview": {
+            "title": "Odaadással készítve - Fedezd fel a kollekciót",
+            "intro": "A kollekcióm minden darabját szeretettel készítem, a hagyományos makramé technikákat a saját kreatív stílusommal ötvözve. Minden egyes csomóban, gyöngyben és színválasztásban megmutatkozik a részletekre való odafigyelésem és a formatervezés iránti szenvedélyem. A kollekciót hat kategóriába osztottam, amelyek mindegyike a kézműves munkám egy-egy másik oldalát mutatja be.",
+            "categories": {
+                "earrings": "Fülbevalók - Könnyed, elegáns darabok, amelyek finom gyöngyökkel és kövekkel díszített csomózott mintákat ötvöznek.",
+                "necklaces": "Nyakláncok - Látványos ékszerek és visszafogott darabok egyaránt, mind a kézzel szőtt művészet időtlen szépségét képviselik.",
+                "bracelets": "Karkötők - Összetett csuklódíszek, a minimalista zsinóroktól a merész, rétegzett mintákig.",
+                "rings": "Gyűrűk - Parányi, mégis bonyolult gyűrűk, amelyek kényelmesek és különlegesen mutatósak.",
+                "decorations": "Dekorációk - Művészi fali díszek és dísztárgyak, amelyek melegséget és textúrát visznek bármely térbe.",
+                "sets": "Szettek - Összehangolt ékszerszettek, köztük nyakláncok, fülbevalók és karkötők, tökéletesek különleges alkalmakra vagy meghitt ajándékoknak."
+            },
+            "outro": "Minden darab egy történetet mesél el - nemcsak művészi látásmódot, hanem egy nőét is, aki végre követte az álmát. Akár egyedi kiegészítőt keresel, akár szívből jövő ajándékot, remélem, hogy a kollekciómban találsz valami igazán különlegeset."
+        }
+    },
+    "contact_footer": {
+        "title": "Írj üzenetet",
+        "form": {
+            "name": "Név",
+            "e-mail": "E-mail",
+            "subject": "Tárgy",
+            "message": "Üzenet"
+        },
+        "validation": {
+            "checkInputs": "Kérjük, ellenőrizze a megadott adatokat!",
+            "recaptchaFailed": "A reCAPTCHA ellenőrzése sikertelen!",
+            "success": "Üzenet sikeresen elküldve!",
+            "sendFailed": "Az üzenet elküldése nem sikerült!",
+            "nameRequired": "A név megadása kötelező!",
+            "nameMax": "A név legfeljebb {{value}} karakter lehet!",
+            "e-mailRequired": "Az e-mail megadása kötelező!",
+            "e-mailMin": "Az e-mailnek legalább {{value}} karakterből kell állnia!",
+            "e-mailMax": "Az e-mail legfeljebb {{value}} karakter lehet!",
+            "subjectRequired": "A tárgy megadása kötelező!",
+            "subjectMax": "A tárgy legfeljebb {{value}} karakter lehet!",
+            "messageRequired": "Az üzenet megadása kötelező!",
+            "messageMin": "Az üzenetnek legalább {{value}} karakterből kell állnia!",
+            "messageMax": "Az üzenet legfennebb {{value}} karakter lehet!"
+        },
+        "button": {
+            "send": "Küldés",
+            "sending": "Küldés…"
+        },
+        "copyright": "Minden jog fenntartva"
+    }
+}

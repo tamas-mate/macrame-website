@@ -1,4 +1,4 @@
-import { ContactUs } from "../ContactUs";
+import { ContactUs } from "../contact/ContactUs";
 
 const Footer = () => {
 	return (

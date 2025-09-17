@@ -37,7 +37,7 @@ const Macrame = () => {
 					additionalClass="w-full msm:w-3/4 self-center lg:self-auto sm:w-2/3 lg:flex-1 lg:order-2"
 					onScreenChange={setIsFullscreen}
 				/>
-				<div className="flex flex-col gap-y-7.5 lg:order-1 lg:w-7/12 2xl:w-7/10">
+				<div className="flex flex-col gap-y-3 lg:order-1 lg:w-7/12 2xl:w-7/10">
 					<p className="text-pretty">
 						Macramé is a centuries-old textile art that transforms simple cords into intricate designs through the
 						skillful practice of knotting. Unlike weaving or knitting, macramé doesn't rely on tools—only the artist's
