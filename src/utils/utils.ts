@@ -9,7 +9,7 @@ import categoryEarringst from "../assets/images/category-earrings.jpg";
 import categoryNecklaces from "../assets/images/category-necklaces.jpg";
 import categoryRings from "../assets/images/category-rings.jpg";
 import categorySets from "../assets/images/category-sets.jpg";
-import artist from "../assets/images/mi.jpg";
+import about from "../assets/images/mi.jpg";
 
 export const imageMap: Record<string, string> = {
 	logo,
@@ -19,7 +19,7 @@ export const imageMap: Record<string, string> = {
 	necklaces: categoryNecklaces,
 	rings: categoryRings,
 	sets: categorySets,
-	artist,
+	about,
 };
 
 export const cl = (...classes: ClassValue[]) => {
@@ -39,6 +39,10 @@ export const toastContainerConfig = {
 	transition: Bounce,
 };
 
+export const toastConfig = {
+	theme: "dark",
+};
+
 export const getFormattedDate = () => {
 	const now = new Date();
 	return now
@@ -52,6 +56,15 @@ export const getFormattedDate = () => {
 		})
 		.replace(",", "");
 };
+
+export const INPUTLIMITS = {
+	name: { max: 50 },
+	email: { min: 3, max: 100 },
+	subject: { max: 100 },
+	message: { min: 10, max: 1000 },
+};
+
+export const collapseTrim = (value: unknown) => (typeof value === "string" ? value.replace(/\s+/g, " ").trim() : value);
 
 // Function that initializes a MutationObserver for the captcha
 export const initObserver = () => {

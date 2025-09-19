@@ -14,6 +14,14 @@ export type CategoryItemType = {
 	onLoaded: () => void;
 };
 
+export type ImageGalleryType = {
+	featuredImages: {
+		id: string;
+		original: string;
+		originalAlt: string;
+	}[];
+};
+
 export type FormData = {
 	name: string;
 	email: string;
@@ -33,4 +41,5 @@ export type ProductCategoriesType = ProductsType;
 export type ProductCategoryItemType = {
 	image: string;
 	category: string;
+	cta: string;
 };

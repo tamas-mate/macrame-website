@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router";
 
 import MainLayout from "./App.tsx";
+import NotFound from "./components/not-found/NotFound.tsx";
 import Category from "./components/pages/Category.tsx";
 import Home from "./components/pages/Home.tsx";
 import "./i18n";
@@ -18,7 +19,7 @@ createRoot(document.getElementById("root")!).render(
 				<Route element={<MainLayout />}>
 					<Route index element={<Home />} />
 					<Route path="/categories/:category" element={<Category />} />
-					<Route path="*" element={<div>404 Not Found</div>} />
+					<Route path="*" element={<NotFound />} />
 				</Route>
 			</Routes>
 		</BrowserRouter>

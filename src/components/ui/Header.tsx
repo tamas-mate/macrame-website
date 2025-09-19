@@ -4,6 +4,7 @@ import { Link } from "react-router";
 import type { HeaderType } from "@/types";
 import { cl, imageMap } from "@/utils/utils";
 import { useTranslation } from "react-i18next";
+import { useLocation } from "react-router";
 import LanguageSwitcher from "../language-switcher/LanguageSwitcher";
 
 const navlinks = [
@@ -14,8 +15,8 @@ const navlinks = [
 	},
 	{
 		name: "header.nav.about",
-		href: "#artist",
-		backURL: "/#artist",
+		href: "#about",
+		backURL: "/#about",
 	},
 	{
 		name: "header.nav.products",
@@ -34,6 +35,7 @@ const Header = ({ isHome }: HeaderType) => {
 	const menuBtnRef = useRef<HTMLButtonElement>(null);
 	const menuRef = useRef<HTMLDivElement>(null);
 	const { t } = useTranslation();
+	const { pathname } = useLocation();
 
 	useEffect(() => {
 		document.body.style.overflow = isMenuOpen ? "hidden" : "auto";
@@ -49,8 +51,16 @@ const Header = ({ isHome }: HeaderType) => {
 		setIsMenuOpen(!isMenuOpen);
 	};
 
+	const decideGoBack = () => {
+		if (!pathname.includes("categories")) {
+			return "/";
+		}
+
+		return "/#products";
+	};
+
 	return (
-		<header className="sticky top-0 z-20 flex h-28 w-full items-center justify-between bg-black px-5 py-5 sm:h-17 sm:px-10">
+		<header className="bg-burgundy sticky top-0 z-20 flex h-28 w-full items-center justify-between px-5 py-5 sm:h-17 sm:px-10">
 			<div className="flex-1">
 				<Link
 					to="/"
@@ -60,7 +70,7 @@ const Header = ({ isHome }: HeaderType) => {
 				</Link>
 			</div>
 			<h1 className="flex-1 text-center text-base font-bold text-white lg:block lg:text-2xl">
-				{t("header.siteTitle")}
+				{t("header.site_title")}
 			</h1>
 			<nav className="flex flex-1 justify-end gap-x-2 md:gap-x-0">
 				{isHome ? (
@@ -69,7 +79,7 @@ const Header = ({ isHome }: HeaderType) => {
 							<li key={link.name}>
 								<Link
 									to={link.href}
-									className="hover:text-primary-dark p-2 text-white underline-offset-4 transition hover:underline"
+									className="p-2 text-white transition hover:font-bold hover:underline hover:underline-offset-4 active:font-bold active:underline active:underline-offset-4"
 								>
 									{t(link.name)}
 								</Link>
@@ -78,9 +88,9 @@ const Header = ({ isHome }: HeaderType) => {
 					</ul>
 				) : (
 					<Link
-						to="/#products"
+						to={decideGoBack()}
 						className={cl(
-							"hover:text-primary-dark items-center justify-center gap-1 p-2 text-white transition",
+							"items-center justify-center gap-1 p-2 text-white transition hover:font-bold",
 							!isHome && "hidden md:flex",
 						)}
 					>
@@ -111,7 +121,7 @@ const Header = ({ isHome }: HeaderType) => {
 			</nav>
 			<div ref={menuRef} className="mobile-menu hidden" onClick={handleMenuToggle}>
 				<nav className="w-full pt-30">
-					<ul className="flex w-full flex-col items-center gap-y-10">
+					<ul className="flex w-full flex-col items-center gap-y-7.5">
 						{navlinks.map((link) => (
 							<li key={link.name}>
 								<Link to={isHome ? link.href : link.backURL} onClick={handleMenuToggle}>

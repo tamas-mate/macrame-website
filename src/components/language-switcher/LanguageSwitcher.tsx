@@ -21,16 +21,16 @@ const LanguageSwitcher = () => {
 			<select
 				defaultValue={i18n.language}
 				name="language"
-				className="group-hover:text-primary-dark text-white outline-none group-hover:cursor-pointer"
+				className="text-white outline-none group-hover:cursor-pointer group-hover:font-bold"
 				onChange={(e) => handleLanguageChange(e.target.value)}
 			>
-				<option value="hu" className="text-primary-dark bg-black">
+				<option value="hu" className="bg-burgundy">
 					HU
 				</option>
-				<option value="ro" className="text-primary-dark bg-black">
+				<option value="ro" className="bg-burgundy">
 					RO
 				</option>
-				<option value="en" className="text-primary-dark bg-black">
+				<option value="en" className="bg-burgundy">
 					EN
 				</option>
 			</select>

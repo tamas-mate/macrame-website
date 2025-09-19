@@ -1,35 +1,36 @@
-import { useParams } from "react-router";
+import { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { useNavigate, useParams } from "react-router";
 
 import { galleryImages, type CategoryType } from "@/data/gallery";
-import { useEffect, useRef, useState } from "react";
 import CategoryItem from "../sections/category/CategoryItem";
-
-const titles = {
-	earrings: "Delicate Macramé Earrings - Light as a Feather, Bold in Style",
-	necklaces: "Statement Macramé Necklaces - Crafted to Be Worn Close to the Heart",
-	bracelets: "Macramé Bracelets - Everyday Elegance, Handmade with Care",
-	rings: "Macramé Rings - Tiny Details, Big Charm",
-	decorations: "Macramé Decorations - Artful Knots for Inspired Spaces",
-	sets: "Macramé Sets - Perfectly Paired, Thoughtfully Handmade",
-};
 
 const Category = () => {
 	const [loadedCount, setLoadedCount] = useState(0);
+	const [totalImages, setTotalImages] = useState(0);
 	const sectionRef = useRef<HTMLElement>(null);
+	const { t } = useTranslation();
 	const { category } = useParams();
-	const total = galleryImages[category as CategoryType].length;
+	const navigate = useNavigate();
 
 	useEffect(() => {
-		if (loadedCount > 0 && loadedCount === total) {
+		if (!category || (category && !(category in galleryImages))) {
+			setTotalImages(0);
+			navigate("/");
+		} else setTotalImages(galleryImages[category as CategoryType].length);
+	}, [category, navigate]);
+
+	useEffect(() => {
+		if (loadedCount > 0 && loadedCount === totalImages) {
 			sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
 		}
-	}, [loadedCount, total]);
+	}, [loadedCount, totalImages]);
 
-	if (!category) return null;
+	if (category && !(category in galleryImages)) return null;
 
 	return (
 		<section ref={sectionRef} id="category" className="flex flex-col gap-y-7.5">
-			<h2 className="text-2xl">{titles[category as CategoryType]}</h2>
+			<h2 className="text-2xl">{t("category.titles." + category)}</h2>
 			<div className="grid w-3/4 grid-cols-1 justify-items-center gap-4 self-center sm:w-auto sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
 				{galleryImages[category as CategoryType].map((img) => (
 					<CategoryItem

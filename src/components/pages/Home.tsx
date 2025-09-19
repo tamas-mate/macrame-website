@@ -1,4 +1,4 @@
-import Artist from "../sections/artist/Artist";
+import About from "../sections/about/About";
 import Macrame from "../sections/macrame/Macrame";
 import Products from "../sections/products/Products";
 
@@ -8,7 +8,7 @@ const Home = () => {
 	return (
 		<>
 			<Macrame />
-			<Artist />
+			<About />
 			<Products categories={categories} />
 		</>
 	);

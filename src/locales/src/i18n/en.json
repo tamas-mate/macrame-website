@@ -1,6 +1,9 @@
 {
+    "not_found": {
+        "description": "Sorry, but the page you are looking for does not exist."
+    },
     "header": {
-        "siteTitle": "Máté Ilona Macramé",
+        "site_title": "Máté Ilona Macramé",
         "nav": {
             "macrame": "Macramé",
             "about": "About me",
@@ -30,40 +33,72 @@
         "collection_overview": {
             "title": "Handmade with Heart - Explore the Collection",
             "intro": "Every piece in my collection is lovingly handcrafted, blending traditional macramé techniques with my own creative flair. My attention to detail and passion for design shine through in every knot, bead, and color choice. I&rsquo;ve thoughtfully divided the collection into six categories, each reflecting a different expression of my craft:",
-            "categories": {
-                "earrings": "Earrings - Light, elegant designs that combine threadwork with delicate beads and stones.",
-                "necklaces": "Necklaces - Statement pieces and subtle designs alike, all showcasing the timeless beauty of handwoven art.",
-                "bracelets": "Bracelets - Intricate wristwear ranging from minimalist cords to bold, layered patterns.",
-                "rings": "Rings - Tiny yet intricate rings that are soft to wear and striking to see.",
-                "decorations": "Decorations - Artistic wall hangings and ornamental pieces that bring warmth and texture to any space.",
-                "sets": "Sets - Coordinated jewelry sets, including necklaces, earrings, and bracelets, perfect for special occasions or meaningful gifts."
+            "category_list": {
+                "earrings": {
+                    "cta": "View Earrings",
+                    "description": "Earrings - Light, elegant designs that combine threadwork with delicate beads and stones."
+                },
+                "necklaces": {
+                    "cta": "View Necklaces",
+                    "description": "Necklaces - Statement pieces and subtle designs alike, all showcasing the timeless beauty of handwoven art."
+                },
+                "bracelets": {
+                    "cta": "View Bracelets",
+                    "description": "Bracelets - Intricate wristwear ranging from minimalist cords to bold, layered patterns."
+                },
+                "rings": {
+                    "cta": "View Rings",
+                    "description": "Rings - Tiny yet intricate rings that are soft to wear and striking to see."
+                },
+                "decorations": {
+                    "cta": "View Decorations",
+                    "description": "Decorations - Artistic wall hangings and ornamental pieces that bring warmth and texture to any space."
+                },
+                "sets": {
+                    "cta": "View Sets",
+                    "description": "Sets - Coordinated jewelry sets, including necklaces, earrings, and bracelets, perfect for special occasions or meaningful gifts."
+                }
             },
             "outro": "Each item tells a story—not just of artistic vision, but of a woman who finally followed her dream. Whether you&rsquo;re looking for a unique accessory or a heartfelt gift, I hope my collection offers you something truly special."
+        }
+    },
+    "category": {
+        "titles": {
+            "earrings": "Delicate Macramé Earrings - Light as a Feather, Bold in Style",
+            "necklaces": "Statement Macramé Necklaces - Crafted to Be Worn Close to the Heart",
+            "bracelets": "Macramé Bracelets - Everyday Elegance, Handmade with Care",
+            "rings": "Macramé Rings - Tiny Details, Big Charm",
+            "decorations": "Macramé Decorations - Artful Knots for Inspired Spaces",
+            "sets": "Macramé Sets - Perfectly Paired, Thoughtfully Handmade"
         }
     },
     "contact_footer": {
         "title": "Leave a Message",
         "form": {
             "name": "Name",
-            "e-mail": "E-mail",
+            "name_placeholder": "Your name",
+            "e_mail": "E-mail",
+            "e_mail_placeholder": "Your e-mail",
             "subject": "Subject",
-            "message": "Message"
+            "message": "Message",
+            "message_placeholder": "Your message"
         },
         "validation": {
-            "checkInputs": "Please check your inputs!",
-            "recaptchaFailed": "Failed to verify reCAPTCHA!",
+            "check_inputs": "Please check your inputs!",
+            "recaptcha_failed": "Failed to verify reCAPTCHA!",
             "success": "Message sent successfully!",
-            "sendFailed": "Failed to send the message!",
-            "nameRequired": "Name is required!",
-            "nameMax": "Name must be less than {{value}} characters!",
-            "e-mailRequired": "E-mail is required!",
-            "e-mailMin": "E-mail must be at least {{value}} characters!",
-            "e-mailMax": "E-mail must be less than {{value}} characters!",
-            "subjectRequired": "Subject is required!",
-            "subjectMax": "Subject must be less than {{value}} characters!",
-            "messageRequired": "Message is required!",
-            "messageMin": "Message must be at least {{value}} characters!",
-            "messageMax": "Message must be less than {{value}} characters!"
+            "send_failed": "Failed to send the message!",
+            "name_required": "Name is required!",
+            "name_max": "Name must be less than {{value}} characters!",
+            "e_mail_required": "E-mail is required!",
+            "e_mail_invalid": "Invalid email format!",
+            "e_mail_min": "E-mail must be at least {{value}} characters!",
+            "e_mail_max": "E-mail must be less than {{value}} characters!",
+            "subject_required": "Subject is required!",
+            "subject_max": "Subject must be less than {{value}} characters!",
+            "message_required": "Message is required!",
+            "message_min": "Message must be at least {{value}} characters!",
+            "message_max": "Message must be less than {{value}} characters!"
         },
         "button": {
             "send": "Send",

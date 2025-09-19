@@ -15,15 +15,9 @@ const ScrollToAnchor = () => {
 		const el = document.getElementById(id);
 
 		if (el) {
-			const isBackFromCategory = prevPathname.current?.startsWith("/categories/") && pathname === "/";
-
-			if (isBackFromCategory) {
-				setTimeout(() => {
-					el.scrollIntoView({ behavior: "smooth", block: "start" });
-				}, 250);
-			} else {
+			setTimeout(() => {
 				el.scrollIntoView({ behavior: "smooth", block: "start" });
-			}
+			}, 250);
 		}
 
 		prevPathname.current = pathname;
