@@ -30,6 +30,11 @@ export type FormData = {
 	time: string;
 };
 
+export type LoginForm = {
+	email: string;
+	password: string;
+};
+
 export type AnchorMap = Map<string, Ref<HTMLElement>>;
 
 export type ProductsType = {

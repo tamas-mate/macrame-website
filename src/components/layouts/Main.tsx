@@ -1,12 +1,12 @@
 import { Outlet, useLocation } from "react-router";
 
 import { useEffect, useState } from "react";
-import ScrollToAnchor from "./components/ScrollToAnchor";
-import Footer from "./components/ui/Footer";
-import Header from "./components/ui/Header";
-import LoadingSpinner from "./components/ui/LoadingSpinner";
-import { useRemoteTranslations } from "./hooks/useRemoteTranslations";
-import { cl } from "./utils/utils";
+import { useRemoteTranslations } from "../../hooks/useRemoteTranslations";
+import { cl } from "../../utils/utils";
+import ScrollToAnchor from "../ScrollToAnchor";
+import Footer from "../ui/Footer";
+import Header from "../ui/Header";
+import LoadingSpinner from "../ui/LoadingSpinner";
 
 const App = () => {
 	const [isHome, setIsHome] = useState(true);
