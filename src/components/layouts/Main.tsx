@@ -6,18 +6,15 @@ import { cl } from "../../utils/utils";
 import ScrollToAnchor from "../ScrollToAnchor";
 import Footer from "../ui/Footer";
 import Header from "../ui/Header";
-import LoadingSpinner from "../ui/LoadingSpinner";
 
 const App = () => {
 	const [isHome, setIsHome] = useState(true);
 	const location = useLocation();
-	const { loading } = useRemoteTranslations();
+	useRemoteTranslations();
 
 	useEffect(() => {
 		setIsHome(location.pathname === "/");
 	}, [location]);
-
-	if (loading) return <LoadingSpinner />;
 
 	return (
 		<div className="custom-background flex min-h-screen flex-col items-center justify-between gap-y-7.5">
