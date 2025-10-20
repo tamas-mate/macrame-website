@@ -2,8 +2,13 @@
     "not_found": {
         "description": "Sorry, but the page you are looking for does not exist."
     },
+    "skip_to_content": "Skip to content",
     "header": {
         "site_title": "Máté Ilona Macramé",
+        "aria_primary_nav": "Main navigation",
+        "aria_mobile_nav": "Mobile navigation",
+        "aria_open_menu": "Open menu",
+        "aria_close_menu": "Close menu",
         "nav": {
             "macrame": "Macramé",
             "about": "About me",
@@ -13,6 +18,7 @@
         }
     },
     "home": {
+        "aria_home": "Home",
         "macrame_intro": {
             "title": "Macramé handmade by Máté Ilona",
             "body": {
@@ -81,7 +87,8 @@
             "e_mail_placeholder": "Your e-mail",
             "subject": "Subject",
             "message": "Message",
-            "message_placeholder": "Your message"
+            "message_placeholder": "Your message",
+            "recaptcha": "Complete the reCAPTCHA"
         },
         "validation": {
             "check_inputs": "Please check your inputs!",
@@ -104,6 +111,7 @@
             "send": "Send",
             "sending": "Sending…"
         },
-        "copyright": "All Rights Reserved"
+        "copyright": "All Rights Reserved",
+        "aria-social": "Social media"
     }
 }

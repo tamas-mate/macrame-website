@@ -2,8 +2,13 @@
     "not_found": {
         "description": "Ne pare rău, dar pagina pe care o cauți nu există."
     },
+    "skip_to_content": "Sari la conținut",
     "header": {
         "site_title": "Máté Ilona Macramé",
+        "aria_primary_nav": "Navigație principală",
+        "aria_mobile_nav": "Navigație mobilă",
+        "aria_open_menu": "Deschide meniul",
+        "aria_close_menu": "Închide meniul",
         "nav": {
             "macrame": "Macramé",
             "about": "Despre mine",
@@ -13,6 +18,7 @@
         }
     },
     "home": {
+        "aria_home": "Acasă",
         "macrame_intro": {
             "title": "Bijuterii și decorațiuni macramé de Máté Ilona",
             "body": {
@@ -81,7 +87,8 @@
             "e_mail_placeholder": "Adresa de e-mail",
             "subject": "Subiect",
             "message": "Mesaj",
-            "message_placeholder": "Mesajul dumneavoastră"
+            "message_placeholder": "Mesajul dumneavoastră",
+            "recaptcha": "Completează reCAPTCHA"
         },
         "validation": {
             "check_inputs": "Vă rugăm să verificați datele introduse!",
@@ -104,6 +111,7 @@
             "send": "Trimite",
             "sending": "Se trimite…"
         },
-        "copyright": "Toate drepturile rezervate"
+        "copyright": "Toate drepturile rezervate",
+        "aria-social": "Rețele sociale"
     }
 }

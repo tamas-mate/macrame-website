@@ -35,20 +35,32 @@ const Header = ({ isHome }: HeaderType) => {
 	const menuBtnRef = useRef<HTMLButtonElement>(null);
 	const menuRef = useRef<HTMLDivElement>(null);
 	const { t } = useTranslation();
-	const { pathname } = useLocation();
+	const { pathname, hash } = useLocation();
 
 	useEffect(() => {
 		document.body.style.overflow = isMenuOpen ? "hidden" : "auto";
+		return () => {
+			document.body.style.overflow = "auto";
+		};
+	}, [isMenuOpen]);
+
+	useEffect(() => {
+		const handleKeyDown = (e: KeyboardEvent) => {
+			if (e.key === "Escape") setIsMenuOpen(false);
+		};
+
+		window.addEventListener("keydown", handleKeyDown);
+
+		return () => window.removeEventListener("keydown", handleKeyDown);
+	}, []);
+
+	useEffect(() => {
+		if (!isMenuOpen) menuBtnRef.current?.focus();
 	}, [isMenuOpen]);
 
 	const handleMenuToggle = (e: MouseEvent) => {
 		e.stopPropagation();
-		menuBtnRef.current?.classList.toggle("open");
-		menuBtnRef.current?.classList.toggle("top-3");
-		menuBtnRef.current?.classList.toggle("top-2");
-		menuRef.current?.classList.toggle("hidden");
-		menuRef.current?.classList.toggle("flex");
-		setIsMenuOpen(!isMenuOpen);
+		setIsMenuOpen((prev) => !prev);
 	};
 
 	const decideGoBack = () => {
@@ -59,27 +71,36 @@ const Header = ({ isHome }: HeaderType) => {
 		return "/#products";
 	};
 
+	const isCurrentLink = (href: string) => pathname === "/" && hash === href;
+
 	return (
 		<header className="bg-burgundy sticky top-0 z-20 flex h-28 w-full items-center justify-between px-5 py-5 sm:h-17 sm:px-10">
 			<div className="flex-1">
 				<Link
 					to="/"
+					aria-label={t("home.aria_home")}
 					className="flex h-15 w-15 items-center justify-center rounded-full bg-white hover:cursor-pointer sm:h-13 sm:w-13"
 				>
-					<img src={imageMap.logo} alt="website-logo" className="h-9.5 sm:h-8.5" aria-hidden />
+					<img src={imageMap.logo} alt="" aria-hidden className="h-9.5 sm:h-8.5" />
 				</Link>
 			</div>
-			<h1 className="flex-1 text-center text-base font-bold text-white lg:block lg:text-2xl">
+			<p className="flex-1 text-center text-base font-bold text-white md:max-lg:hidden lg:block lg:text-xl xl:text-2xl">
 				{t("header.site_title")}
-			</h1>
-			<nav className="flex flex-1 justify-end gap-x-2 md:gap-x-0">
+			</p>
+			<nav aria-label={t("header.aria_primary_nav")} className="flex flex-1 justify-end gap-x-2 md:gap-x-0">
 				{isHome ? (
 					<ul className="hidden md:flex md:items-center md:justify-center">
 						{navlinks.map((link) => (
 							<li key={link.name}>
 								<Link
 									to={link.href}
-									className="p-2 text-white transition hover:font-bold hover:underline hover:underline-offset-4 active:font-bold active:underline active:underline-offset-4"
+									aria-current={isCurrentLink(link.href) ? "true" : undefined}
+									className={cl(
+										"p-2 text-white transition",
+										isCurrentLink(link.href)
+											? "font-bold underline underline-offset-4"
+											: "hover:font-bold hover:underline hover:underline-offset-4",
+									)}
 								>
 									{t(link.name)}
 								</Link>
@@ -111,20 +132,36 @@ const Header = ({ isHome }: HeaderType) => {
 				<button
 					ref={menuBtnRef}
 					type="button"
-					className="hamburger group top-3 z-40 hover:cursor-pointer focus:outline-none md:hidden"
+					className={cl(
+						"hamburger group z-40 hover:cursor-pointer focus:outline-none md:hidden",
+						isMenuOpen ? "open top-2" : "top-3",
+					)}
 					onClick={handleMenuToggle}
+					aria-expanded={isMenuOpen}
+					aria-controls="mobile-menu"
+					aria-label={isMenuOpen ? t("header.aria_close_menu") : t("header.aria_open_menu")}
 				>
 					<span className="hamburger-top group-hover:bg-white"></span>
 					<span className="hamburger-middle"></span>
 					<span className="hamburger-bottom group-hover:bg-white"></span>
 				</button>
 			</nav>
-			<div ref={menuRef} className="mobile-menu hidden" onClick={handleMenuToggle}>
-				<nav className="w-full pt-30">
+			<div
+				id="mobile-menu"
+				ref={menuRef}
+				hidden={!isMenuOpen}
+				className={cl("mobile-menu", isMenuOpen ? "flex" : "hidden")}
+				onClick={handleMenuToggle}
+			>
+				<nav aria-label={t("header.aria_mobile_nav")} className="w-full pt-30">
 					<ul className="flex w-full flex-col items-center gap-y-7.5">
 						{navlinks.map((link) => (
 							<li key={link.name}>
-								<Link to={isHome ? link.href : link.backURL} onClick={handleMenuToggle}>
+								<Link
+									to={isHome ? link.href : link.backURL}
+									aria-current={isHome && isCurrentLink(link.href) ? "true" : undefined}
+									onClick={handleMenuToggle}
+								>
 									{t(link.name)}
 								</Link>
 							</li>

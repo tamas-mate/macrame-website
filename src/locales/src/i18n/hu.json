@@ -2,8 +2,13 @@
     "not_found": {
         "description": "Sajnáljuk, de az általad keresett oldal nem létezik."
     },
+    "skip_to_content": "Ugrás a tartalomhoz",
     "header": {
         "site_title": "Máté Ilona Makramé",
+        "aria_primary_nav": "Fő navigáció",
+        "aria_mobile_nav": "Mobil navigáció",
+        "aria_open_menu": "Menü megnyitása",
+        "aria_close_menu": "Menü bezárása",
         "nav": {
             "macrame": "Makramé",
             "about": "Rólam",
@@ -13,6 +18,7 @@
         }
     },
     "home": {
+        "aria_home": "Kezdőoldal",
         "macrame_intro": {
             "title": "Máté Ilona kézműves makraméi",
             "body": {
@@ -81,7 +87,8 @@
             "e_mail_placeholder": "Az ön e-mail címe",
             "subject": "Tárgy",
             "message": "Üzenet",
-            "message_placeholder": "Az ön üzenete"
+            "message_placeholder": "Az ön üzenete",
+            "recaptcha": "Töltse ki a reCAPTCHA-t"
         },
         "validation": {
             "check_inputs": "Kérjük, ellenőrizze a megadott adatokat!",
@@ -104,6 +111,7 @@
             "send": "Küldés",
             "sending": "Küldés…"
         },
-        "copyright": "Minden jog fenntartva"
+        "copyright": "Minden jog fenntartva",
+        "aria-social": "Közösségi média"
     }
 }

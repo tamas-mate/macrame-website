@@ -25,7 +25,7 @@ export type ImageGalleryType = {
 export type FormData = {
 	name: string;
 	email: string;
-	title: string;
+	subject: string;
 	message: string;
 	time: string;
 };

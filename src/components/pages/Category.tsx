@@ -30,7 +30,7 @@ const Category = () => {
 
 	return (
 		<section ref={sectionRef} id="category" className="flex flex-col gap-y-7.5">
-			<h2 className="text-2xl">{t("category.titles." + category)}</h2>
+			<h1 className="text-2xl">{t("category.titles." + category)}</h1>
 			<div className="grid w-3/4 grid-cols-1 justify-items-center gap-4 self-center sm:w-auto sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
 				{galleryImages[category as CategoryType].map((img) => (
 					<CategoryItem

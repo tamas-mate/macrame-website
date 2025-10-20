@@ -22,7 +22,7 @@ export const ContactUs = () => {
 		defaultValues: {
 			name: "",
 			email: "",
-			title: "",
+			subject: "",
 			message: "",
 		},
 	});
@@ -31,7 +31,7 @@ export const ContactUs = () => {
 		try {
 			setIsPending(true);
 
-			if (errors.name || errors.email || errors.title || errors.message) {
+			if (errors.name || errors.email || errors.subject || errors.message) {
 				toast.error(t("contact_footer.validation.check_inputs"), toastConfig);
 				setIsPending(false);
 				return;
@@ -50,7 +50,7 @@ export const ContactUs = () => {
 			const templateParams = {
 				name: data.name,
 				email: data.email,
-				title: data.title,
+				title: data.subject,
 				message: data.message,
 				time: getFormattedDate(),
 				"g-recaptcha-response": token,
@@ -77,7 +77,7 @@ export const ContactUs = () => {
 	return (
 		<div className="xsm:px-0 xsm:w-auto flex w-full flex-col gap-y-10 px-5">
 			<h2 className="self-center text-2xl text-black md:self-start">{t("contact_footer.title")}</h2>
-			<form className="flex flex-col gap-y-3" onSubmit={handleSubmit(onSubmit)}>
+			<form className="flex flex-col gap-y-3" onSubmit={handleSubmit(onSubmit)} aria-busy={isPending}>
 				<label htmlFor="name" className="text-black">
 					{t("contact_footer.form.name")}:
 				</label>
@@ -92,8 +92,10 @@ export const ContactUs = () => {
 					type="text"
 					autoComplete="name"
 					placeholder={t("contact_footer.form.name_placeholder")}
+					aria-invalid={!!errors.name}
+					aria-describedby={errors.name ? "name-error" : undefined}
 				/>
-				<FieldErrorMsg field="name" error={errors.name} t={t} />
+				<FieldErrorMsg id="name-error" field="name" error={errors.name} t={t} />
 				<label htmlFor="email" className="text-black">
 					{t("contact_footer.form.e_mail")}:
 				</label>
@@ -113,24 +115,28 @@ export const ContactUs = () => {
 					type="email"
 					autoComplete="email"
 					placeholder={t("contact_footer.form.e_mail_placeholder")}
+					aria-invalid={!!errors.email}
+					aria-describedby={errors.email ? "email-error" : undefined}
 				/>
-				<FieldErrorMsg field="email" error={errors.email} t={t} />
-				<label htmlFor="title" className="text-black">
+				<FieldErrorMsg id="email-error" field="email" error={errors.email} t={t} />
+				<label htmlFor="subject" className="text-black">
 					{t("contact_footer.form.subject")}:
 				</label>
 				<input
-					{...register("title", {
+					{...register("subject", {
 						setValueAs: collapseTrim,
 						required: "contact_footer.validation.subject_required",
 						maxLength: { value: INPUTLIMITS.subject.max, message: "contact_footer.validation.subject_max" },
 					})}
-					id="title"
-					className={cl("bg-white p-3 text-black outline-none", errors.title && "border-input-error border-2")}
+					id="subject"
+					className={cl("bg-white p-3 text-black outline-none", errors.subject && "border-input-error border-2")}
 					type="text"
 					autoComplete="off"
 					placeholder={t("contact_footer.form.subject")}
+					aria-invalid={!!errors.subject}
+					aria-describedby={errors.subject ? "subject-error" : undefined}
 				/>
-				<FieldErrorMsg field="subject" error={errors.title} t={t} />
+				<FieldErrorMsg id="subject-error" field="subject" error={errors.subject} t={t} />
 				<label htmlFor="message" className="text-black">
 					{t("contact_footer.form.message")}:
 				</label>
@@ -148,15 +154,28 @@ export const ContactUs = () => {
 					)}
 					autoComplete="off"
 					placeholder={t("contact_footer.form.message_placeholder")}
+					aria-invalid={!!errors.message}
+					aria-describedby={errors.message ? "message-error" : undefined}
 				/>
-				<FieldErrorMsg field="message" error={errors.message} t={t} />
+				<FieldErrorMsg id="message-error" field="message" error={errors.message} t={t} />
 				<div className="xsm:w-auto xsm:overflow-auto min-h-19.5 w-full overflow-hidden">
-					<ReCAPTCHA ref={recaptcha} sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY} />
+					<div id="captcha-help" className="sr-only">
+						{t("contact_footer.form.recaptcha")}
+					</div>
+					<ReCAPTCHA
+						ref={recaptcha}
+						sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+						aria-describedby="captcha-help"
+					/>
 				</div>
+				<span id="form-status" aria-live="polite" className="sr-only">
+					{isPending ? t("contact_footer.button.sending") : ""}
+				</span>
 				<div className="flex items-center justify-center">
 					<button
 						type="submit"
 						disabled={isPending}
+						aria-disabled={isPending}
 						className="hover:bg-burgundy w-1/3 rounded-full bg-white px-5 py-3 text-black hover:cursor-pointer hover:text-white disabled:cursor-not-allowed"
 					>
 						<span>{isPending ? t("contact_footer.button.sending") : t("contact_footer.button.send")}</span>
