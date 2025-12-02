@@ -4,8 +4,11 @@ import { useEffect, useState } from "react";
 
 export const useSession = () => {
 	const [session, setSession] = useState<Session | null>(null);
+	const [sessionLoading, setSessionLoading] = useState(true);
 
 	useEffect(() => {
+		const ac = new AbortController();
+
 		const getSession = async () => {
 			try {
 				const {
@@ -13,15 +16,15 @@ export const useSession = () => {
 					error,
 				} = await supabase.auth.getSession();
 
-				if (error) {
-					throw error;
-				}
+				if (ac.signal.aborted) return;
 
-				if (session) {
-					setSession(session);
-				}
+				if (error) throw error;
+
+				setSession(session);
 			} catch (error) {
 				console.error("Error in getSession:", error);
+			} finally {
+				if (!ac.signal.aborted) setSessionLoading(false);
 			}
 		};
 
@@ -35,8 +38,11 @@ export const useSession = () => {
 			setSession(session);
 		});
 
-		return () => subscription.unsubscribe();
+		return () => {
+			ac.abort();
+			subscription.unsubscribe();
+		};
 	}, []);
 
-	return session;
+	return { session, sessionLoading };
 };

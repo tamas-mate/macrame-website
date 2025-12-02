@@ -1,30 +1,20 @@
 import supabase from "@/lib/supabase";
+import { useMutation } from "@tanstack/react-query";
 
 export const useAuth = () => {
-	const login = async (email: string, password: string) => {
-		try {
-			const { data, error } = await supabase.auth.signInWithPassword({
-				email,
-				password,
-			});
-
+	const login = useMutation({
+		mutationFn: async ({ email, password }: { email: string; password: string }) => {
+			const { error } = await supabase.auth.signInWithPassword({ email, password });
 			if (error) throw error;
+		},
+	});
 
-			return data;
-		} catch (error) {
-			console.error("Error logging in:", error);
-		}
-	};
-
-	const logout = async () => {
-		try {
+	const logout = useMutation({
+		mutationFn: async () => {
 			const { error } = await supabase.auth.signOut();
-
 			if (error) throw error;
-		} catch (error) {
-			console.error("Error logging out:", error);
-		}
-	};
+		},
+	});
 
 	return { login, logout };
 };

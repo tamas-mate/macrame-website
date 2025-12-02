@@ -1,13 +1,12 @@
-import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
 // import FieldErrorMsg from "../contact/FieldErrorMsg";
 import { useAuth } from "@/hooks/useAuth";
 import type { LoginForm } from "@/types";
-import { cl, collapseTrim, INPUTLIMITS } from "@/utils/utils";
+import { cl, collapseTrim, INPUTLIMITS, toastConfig } from "@/utils/utils";
 
 const DashboardLogin = () => {
-	const [isAuthenticationPending, setIsAuthenticationPending] = useState(false);
 	const { login } = useAuth();
 	const {
 		register,
@@ -22,10 +21,13 @@ const DashboardLogin = () => {
 	});
 
 	const onSubmit = async (data: LoginForm) => {
-		setIsAuthenticationPending(true);
-		login(data.email, data.password);
-		setIsAuthenticationPending(false);
-		reset();
+		login.mutate(
+			{ email: data.email, password: data.password },
+			{
+				onSuccess: () => reset(),
+				onError: (error) => toast.error(`Login failed: ${error.message}`, toastConfig),
+			},
+		);
 	};
 
 	return (
@@ -67,10 +69,10 @@ const DashboardLogin = () => {
 					<div className="flex items-center justify-center">
 						<button
 							type="submit"
-							disabled={isAuthenticationPending}
-							className="hover:bg-burgundy w-1/3 rounded-full bg-white px-5 py-3 text-black hover:cursor-pointer hover:text-white disabled:cursor-not-allowed"
+							disabled={login.isPending}
+							className="hover:bg-burgundy w-2/5 rounded-full bg-white px-5 py-3 text-black hover:cursor-pointer hover:text-white disabled:cursor-not-allowed"
 						>
-							<span>{isAuthenticationPending ? "Logging in..." : "Log in"}</span>
+							<span>{login.isPending ? "Logging in..." : "Log in"}</span>
 						</button>
 					</div>
 				</form>
