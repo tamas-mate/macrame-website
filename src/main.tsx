@@ -17,11 +17,7 @@ import { toastContainerConfig } from "./utils/utils.ts";
 const queryClient = new QueryClient({
 	defaultOptions: {
 		queries: {
-			retry: 3,
-			retryDelay: 1000,
 			refetchOnWindowFocus: false,
-			refetchOnReconnect: true,
-			gcTime: 60 * 60 * 1000,
 		},
 	},
 });
