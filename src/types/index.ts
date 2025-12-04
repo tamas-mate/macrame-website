@@ -37,11 +37,9 @@ export type LoginForm = {
 
 export type AnchorMap = Map<string, Ref<HTMLElement>>;
 
-export type ProductsType = {
+export type ProductCategoriesType = {
 	categories: string[];
 };
-
-export type ProductCategoriesType = ProductsType;
 
 export type ProductCategoryItemType = {
 	image: string;

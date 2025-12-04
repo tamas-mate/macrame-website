@@ -1,12 +1,12 @@
 import emailjs from "@emailjs/browser";
-import { useRef, useState } from "react";
+import { useRef, useState, type FormEvent } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
 
 import type { FormData } from "@/types";
-import { cl, collapseTrim, getFormattedDate, initObserver, INPUTLIMITS, toastConfig } from "@/utils/utils";
+import { cl, collapseTrim, getFormattedDate, initObserver, INPUTLIMITS } from "@/utils/utils";
 import FieldErrorMsg from "./FieldErrorMsg";
 
 export const ContactUs = () => {
@@ -32,17 +32,16 @@ export const ContactUs = () => {
 			setIsPending(true);
 
 			if (errors.name || errors.email || errors.subject || errors.message) {
-				toast.error(t("contact_footer.validation.check_inputs"), toastConfig);
+				toast.error(t("contact_footer.validation.check_inputs"));
 				setIsPending(false);
 				return;
 			}
 
 			initObserver();
-
 			const token = recaptcha.current?.getValue();
 
 			if (!token) {
-				toast.error(t("contact_footer.validation.recaptcha_failed"), toastConfig);
+				toast.error(t("contact_footer.validation.recaptcha_failed"));
 				setIsPending(false);
 				return;
 			}
@@ -61,12 +60,12 @@ export const ContactUs = () => {
 			});
 
 			if (response.status === 200) {
-				toast.success(t("contact_footer.validation.success"), toastConfig);
+				toast.success(t("contact_footer.validation.success"));
 				reset();
 				setIsPending(false);
 			}
 		} catch (error) {
-			toast.error(t("contact_footer.validation.send_failed"), toastConfig);
+			toast.error(t("contact_footer.validation.send_failed"));
 			console.error("Failed to send the message! Error:", error);
 			setIsPending(false);
 		}
@@ -74,10 +73,14 @@ export const ContactUs = () => {
 		recaptcha.current?.reset();
 	};
 
+	const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
+		handleSubmit(onSubmit)(event);
+	};
+
 	return (
 		<div className="xsm:px-0 xsm:w-auto flex w-full flex-col gap-y-10 px-5">
 			<h2 className="self-center text-2xl text-black md:self-start">{t("contact_footer.title")}</h2>
-			<form className="flex flex-col gap-y-3" onSubmit={handleSubmit(onSubmit)} aria-busy={isPending}>
+			<form className="flex flex-col gap-y-3" onSubmit={handleFormSubmit} aria-busy={isPending}>
 				<label htmlFor="name" className="text-black">
 					{t("contact_footer.form.name")}:
 				</label>

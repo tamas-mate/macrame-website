@@ -2,6 +2,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { lazy, StrictMode, Suspense } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router";
+import "./i18n";
+import "./index.css";
 
 import DashboardLayout from "./components/layouts/Dashboard.tsx";
 import MainLayout from "./components/layouts/Main.tsx";
@@ -10,8 +12,6 @@ import CatalogManager from "./components/pages/CatalogManager.tsx";
 import Category from "./components/pages/Category.tsx";
 import Home from "./components/pages/Home.tsx";
 import HomeEditor from "./components/pages/HomeEditor.tsx";
-import "./i18n";
-import "./index.css";
 import { toastContainerConfig } from "./utils/utils.ts";
 
 const queryClient = new QueryClient({

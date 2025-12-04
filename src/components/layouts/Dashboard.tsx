@@ -3,7 +3,6 @@ import { Link, Outlet } from "react-router";
 import { useAuth } from "@/hooks/useAuth";
 import { useIsAdmin } from "@/hooks/useIsAdmin";
 import { useSession } from "@/hooks/useSession";
-import { toastConfig } from "@/utils/utils";
 import { toast } from "react-toastify";
 import DashboardLogin from "../auth/DashboardLogin";
 import LanguageSwitcher from "../language-switcher/LanguageSwitcher";
@@ -16,8 +15,8 @@ const Dashboard = () => {
 
 	const handleLogout = () => {
 		logout.mutate(undefined, {
-			onSuccess: () => toast.success("Logged out successfully", toastConfig),
-			onError: (error) => toast.error(`Logout failed: ${error.message}`, toastConfig),
+			onSuccess: () => toast.success("Logged out successfully"),
+			onError: (error) => toast.error(`Logout failed: ${error.message}`),
 		});
 	};
 

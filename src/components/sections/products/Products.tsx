@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next";
 
-import type { ProductsType } from "@/types";
+import { categories } from "@/constants";
 import ProductCategories from "./ProductCategories";
 
-const Products = ({ categories }: ProductsType) => {
+const Products = () => {
 	const { t } = useTranslation();
 
 	return (

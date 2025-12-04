@@ -1,117 +1,117 @@
 {
-    "not_found": {
-        "description": "Ne pare rău, dar pagina pe care o cauți nu există."
-    },
-    "skip_to_content": "Sari la conținut",
-    "header": {
-        "site_title": "Máté Ilona Macramé",
-        "aria_primary_nav": "Navigație principală",
-        "aria_mobile_nav": "Navigație mobilă",
-        "aria_open_menu": "Deschide meniul",
-        "aria_close_menu": "Închide meniul",
-        "nav": {
-            "macrame": "Macramé",
-            "about": "Despre mine",
-            "products": "Produse",
-            "contact": "Contact",
-            "back": "Înapoi"
-        }
-    },
-    "home": {
-        "aria_home": "Acasă",
-        "macrame_intro": {
-            "title": "Bijuterii și decorațiuni macramé de Máté Ilona",
-            "body": {
-                "p1": "Macramé-ul este o artă textilă veche de secole, care transformă simplele sfori în modele complexe prin practica pricepută a nodării. Spre deosebire de țesut sau tricotat, macramé-ul nu depinde de unelte—ci doar de mâinile artistului, creativitatea și răbdarea acestuia. Având rădăcini în culturile antice din Arabia, China și America de Sud, macramé-ul a cunoscut o renaștere în ultimii ani, îmbinând tradițiile vechi cu sensibilitățile designului modern.",
-                "p2": "Fiecare piesă de macramé este mai mult decât o simplă decorațiune—este o compoziție intenționată de modele, texturi și tehnici. De la decorațiuni murale minimaliste și suporturi pentru plante elaborate, până la bijuterii și accesorii vibrante, această artă oferă posibilități nesfârșite. Artiștii aleg cu grijă tipurile de sfoară, grosimea și culorile, adesea adăugând mărgele, pietre sau alte elemente naturale pentru a completa lucrarea finală.",
-                "p3": "Ceea ce face macramé-ul atât de special este versatilitatea și nota personală. Nicio piesă nu este identică cu alta, iar fiecare nod poartă o parte din intenția și măiestria creatorului. Este atât meditativ, cât și expresiv—necesită răbdare, concentrare și un ochi format pentru echilibru și simetrie. Folosit în decorul casei, modă sau artă funcțională, macramé-ul ne invită să apreciem frumusețea designului lucrat manual într-o lume digitală aflată în continuă viteză."
-            }
-        },
-        "meet_ilona": {
-            "title": "Cunoaște-o pe Máté Ilona - Un vis de-o viață devenit realitate",
-            "body": {
-                "p1": "O mare parte din viața mea am lucrat în lumea cifrelor - gestionând cu meticulozitate registre, rapoarte și termene ca contabil. Deși am abordat acea muncă cu grijă și profesionalism, am purtat mereu în suflet o dorință tăcută: aceea de a crea cu mâinile mele. Inima mea nu aparținea foilor de calcul, ci firelor, texturilor și ritmului liniștit al creației.",
-                "p2": "În copilărie, am admirat meșteșugurile tradiționale, în special frumusețea delicată a macramé-ului. Dar viața, așa cum se întâmplă adesea, m-a condus pe o cale mai practică. Abia mai târziu - când momentul a fost în sfârșit potrivit - mi-am permis să mă întorc la această pasiune veche. Ceea ce a început ca o simplă curiozitate s-a transformat rapid într-o chemare.",
-                "p3": "Astăzi îmi pun sufletul în fiecare piesă pe care o creez, împletind răbdare, tradiție și creativitate în fiecare nod. Munca mea nu este doar decorativă - este personală. Fiecare brățară, colier și decorațiune de perete reflectă bucuria de a face, în sfârșit, ceea ce iubesc cu adevărat.",
-                "p4": "Povestea mea este o amintire că nu este niciodată prea târziu să urmezi ceea ce îți aprinde sufletul. Fiecare creație realizată manual poartă acest mesaj: frumusețea făcută de mână este, de asemenea, frumusețea făcută din inimă."
-            }
-        },
-        "collection_overview": {
-            "title": "Creat cu suflet - Descoperă colecția",
-            "intro": "Fiecare piesă din colecția mea este realizată cu drag, îmbinând tehnicile tradiționale de macramé cu propriul meu stil creativ. Atenția mea la detalii și pasiunea pentru design se reflectă în fiecare nod, mărgea și alegere de culoare. Am împărțit colecția în șase categorii, fiecare reprezentând o expresie diferită a meșteșugului meu.",
-            "category_list": {
-                "earrings": {
-                    "cta": "Vezi Cercei",
-                    "description": "Cercei - Designuri ușoare și elegante care îmbină lucrătura cu fire și mărgele delicate."
-                },
-                "necklaces": {
-                    "cta": "Vezi Coliere",
-                    "description": "Coliere - Atât piese de impact, cât și modele subtile, toate evidențiind frumusețea atemporală a artei țesute manual."
-                },
-                "bracelets": {
-                    "cta": "Vezi Brățări",
-                    "description": "Brățări - Piese complexe pentru încheietură, de la șnururi minimaliste până la modele îndrăznețe și stratificate."
-                },
-                "rings": {
-                    "cta": "Vezi Inele",
-                    "description": "Inele - Inele mici, dar sofisticate, confortabile de purtat și atrăgătoare la vedere."
-                },
-                "decorations": {
-                    "cta": "Vezi Decorațiuni",
-                    "description": "Decorațiuni - Agățători de perete și piese ornamentale artistice, care aduc căldură și textură în orice spațiu."
-                },
-                "sets": {
-                    "cta": "Vezi Seturi",
-                    "description": "Seturi - Seturi de bijuterii coordonate, incluzând coliere, cercei și brățări, perfecte pentru ocazii speciale sau cadouri cu semnificație."
-                }
-            },
-            "outro": "Fiecare obiect spune o poveste - nu doar despre viziunea artistică, ci și despre o femeie care și-a urmat în sfârșit visul. Fie că ești în căutarea unui accesoriu unic sau a unui cadou din suflet, sper ca în colecția mea să găsești ceva cu adevărat special."
-        }
-    },
-    "category": {
-        "titles": {
-            "earrings": "Cercei macramé delicați - Ușori ca o pană, plini de stil",
-            "necklaces": "Coliere macramé elegante - Create să fie purtate aproape de inimă",
-            "bracelets": "Brățări macramé - Eleganță de zi cu zi, lucrată manual cu grijă",
-            "rings": "Inele macramé - Detalii mici, farmec mare",
-            "decorations": "Decorațiuni macramé - Noduri artistice pentru casa ta",
-            "sets": "Seturi macramé - Perfect asortate, realizate cu grijă manual"
-        }
-    },
-    "contact_footer": {
-        "title": "Trimite un mesaj",
-        "form": {
-            "name": "Nume",
-            "name_placeholder": "Numele dumneavoastră",
-            "e_mail": "E-mail",
-            "e_mail_placeholder": "Adresa de e-mail",
-            "subject": "Subiect",
-            "message": "Mesaj",
-            "message_placeholder": "Mesajul dumneavoastră",
-            "recaptcha": "Completează reCAPTCHA"
-        },
-        "validation": {
-            "check_inputs": "Vă rugăm să verificați datele introduse!",
-            "recaptcha_failed": "Verificarea reCAPTCHA a eșuat!",
-            "success": "Mesajul a fost trimis cu succes!",
-            "send_failed": "Trimiterea mesajului a eșuat!",
-            "name_required": "Numele este obligatoriu!",
-            "name_max": "Numele trebuie să aibă mai puțin de {{value}} caractere!",
-            "e_mail_required": "E-mailul este obligatoriu!",
-            "e_mail_invalid": "Format de email invalid!",
-            "e_mail_min": "E-mailul trebuie să aibă cel puțin {{value}} caractere!",
-            "e_mail_max": "E-mailul trebuie să aibă mai puțin de {{value}} caractere!",
-            "subject_required": "Subiectul este obligatoriu!",
-            "subject_max": "Subiectul trebuie să aibă mai puțin de {{value}} caractere!",
-            "message_required": "Mesajul este obligatoriu!",
-            "message_min": "Mesajul trebuie să aibă cel puțin {{value}} caractere!",
-            "message_max": "Mesajul trebuie să aibă mai puțin de {{value}} caractere!"
-        },
-        "button": {
-            "send": "Trimite",
-            "sending": "Se trimite…"
-        },
-        "copyright": "Toate drepturile rezervate",
-        "aria-social": "Rețele sociale"
-    }
+	"not_found": {
+		"description": "Ne pare rău, dar pagina pe care o cauți nu există."
+	},
+	"skip_to_content": "Sari la conținut",
+	"header": {
+		"site_title": "Máté Ilona Macramé",
+		"aria_primary_nav": "Navigație principală",
+		"aria_mobile_nav": "Navigație mobilă",
+		"aria_open_menu": "Deschide meniul",
+		"aria_close_menu": "Închide meniul",
+		"nav": {
+			"macrame": "Macramé",
+			"about": "Despre mine",
+			"products": "Produse",
+			"contact": "Contact",
+			"back": "Înapoi"
+		}
+	},
+	"home": {
+		"aria_home": "Acasă",
+		"macrame_intro": {
+			"title": "Bijuterii și decorațiuni macramé de Máté Ilona",
+			"body": {
+				"p1": "Macramé-ul este o artă textilă veche de secole, care transformă simplele sfori în modele complexe prin practica pricepută a nodării. Spre deosebire de țesut sau tricotat, macramé-ul nu depinde de unelte—ci doar de mâinile artistului, creativitatea și răbdarea acestuia. Având rădăcini în culturile antice din Arabia, China și America de Sud, macramé-ul a cunoscut o renaștere în ultimii ani, îmbinând tradițiile vechi cu sensibilitățile designului modern.",
+				"p2": "Fiecare piesă de macramé este mai mult decât o simplă decorațiune—este o compoziție intenționată de modele, texturi și tehnici. De la decorațiuni murale minimaliste și suporturi pentru plante elaborate, până la bijuterii și accesorii vibrante, această artă oferă posibilități nesfârșite. Artiștii aleg cu grijă tipurile de sfoară, grosimea și culorile, adesea adăugând mărgele, pietre sau alte elemente naturale pentru a completa lucrarea finală.",
+				"p3": "Ceea ce face macramé-ul atât de special este versatilitatea și nota personală. Nicio piesă nu este identică cu alta, iar fiecare nod poartă o parte din intenția și măiestria creatorului. Este atât meditativ, cât și expresiv—necesită răbdare, concentrare și un ochi format pentru echilibru și simetrie. Folosit în decorul casei, modă sau artă funcțională, macramé-ul ne invită să apreciem frumusețea designului lucrat manual într-o lume digitală aflată în continuă viteză."
+			}
+		},
+		"meet_ilona": {
+			"title": "Cunoaște-o pe Máté Ilona - Un vis de-o viață devenit realitate",
+			"body": {
+				"p1": "O mare parte din viața mea am lucrat în lumea cifrelor - gestionând cu meticulozitate registre, rapoarte și termene ca contabil. Deși am abordat acea muncă cu grijă și profesionalism, am purtat mereu în suflet o dorință tăcută: aceea de a crea cu mâinile mele. Inima mea nu aparținea foilor de calcul, ci firelor, texturilor și ritmului liniștit al creației.",
+				"p2": "În copilărie, am admirat meșteșugurile tradiționale, în special frumusețea delicată a macramé-ului. Dar viața, așa cum se întâmplă adesea, m-a condus pe o cale mai practică. Abia mai târziu - când momentul a fost în sfârșit potrivit - mi-am permis să mă întorc la această pasiune veche. Ceea ce a început ca o simplă curiozitate s-a transformat rapid într-o chemare.",
+				"p3": "Astăzi îmi pun sufletul în fiecare piesă pe care o creez, împletind răbdare, tradiție și creativitate în fiecare nod. Munca mea nu este doar decorativă - este personală. Fiecare brățară, colier și decorațiune de perete reflectă bucuria de a face, în sfârșit, ceea ce iubesc cu adevărat.",
+				"p4": "Povestea mea este o amintire că nu este niciodată prea târziu să urmezi ceea ce îți aprinde sufletul. Fiecare creație realizată manual poartă acest mesaj: frumusețea făcută de mână este, de asemenea, frumusețea făcută din inimă."
+			}
+		},
+		"collection_overview": {
+			"title": "Creat cu suflet - Descoperă colecția",
+			"intro": "Fiecare piesă din colecția mea este realizată cu drag, îmbinând tehnicile tradiționale de macramé cu propriul meu stil creativ. Atenția mea la detalii și pasiunea pentru design se reflectă în fiecare nod, mărgea și alegere de culoare. Am împărțit colecția în șase categorii, fiecare reprezentând o expresie diferită a meșteșugului meu.",
+			"category_list": {
+				"earrings": {
+					"cta": "Vezi cercei",
+					"description": "Cercei - Designuri ușoare și elegante care îmbină lucrătura cu fire și mărgele delicate."
+				},
+				"necklaces": {
+					"cta": "Vezi coliere",
+					"description": "Coliere - Atât piese de impact, cât și modele subtile, toate evidențiind frumusețea atemporală a artei țesute manual."
+				},
+				"bracelets": {
+					"cta": "Vezi brățări",
+					"description": "Brățări - Piese complexe pentru încheietură, de la șnururi minimaliste până la modele îndrăznețe și stratificate."
+				},
+				"rings": {
+					"cta": "Vezi inele",
+					"description": "Inele - Inele mici, dar sofisticate, confortabile de purtat și atrăgătoare la vedere."
+				},
+				"decorations": {
+					"cta": "Vezi decorațiuni",
+					"description": "Decorațiuni - Agățători de perete și piese ornamentale artistice, care aduc căldură și textură în orice spațiu."
+				},
+				"sets": {
+					"cta": "Vezi seturi",
+					"description": "Seturi - Seturi de bijuterii coordonate, incluzând coliere, cercei și brățări, perfecte pentru ocazii speciale sau cadouri cu semnificație."
+				}
+			},
+			"outro": "Fiecare obiect spune o poveste - nu doar despre viziunea artistică, ci și despre o femeie care și-a urmat în sfârșit visul. Fie că ești în căutarea unui accesoriu unic sau a unui cadou din suflet, sper ca în colecția mea să găsești ceva cu adevărat special."
+		}
+	},
+	"category": {
+		"titles": {
+			"earrings": "Cercei macramé delicați - Ușori ca o pană, plini de stil",
+			"necklaces": "Coliere macramé elegante - Create să fie purtate aproape de inimă",
+			"bracelets": "Brățări macramé - Eleganță de zi cu zi, lucrată manual cu grijă",
+			"rings": "Inele macramé - Detalii mici, farmec mare",
+			"decorations": "Decorațiuni macramé - Noduri artistice pentru casa ta",
+			"sets": "Seturi macramé - Perfect asortate, realizate cu grijă manual"
+		}
+	},
+	"contact_footer": {
+		"title": "Trimite un mesaj",
+		"form": {
+			"name": "Nume",
+			"name_placeholder": "Numele dumneavoastră",
+			"e_mail": "E-mail",
+			"e_mail_placeholder": "Adresa de e-mail",
+			"subject": "Subiect",
+			"message": "Mesaj",
+			"message_placeholder": "Mesajul dumneavoastră",
+			"recaptcha": "Completează reCAPTCHA"
+		},
+		"validation": {
+			"check_inputs": "Vă rugăm să verificați datele introduse!",
+			"recaptcha_failed": "Verificarea reCAPTCHA a eșuat!",
+			"success": "Mesajul a fost trimis cu succes!",
+			"send_failed": "Trimiterea mesajului a eșuat!",
+			"name_required": "Numele este obligatoriu!",
+			"name_max": "Numele trebuie să aibă mai puțin de {{value}} caractere!",
+			"e_mail_required": "E-mailul este obligatoriu!",
+			"e_mail_invalid": "Format de email invalid!",
+			"e_mail_min": "E-mailul trebuie să aibă cel puțin {{value}} caractere!",
+			"e_mail_max": "E-mailul trebuie să aibă mai puțin de {{value}} caractere!",
+			"subject_required": "Subiectul este obligatoriu!",
+			"subject_max": "Subiectul trebuie să aibă mai puțin de {{value}} caractere!",
+			"message_required": "Mesajul este obligatoriu!",
+			"message_min": "Mesajul trebuie să aibă cel puțin {{value}} caractere!",
+			"message_max": "Mesajul trebuie să aibă mai puțin de {{value}} caractere!"
+		},
+		"button": {
+			"send": "Trimite",
+			"sending": "Se trimite…"
+		},
+		"copyright": "Toate drepturile rezervate",
+		"aria-social": "Rețele sociale"
+	}
 }

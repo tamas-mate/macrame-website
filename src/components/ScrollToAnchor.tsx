@@ -11,8 +11,7 @@ const ScrollToAnchor = () => {
 			return;
 		}
 
-		const id = hash.slice(1);
-		const el = document.getElementById(id);
+		const el = document.getElementById(hash.slice(1));
 
 		if (el) {
 			setTimeout(() => {

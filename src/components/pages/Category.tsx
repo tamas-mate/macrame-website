@@ -7,17 +7,16 @@ import CategoryItem from "../sections/category/CategoryItem";
 
 const Category = () => {
 	const [loadedCount, setLoadedCount] = useState(0);
-	const [totalImages, setTotalImages] = useState(0);
 	const sectionRef = useRef<HTMLElement>(null);
 	const { t } = useTranslation();
 	const { category } = useParams();
+	const [totalImages] = useState(galleryImages[category as CategoryType]?.length || 0);
 	const navigate = useNavigate();
 
 	useEffect(() => {
 		if (!category || (category && !(category in galleryImages))) {
-			setTotalImages(0);
 			navigate("/");
-		} else setTotalImages(galleryImages[category as CategoryType].length);
+		}
 	}, [category, navigate]);
 
 	useEffect(() => {

@@ -4,8 +4,6 @@ import About from "../sections/about/About";
 import Macrame from "../sections/macrame/Macrame";
 import Products from "../sections/products/Products";
 
-const categories = ["earrings", "necklaces", "bracelets", "rings", "decorations", "sets"];
-
 const Home = () => {
 	const { t } = useTranslation();
 
@@ -14,7 +12,7 @@ const Home = () => {
 			<h1 className="sr-only">{t("home.aria_home")}</h1>
 			<Macrame />
 			<About />
-			<Products categories={categories} />
+			<Products />
 		</>
 	);
 };

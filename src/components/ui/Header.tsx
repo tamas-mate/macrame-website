@@ -1,75 +1,29 @@
-import { useEffect, useRef, useState, type MouseEvent } from "react";
-import { Link } from "react-router";
+import { type MouseEvent } from "react";
+import { useTranslation } from "react-i18next";
+import { Link, useLocation } from "react-router";
 
+import { navlinks } from "@/constants";
+import { useMobileMenu } from "@/hooks/useMobileMenu";
 import type { HeaderType } from "@/types";
 import { cl, imageMap } from "@/utils/utils";
-import { useTranslation } from "react-i18next";
-import { useLocation } from "react-router";
 import LanguageSwitcher from "../language-switcher/LanguageSwitcher";
 
-const navlinks = [
-	{
-		name: "header.nav.macrame",
-		href: "#macrame",
-		backURL: "/#macrame",
-	},
-	{
-		name: "header.nav.about",
-		href: "#about",
-		backURL: "/#about",
-	},
-	{
-		name: "header.nav.products",
-		href: "#products",
-		backURL: "/#products",
-	},
-	{
-		name: "header.nav.contact",
-		href: "#contact",
-		backURL: "/#contact",
-	},
-];
-
 const Header = ({ isHome }: HeaderType) => {
-	const [isMenuOpen, setIsMenuOpen] = useState(false);
-	const menuBtnRef = useRef<HTMLButtonElement>(null);
-	const menuRef = useRef<HTMLDivElement>(null);
 	const { t } = useTranslation();
 	const { pathname, hash } = useLocation();
+	const { isMenuOpen, toggleMenu, closeMenu, menuBtnRef, menuRef } = useMobileMenu();
 
-	useEffect(() => {
-		document.body.style.overflow = isMenuOpen ? "hidden" : "auto";
-		return () => {
-			document.body.style.overflow = "auto";
-		};
-	}, [isMenuOpen]);
-
-	useEffect(() => {
-		const handleKeyDown = (e: KeyboardEvent) => {
-			if (e.key === "Escape") setIsMenuOpen(false);
-		};
-
-		window.addEventListener("keydown", handleKeyDown);
-
-		return () => window.removeEventListener("keydown", handleKeyDown);
-	}, []);
-
-	useEffect(() => {
-		if (!isMenuOpen) menuBtnRef.current?.focus();
-	}, [isMenuOpen]);
-
-	const handleMenuToggle = (e: MouseEvent) => {
-		e.stopPropagation();
-		setIsMenuOpen((prev) => !prev);
+	const handleBurgerClick = (e: MouseEvent) => {
+		toggleMenu(e);
 	};
 
-	const decideGoBack = () => {
-		if (!pathname.includes("categories")) {
-			return "/";
+	const handleMenuOverlayClick = (e: MouseEvent<HTMLDivElement>) => {
+		if (e.target === e.currentTarget) {
+			closeMenu();
 		}
-
-		return "/#products";
 	};
+
+	const decideGoBack = () => (!pathname.includes("categories") ? "/" : "/#products");
 
 	const isCurrentLink = (href: string) => pathname === "/" && hash === href;
 
@@ -117,7 +71,7 @@ const Header = ({ isHome }: HeaderType) => {
 					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
-							className="relative top-[1px] h-4 w-4"
+							className="relative top-px h-4 w-4"
 							fill="none"
 							viewBox="0 0 24 24"
 							stroke="currentColor"
@@ -136,7 +90,7 @@ const Header = ({ isHome }: HeaderType) => {
 						"hamburger group z-40 hover:cursor-pointer focus:outline-none md:hidden",
 						isMenuOpen ? "open top-2" : "top-3",
 					)}
-					onClick={handleMenuToggle}
+					onClick={handleBurgerClick}
 					aria-expanded={isMenuOpen}
 					aria-controls="mobile-menu"
 					aria-label={isMenuOpen ? t("header.aria_close_menu") : t("header.aria_open_menu")}
@@ -151,7 +105,7 @@ const Header = ({ isHome }: HeaderType) => {
 				ref={menuRef}
 				hidden={!isMenuOpen}
 				className={cl("mobile-menu", isMenuOpen ? "flex" : "hidden")}
-				onClick={handleMenuToggle}
+				onClick={handleMenuOverlayClick}
 			>
 				<nav aria-label={t("header.aria_mobile_nav")} className="w-full pt-30">
 					<ul className="flex w-full flex-col items-center gap-y-7.5">
@@ -160,7 +114,7 @@ const Header = ({ isHome }: HeaderType) => {
 								<Link
 									to={isHome ? link.href : link.backURL}
 									aria-current={isHome && isCurrentLink(link.href) ? "true" : undefined}
-									onClick={handleMenuToggle}
+									onClick={closeMenu}
 								>
 									{t(link.name)}
 								</Link>

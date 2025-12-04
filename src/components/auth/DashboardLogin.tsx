@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 // import FieldErrorMsg from "../contact/FieldErrorMsg";
 import { useAuth } from "@/hooks/useAuth";
 import type { LoginForm } from "@/types";
-import { cl, collapseTrim, INPUTLIMITS, toastConfig } from "@/utils/utils";
+import { cl, collapseTrim, INPUTLIMITS } from "@/utils/utils";
 
 const DashboardLogin = () => {
 	const { login } = useAuth();
@@ -25,7 +25,7 @@ const DashboardLogin = () => {
 			{ email: data.email, password: data.password },
 			{
 				onSuccess: () => reset(),
-				onError: (error) => toast.error(`Login failed: ${error.message}`, toastConfig),
+				onError: (error) => toast.error(`Login failed: ${error.message}`),
 			},
 		);
 	};
