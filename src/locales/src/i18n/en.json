@@ -1,117 +1,116 @@
 {
-    "not_found": {
-        "description": "Sorry, but the page you are looking for does not exist."
-    },
-    "skip_to_content": "Skip to content",
-    "header": {
-        "site_title": "Máté Ilona Macramé",
-        "aria_primary_nav": "Main navigation",
-        "aria_mobile_nav": "Mobile navigation",
-        "aria_open_menu": "Open menu",
-        "aria_close_menu": "Close menu",
-        "nav": {
-            "macrame": "Macramé",
-            "about": "About me",
-            "products": "Products",
-            "contact": "Contact",
-            "back": "Go back"
-        }
-    },
-    "home": {
-        "aria_home": "Home",
-        "macrame_intro": {
-            "title": "Macramé handmade by Máté Ilona",
-            "body": {
-                "p1": "Macramé is a centuries-old textile art that transforms simple cords into intricate designs through the skillful practice of knotting. Unlike weaving or knitting, macramé doesn't rely on tools—only the artist's hands, creativity, and patience. With roots tracing back to ancient cultures in Arabia, China, and South America, macramé has seen a resurgence in recent years, blending old-world tradition with modern design sensibilities.",
-                "p2": "Each macramé piece is more than decoration—it's a deliberate composition of patterns, textures, and techniques. From minimalist wall hangings and detailed plant holders to vibrant jewelry and accessories, the art form offers endless possibilities. Artists carefully select cord types, thickness, and colors, often incorporating beads, stones, or other natural elements to enhance the final piece.",
-                "p3": "What makes macramé so special is its versatility and personal touch. No two pieces are exactly alike, and every knot holds a part of the maker's intention and craftsmanship. It is both meditative and expressive—requiring patience, focus, and a keen eye for balance and symmetry. Whether used in home decor, fashion, or functional art, macramé invites us to appreciate the beauty of handmade design in a fast-paced digital world."
-            }
-        },
-        "meet_ilona": {
-            "title": "Meet Máté Ilona - A Lifelong Dream Turned Reality",
-            "body": {
-                "p1": "For most of my life, I worked in the world of numbers - meticulously managing ledgers, reports, and deadlines as an accountant. While I approached that work with care and professionalism, I always carried a quiet wish in the background: the desire to create with my hands. My heart belonged not to spreadsheets, but to threads, textures, and the peaceful rhythm of crafting.",
-                "p2": "Growing up, I admired traditional handcrafts, especially the delicate beauty of macramé. But life, as it often does, steered me down a more practical path. It wasn’t until later - when the timing was finally right - that I allowed myself to return to this long-held passion. What began as a simple curiosity quickly blossomed into a calling.",
-                "p3": "Today, I pour my heart into every piece I make, weaving patience, tradition, and creativity into each knot. My work is not just decorative - it’s personal. Every bracelet, necklace, and wall hanging reflects the joy of finally doing what I truly love.",
-                "p4": "My story is a reminder that it’s never too late to pursue what sets your soul on fire. Each handcrafted creation I make carries that message: beauty made by hand is also beauty made with heart."
-            }
-        },
-        "collection_overview": {
-            "title": "Handmade with Heart - Explore the Collection",
-            "intro": "Every piece in my collection is lovingly handcrafted, blending traditional macramé techniques with my own creative flair. My attention to detail and passion for design shine through in every knot, bead, and color choice. I’ve thoughtfully divided the collection into six categories, each reflecting a different expression of my craft:",
-            "category_list": {
-                "earrings": {
-                    "cta": "View Earrings",
-                    "description": "Earrings - Light, elegant designs that combine threadwork with delicate beads and stones."
-                },
-                "necklaces": {
-                    "cta": "View Necklaces",
-                    "description": "Necklaces - Statement pieces and subtle designs alike, all showcasing the timeless beauty of handwoven art."
-                },
-                "bracelets": {
-                    "cta": "View Bracelets",
-                    "description": "Bracelets - Intricate wristwear ranging from minimalist cords to bold, layered patterns."
-                },
-                "rings": {
-                    "cta": "View Rings",
-                    "description": "Rings - Tiny yet intricate rings that are soft to wear and striking to see."
-                },
-                "decorations": {
-                    "cta": "View Decorations",
-                    "description": "Decorations - Artistic wall hangings and ornamental pieces that bring warmth and texture to any space."
-                },
-                "sets": {
-                    "cta": "View Sets",
-                    "description": "Sets - Coordinated jewelry sets, including necklaces, earrings, and bracelets, perfect for special occasions or meaningful gifts."
-                }
-            },
-            "outro": "Each item tells a story—not just of artistic vision, but of a woman who finally followed her dream. Whether you’re looking for a unique accessory or a heartfelt gift, I hope my collection offers you something truly special."
-        }
-    },
-    "category": {
-        "titles": {
-            "earrings": "Delicate Macramé Earrings - Light as a Feather, Bold in Style",
-            "necklaces": "Statement Macramé Necklaces - Crafted to Be Worn Close to the Heart",
-            "bracelets": "Macramé Bracelets - Everyday Elegance, Handmade with Care",
-            "rings": "Macramé Rings - Tiny Details, Big Charm",
-            "decorations": "Macramé Decorations - Artful Knots for Inspired Spaces",
-            "sets": "Macramé Sets - Perfectly Paired, Thoughtfully Handmade"
-        }
-    },
-    "contact_footer": {
-        "title": "Leave a Message",
-        "form": {
-            "name": "Name",
-            "name_placeholder": "Your name",
-            "e_mail": "E-mail",
-            "e_mail_placeholder": "Your e-mail",
-            "subject": "Subject",
-            "message": "Message",
-            "message_placeholder": "Your message",
-            "recaptcha": "Complete the reCAPTCHA"
-        },
-        "validation": {
-            "check_inputs": "Please check your inputs!",
-            "recaptcha_failed": "Failed to verify reCAPTCHA!",
-            "success": "Message sent successfully!",
-            "send_failed": "Failed to send the message!",
-            "name_required": "Name is required!",
-            "name_max": "Name must be less than {{value}} characters!",
-            "e_mail_required": "E-mail is required!",
-            "e_mail_invalid": "Invalid email format!",
-            "e_mail_min": "E-mail must be at least {{value}} characters!",
-            "e_mail_max": "E-mail must be less than {{value}} characters!",
-            "subject_required": "Subject is required!",
-            "subject_max": "Subject must be less than {{value}} characters!",
-            "message_required": "Message is required!",
-            "message_min": "Message must be at least {{value}} characters!",
-            "message_max": "Message must be less than {{value}} characters!"
-        },
-        "button": {
-            "send": "Send",
-            "sending": "Sending…"
-        },
-        "copyright": "All Rights Reserved",
-        "aria-social": "Social media"
-    }
+	"not_found": {
+		"description": "Sorry, but the page you are looking for does not exist."
+	},
+	"header": {
+		"site_title": "Máté Ilona Macramé",
+		"aria_primary_nav": "Main navigation",
+		"aria_mobile_nav": "Mobile navigation",
+		"aria_open_menu": "Open menu",
+		"aria_close_menu": "Close menu",
+		"nav": {
+			"macrame": "Macramé",
+			"about": "About me",
+			"products": "Products",
+			"contact": "Contact",
+			"back": "Go back"
+		}
+	},
+	"home": {
+		"aria_home": "Home",
+		"macrame_intro": {
+			"title": "Macramé handmade by Máté Ilona",
+			"body": {
+				"p1": "Macramé is a centuries-old textile art that transforms simple cords into intricate designs through the skillful practice of knotting. Unlike weaving or knitting, macramé doesn't rely on tools—only the artist's hands, creativity, and patience. With roots tracing back to ancient cultures in Arabia, China, and South America, macramé has seen a resurgence in recent years, blending old-world tradition with modern design sensibilities.",
+				"p2": "Each macramé piece is more than decoration—it's a deliberate composition of patterns, textures, and techniques. From minimalist wall hangings and detailed plant holders to vibrant jewelry and accessories, the art form offers endless possibilities. Artists carefully select cord types, thickness, and colors, often incorporating beads, stones, or other natural elements to enhance the final piece.",
+				"p3": "What makes macramé so special is its versatility and personal touch. No two pieces are exactly alike, and every knot holds a part of the maker's intention and craftsmanship. It is both meditative and expressive—requiring patience, focus, and a keen eye for balance and symmetry. Whether used in home decor, fashion, or functional art, macramé invites us to appreciate the beauty of handmade design in a fast-paced digital world."
+			}
+		},
+		"meet_ilona": {
+			"title": "Meet Máté Ilona - A Lifelong Dream Turned Reality",
+			"body": {
+				"p1": "For most of my life, I worked in the world of numbers - meticulously managing ledgers, reports, and deadlines as an accountant. While I approached that work with care and professionalism, I always carried a quiet wish in the background: the desire to create with my hands. My heart belonged not to spreadsheets, but to threads, textures, and the peaceful rhythm of crafting.",
+				"p2": "Growing up, I admired traditional handcrafts, especially the delicate beauty of macramé. But life, as it often does, steered me down a more practical path. It wasn’t until later - when the timing was finally right - that I allowed myself to return to this long-held passion. What began as a simple curiosity quickly blossomed into a calling.",
+				"p3": "Today, I pour my heart into every piece I make, weaving patience, tradition, and creativity into each knot. My work is not just decorative - it’s personal. Every bracelet, necklace, and wall hanging reflects the joy of finally doing what I truly love.",
+				"p4": "My story is a reminder that it’s never too late to pursue what sets your soul on fire. Each handcrafted creation I make carries that message: beauty made by hand is also beauty made with heart."
+			}
+		},
+		"collection_overview": {
+			"title": "Handmade with Heart - Explore the Collection",
+			"intro": "Every piece in my collection is lovingly handcrafted, blending traditional macramé techniques with my own creative flair. My attention to detail and passion for design shine through in every knot, bead, and color choice. I’ve thoughtfully divided the collection into six categories, each reflecting a different expression of my craft:",
+			"category_list": {
+				"earrings": {
+					"cta": "View Earrings",
+					"description": "Earrings - Light, elegant designs that combine threadwork with delicate beads and stones."
+				},
+				"necklaces": {
+					"cta": "View Necklaces",
+					"description": "Necklaces - Statement pieces and subtle designs alike, all showcasing the timeless beauty of handwoven art."
+				},
+				"bracelets": {
+					"cta": "View Bracelets",
+					"description": "Bracelets - Intricate wristwear ranging from minimalist cords to bold, layered patterns."
+				},
+				"rings": {
+					"cta": "View Rings",
+					"description": "Rings - Tiny yet intricate rings that are soft to wear and striking to see."
+				},
+				"decorations": {
+					"cta": "View Decorations",
+					"description": "Decorations - Artistic wall hangings and ornamental pieces that bring warmth and texture to any space."
+				},
+				"sets": {
+					"cta": "View Sets",
+					"description": "Sets - Coordinated jewelry sets, including necklaces, earrings, and bracelets, perfect for special occasions or meaningful gifts."
+				}
+			},
+			"outro": "Each item tells a story—not just of artistic vision, but of a woman who finally followed her dream. Whether you’re looking for a unique accessory or a heartfelt gift, I hope my collection offers you something truly special."
+		}
+	},
+	"category": {
+		"titles": {
+			"earrings": "Delicate Macramé Earrings - Light as a Feather, Bold in Style",
+			"necklaces": "Statement Macramé Necklaces - Crafted to Be Worn Close to the Heart",
+			"bracelets": "Macramé Bracelets - Everyday Elegance, Handmade with Care",
+			"rings": "Macramé Rings - Tiny Details, Big Charm",
+			"decorations": "Macramé Decorations - Artful Knots for Inspired Spaces",
+			"sets": "Macramé Sets - Perfectly Paired, Thoughtfully Handmade"
+		}
+	},
+	"contact_footer": {
+		"title": "Leave a Message",
+		"form": {
+			"name": "Name",
+			"name_placeholder": "Your name",
+			"e_mail": "E-mail",
+			"e_mail_placeholder": "Your e-mail",
+			"subject": "Subject",
+			"message": "Message",
+			"message_placeholder": "Your message",
+			"recaptcha": "Complete the reCAPTCHA"
+		},
+		"validation": {
+			"check_inputs": "Please check your inputs!",
+			"recaptcha_failed": "Failed to verify reCAPTCHA!",
+			"success": "Message sent successfully!",
+			"send_failed": "Failed to send the message!",
+			"name_required": "Name is required!",
+			"name_max": "Name must be less than {{value}} characters!",
+			"e_mail_required": "E-mail is required!",
+			"e_mail_invalid": "Invalid email format!",
+			"e_mail_min": "E-mail must be at least {{value}} characters!",
+			"e_mail_max": "E-mail must be less than {{value}} characters!",
+			"subject_required": "Subject is required!",
+			"subject_max": "Subject must be less than {{value}} characters!",
+			"message_required": "Message is required!",
+			"message_min": "Message must be at least {{value}} characters!",
+			"message_max": "Message must be less than {{value}} characters!"
+		},
+		"button": {
+			"send": "Send",
+			"sending": "Sending…"
+		},
+		"copyright": "All Rights Reserved",
+		"aria-social": "Social media"
+	}
 }

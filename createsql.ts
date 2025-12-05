@@ -33,18 +33,30 @@ const doubleQuoteWrapper = (text: string) => {
 	return `${uniqueTag}${text}${uniqueTag}`;
 };
 
-const generateSQL = (table: string, data: Record<string, string>, fileName: string) => {
-	const entries = Object.entries(flatten(data));
-	const valueRows = [];
+const generatePathsSql = (table: string, data: Record<string, string>) => {
+	const paths = Object.keys(flatten(data));
+	const pathRows: string[] = [];
 
-	for (const [key, value] of entries) {
-		const row = `('${fileName}', '${key}', ${doubleQuoteWrapper(value)})`;
+	paths.forEach((path) => {
+		const row = `('${path}')`;
+		pathRows.push(row);
+	});
+
+	return `INSERT INTO ${table} (path) VALUES\n${pathRows.join(",\n")};`;
+};
+
+const generateResourceSQL = (table: string, data: Record<string, string>, fileName: string) => {
+	const values = Object.values(flatten(data));
+	const valueRows: string[] = [];
+
+	values.forEach((value, index) => {
+		const row = `('${++index}', '${fileName}', ${doubleQuoteWrapper(value)})`;
 		valueRows.push(row);
-	}
+	});
 
-	return `INSERT INTO ${table} (locale, path, value_text) VALUES\n${valueRows.join(",\n")}\nON CONFLICT (locale, path) DO UPDATE\nSET
-    value_text = EXCLUDED.value_text,
-    updated_at = now();\n`;
+	return `INSERT INTO ${table} (translation_key_id, locale, value_text) VALUES\n${valueRows.join(",\n")}\nON CONFLICT (translation_key_id, locale) DO UPDATE\nSET
+	value_text = EXCLUDED.value_text,
+	updated_at = now();\n`;
 };
 
 try {
@@ -52,7 +64,12 @@ try {
 		const fullPath = path.join(cwd, filePath);
 		const filename = path.parse(fullPath).name;
 		const fileResource = JSON.parse(fs.readFileSync(fullPath, "utf-8"));
-		const sql = generateSQL("public.i18n_translations", fileResource, filename);
+		if (filename === "en") {
+			const pathSql = generatePathsSql("public.translation_keys", fileResource);
+			const outputPath = path.join(cwd, `translation-paths.sql`);
+			fs.writeFileSync(outputPath, pathSql);
+		}
+		const sql = generateResourceSQL("public.translations", fileResource, filename);
 		const outputPath = path.join(cwd, `i18n-${filename}.sql`);
 		fs.writeFileSync(outputPath, sql);
 	}

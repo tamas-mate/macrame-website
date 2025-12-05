@@ -46,8 +46,3 @@ export type ProductCategoryItemType = {
 	category: string;
 	cta: string;
 };
-
-export type ResourceRow = {
-	path: string;
-	value_text: string | null;
-};
