@@ -95,45 +95,6 @@ export type Database = {
           },
         ]
       }
-      user_admin_map: {
-        Row: {
-          id: number
-          is_admin: boolean
-          user_id: string
-        }
-        Insert: {
-          id?: number
-          is_admin?: boolean
-          user_id: string
-        }
-        Update: {
-          id?: number
-          is_admin?: boolean
-          user_id?: string
-        }
-        Relationships: []
-      }
-      user_profiles: {
-        Row: {
-          created_at: string | null
-          display_name: string | null
-          id: string
-          is_admin: boolean | null
-        }
-        Insert: {
-          created_at?: string | null
-          display_name?: string | null
-          id: string
-          is_admin?: boolean | null
-        }
-        Update: {
-          created_at?: string | null
-          display_name?: string | null
-          id?: string
-          is_admin?: boolean | null
-        }
-        Relationships: []
-      }
     }
     Views: {
       [_ in never]: never

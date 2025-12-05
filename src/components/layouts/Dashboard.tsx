@@ -1,7 +1,6 @@
 import { Link, Outlet } from "react-router";
 
 import { useAuth } from "@/hooks/useAuth";
-import { useIsAdmin } from "@/hooks/useIsAdmin";
 import { useSession } from "@/hooks/useSession";
 import { toast } from "react-toastify";
 import DashboardLogin from "../auth/DashboardLogin";
@@ -10,7 +9,6 @@ import LoadingSpinner from "../ui/LoadingSpinner";
 
 const Dashboard = () => {
 	const { session, sessionLoading } = useSession();
-	const { isAdmin, isAdminLoading, isAdminError } = useIsAdmin(session?.user.id);
 	const { logout } = useAuth();
 
 	const handleLogout = () => {
@@ -23,18 +21,6 @@ const Dashboard = () => {
 	if (sessionLoading) return <LoadingSpinner />;
 
 	if (!session) return <DashboardLogin />;
-
-	if (isAdminLoading) return <LoadingSpinner />;
-
-	if (isAdminError)
-		return <div className="flex h-screen items-center justify-center text-2xl">Error loading admin status.</div>;
-
-	if (!isAdmin)
-		return (
-			<div className="flex h-screen items-center justify-center text-2xl">
-				Access Denied: You do not have admin privileges.
-			</div>
-		);
 
 	return (
 		<div className="flex h-screen w-full flex-row">
@@ -56,7 +42,7 @@ const Dashboard = () => {
 					<h2>Dashboard</h2>
 					<LanguageSwitcher />
 				</header>
-				<main className="bg-teal-400">
+				<main className="h-full w-full bg-teal-400">
 					<Outlet />
 				</main>
 			</div>
