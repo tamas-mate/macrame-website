@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Outlet, useLocation } from "react-router";
 
-import { useRemoteTranslations } from "../../hooks/useRemoteTranslations";
+import { useHydrateTranslations } from "../../hooks/useHydrateTranslations";
 import { cl } from "../../utils/utils";
 import ScrollToAnchor from "../ScrollToAnchor";
 import Footer from "../ui/Footer";
@@ -11,7 +11,7 @@ const App = () => {
 	const mainRef = useRef<HTMLElement | null>(null);
 	const location = useLocation();
 	const isHome = location.pathname === "/";
-	useRemoteTranslations();
+	useHydrateTranslations();
 
 	useEffect(() => {
 		const el = mainRef.current;

@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
-export const useRemoteTranslations = () => {
+export const useHydrateTranslations = () => {
 	const { i18n, ready } = useTranslation();
 	const currentLanguage = i18n.resolvedLanguage ?? i18n.language;
 
