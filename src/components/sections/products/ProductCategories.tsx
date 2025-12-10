@@ -1,6 +1,6 @@
 import { useMemo } from "react";
-import { useTranslation } from "react-i18next";
 
+import { useDbTranslations } from "@/hooks/useDbTranslations";
 import type { ProductCategoriesType } from "@/types";
 import { imageMap } from "@/utils/utils";
 import ProductCategoryItem from "./ProductCategoryItem";
@@ -8,7 +8,7 @@ import ProductCategoryItem from "./ProductCategoryItem";
 const getCategoryImages = (categories: string[]) => categories.map((catImg) => imageMap[catImg]);
 
 const ProductCategories = ({ categories }: ProductCategoriesType) => {
-	const { t } = useTranslation();
+	const { t } = useDbTranslations();
 	const categoryImages = useMemo(() => getCategoryImages(categories), [categories]);
 
 	return (

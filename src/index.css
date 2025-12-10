@@ -93,3 +93,9 @@
 	--breakpoint-xsm: 21.25rem; /* 340px */
 	--breakpoint-msm: 31.25rem; /* 500px */
 }
+
+@utility scrollbar-hidden {
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}

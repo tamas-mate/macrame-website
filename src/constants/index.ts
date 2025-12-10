@@ -22,3 +22,31 @@ export const navlinks = [
 ];
 
 export const categories = ["earrings", "necklaces", "bracelets", "rings", "decorations", "sets"];
+
+export const sections = [
+	{
+		id: 1,
+		value: "",
+		name: "Select a section",
+	},
+	{
+		id: 2,
+		value: "home.macrame_intro",
+		name: "Macrame",
+	},
+	{
+		id: 3,
+		value: "home.meet_ilona",
+		name: "About",
+	},
+	{
+		id: 4,
+		value: "home.collection_overview",
+		name: "Products",
+	},
+	{
+		id: 5,
+		value: "category.titles",
+		name: "Category",
+	},
+];

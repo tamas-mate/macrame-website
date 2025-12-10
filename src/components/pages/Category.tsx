@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState } from "react";
-import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router";
 
 import { galleryImages, type CategoryType } from "@/data/gallery";
+import { useDbTranslations } from "@/hooks/useDbTranslations";
 import CategoryItem from "../sections/category/CategoryItem";
 
 const Category = () => {
 	const [loadedCount, setLoadedCount] = useState(0);
 	const sectionRef = useRef<HTMLElement>(null);
-	const { t } = useTranslation();
+	const { t } = useDbTranslations();
 	const { category } = useParams();
 	const [totalImages] = useState(galleryImages[category as CategoryType]?.length || 0);
 	const navigate = useNavigate();

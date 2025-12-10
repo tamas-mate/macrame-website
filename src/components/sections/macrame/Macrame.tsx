@@ -1,10 +1,9 @@
-import { useTranslation } from "react-i18next";
-
 import { featuredImages } from "@/data/gallery";
+import { useDbTranslations } from "@/hooks/useDbTranslations";
 import ImageCarousel from "./ImageCarousel";
 
 const Macrame = () => {
-	const { t } = useTranslation();
+	const { t } = useDbTranslations();
 
 	return (
 		<section id="macrame" className="flex flex-col gap-y-7.5">

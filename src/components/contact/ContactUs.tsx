@@ -2,23 +2,23 @@ import emailjs from "@emailjs/browser";
 import { useRef, useState, type FormEvent } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useForm } from "react-hook-form";
-import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
 
-import type { FormData } from "@/types";
+import { useDbTranslations } from "@/hooks/useDbTranslations";
+import type { ContactForm } from "@/types";
 import { cl, collapseTrim, getFormattedDate, initObserver, INPUTLIMITS } from "@/utils/utils";
 import FieldErrorMsg from "./FieldErrorMsg";
 
 export const ContactUs = () => {
 	const recaptcha = useRef<ReCAPTCHA | null>(null);
 	const [isPending, setIsPending] = useState(false);
-	const { t } = useTranslation();
+	const { t } = useDbTranslations();
 	const {
 		register,
 		handleSubmit,
 		reset,
 		formState: { errors },
-	} = useForm<FormData>({
+	} = useForm<ContactForm>({
 		defaultValues: {
 			name: "",
 			email: "",
@@ -27,7 +27,7 @@ export const ContactUs = () => {
 		},
 	});
 
-	const onSubmit = async (data: FormData) => {
+	const onSubmit = async (data: ContactForm) => {
 		try {
 			setIsPending(true);
 

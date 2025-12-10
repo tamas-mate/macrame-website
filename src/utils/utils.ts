@@ -3,6 +3,7 @@ import { Bounce, type ToastContainerProps } from "react-toastify";
 import { twMerge } from "./../../node_modules/tailwind-merge/src/lib/tw-merge";
 
 import logo from "@/assets/images/logo.png";
+import type { StringMap } from "@/types";
 import categoryBracelet from "../assets/images/category-bracelets.jpg";
 import categoryDecorations from "../assets/images/category-decorations.jpg";
 import categoryEarringst from "../assets/images/category-earrings.jpg";
@@ -11,7 +12,7 @@ import categoryRings from "../assets/images/category-rings.jpg";
 import categorySets from "../assets/images/category-sets.jpg";
 import about from "../assets/images/mi.jpg";
 
-export const imageMap: Record<string, string> = {
+export const imageMap: StringMap = {
 	logo,
 	bracelets: categoryBracelet,
 	decorations: categoryDecorations,

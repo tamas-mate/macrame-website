@@ -1,10 +1,9 @@
-import { useTranslation } from "react-i18next";
-
 import { categories } from "@/constants";
+import { useDbTranslations } from "@/hooks/useDbTranslations";
 import ProductCategories from "./ProductCategories";
 
 const Products = () => {
-	const { t } = useTranslation();
+	const { t } = useDbTranslations();
 
 	return (
 		<section id="products" className="flex flex-col gap-y-7.5">

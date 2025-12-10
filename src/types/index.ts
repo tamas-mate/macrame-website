@@ -1,4 +1,13 @@
 import type { ReactNode, Ref } from "react";
+import type { useTranslation } from "react-i18next";
+
+type BaseUseTranslation = ReturnType<typeof useTranslation>;
+
+export type UseDbTranslationsResult = Omit<BaseUseTranslation, "t"> & {
+	t: BaseUseTranslation["t"];
+};
+
+export type StringMap = Record<string, string>;
 
 export type ChildrenType = {
 	children: ReactNode;
@@ -22,7 +31,7 @@ export type ImageGalleryType = {
 	}[];
 };
 
-export type FormData = {
+export type ContactForm = {
 	name: string;
 	email: string;
 	subject: string;
@@ -33,6 +42,25 @@ export type FormData = {
 export type LoginForm = {
 	email: string;
 	password: string;
+};
+
+export type TranslationFormProps = {
+	inputs: {
+		value_text: string | null;
+		translation_key_id: number;
+		translation_keys: {
+			path: string;
+		};
+	}[];
+	locale: string;
+	section: string;
+};
+
+export type TranslationForm = {
+	data: {
+		value: string;
+		translationKeyId: number;
+	}[];
 };
 
 export type AnchorMap = Map<string, Ref<HTMLElement>>;

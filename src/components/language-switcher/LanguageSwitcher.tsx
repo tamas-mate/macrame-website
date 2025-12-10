@@ -1,19 +1,14 @@
-import { useCallback } from "react";
-import { useTranslation } from "react-i18next";
-
 import LocalizationIcon from "@/assets/icons/LocalizationIcon";
+import { useDbTranslations } from "@/hooks/useDbTranslations";
 
 const LanguageSwitcher = () => {
-	const { i18n } = useTranslation();
+	const { i18n } = useDbTranslations();
 
-	const handleLanguageChange = useCallback(
-		async (lang: string) => {
-			await i18n.changeLanguage(lang).then(() => {
-				localStorage.setItem("i18nextLng", lang);
-			});
-		},
-		[i18n],
-	);
+	const handleLanguageChange = async (lang: string) => {
+		await i18n.changeLanguage(lang).then(() => {
+			localStorage.setItem("i18nextLng", lang);
+		});
+	};
 
 	return (
 		<div className="group flex items-center justify-center">

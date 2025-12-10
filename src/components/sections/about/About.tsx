@@ -1,9 +1,8 @@
-import { useTranslation } from "react-i18next";
-
+import { useDbTranslations } from "@/hooks/useDbTranslations";
 import { imageMap } from "@/utils/utils";
 
 const About = () => {
-	const { t } = useTranslation();
+	const { t } = useDbTranslations();
 
 	return (
 		<section id="about" className="flex flex-col gap-y-7.5">
