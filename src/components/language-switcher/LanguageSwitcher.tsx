@@ -11,12 +11,12 @@ const LanguageSwitcher = () => {
 	};
 
 	return (
-		<div className="group flex items-center justify-center">
+		<div className="flex items-center justify-center">
 			<LocalizationIcon />
 			<select
 				defaultValue={i18n.language}
 				name="language"
-				className="text-white outline-none group-hover:cursor-pointer group-hover:font-bold"
+				className="text-white outline-none hover:cursor-pointer hover:font-bold"
 				onChange={(e) => handleLanguageChange(e.target.value)}
 			>
 				<option value="hu" className="bg-burgundy">

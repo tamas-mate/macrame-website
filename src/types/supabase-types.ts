@@ -65,7 +65,7 @@ export type Database = {
           translation_key_id: number
           updated_at: string | null
           value_json: Json | null
-          value_text: string | null
+          value_text: string
         }
         Insert: {
           created_at?: string | null
@@ -74,7 +74,7 @@ export type Database = {
           translation_key_id: number
           updated_at?: string | null
           value_json?: Json | null
-          value_text?: string | null
+          value_text: string
         }
         Update: {
           created_at?: string | null
@@ -83,7 +83,7 @@ export type Database = {
           translation_key_id?: number
           updated_at?: string | null
           value_json?: Json | null
-          value_text?: string | null
+          value_text?: string
         }
         Relationships: [
           {

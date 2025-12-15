@@ -1,5 +1,5 @@
 import clsx, { type ClassValue } from "clsx";
-import { Bounce, type ToastContainerProps } from "react-toastify";
+import { Bounce, toast, type ToastContainerProps } from "react-toastify";
 import { twMerge } from "./../../node_modules/tailwind-merge/src/lib/tw-merge";
 
 import logo from "@/assets/images/logo.png";
@@ -29,7 +29,7 @@ export const cl = (...classes: ClassValue[]) => {
 
 export const toastContainerConfig: ToastContainerProps = {
 	["aria-label"]: "Form Notification",
-	position: "bottom-center",
+	position: "bottom-right",
 	autoClose: 5000,
 	hideProgressBar: false,
 	newestOnTop: false,
@@ -38,8 +38,15 @@ export const toastContainerConfig: ToastContainerProps = {
 	pauseOnFocusLoss: true,
 	draggable: true,
 	pauseOnHover: true,
-	theme: "dark",
 	transition: Bounce,
+};
+
+export const customToast = (message: string, type: "success" | "error") => {
+	return type === "success"
+		? toast.success(message, {
+				className: "text-green-500!",
+			})
+		: toast.error(message, { className: "text-input-error!" });
 };
 
 export const getFormattedDate = () => {

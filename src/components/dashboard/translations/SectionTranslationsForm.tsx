@@ -1,32 +1,37 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { useFieldArray, useForm } from "react-hook-form";
-import { toast } from "react-toastify";
+import { useForm } from "react-hook-form";
 
 import supabase from "@/lib/supabase";
 import type { TranslationForm, TranslationFormProps } from "@/types";
+import { cl, customToast } from "@/utils/utils";
+import { useEffect, useEffectEvent } from "react";
 
-const SectionTranslationsForm = ({ inputs, locale, section }: TranslationFormProps) => {
+const SectionTranslationsForm = ({ inputs, locale }: TranslationFormProps) => {
+	"use no memo";
 	const queryClient = useQueryClient();
 	const originalInputs = Object.fromEntries(inputs.map((input) => [input.translation_key_id, input.value_text]));
 
 	const {
 		register,
-		control,
 		handleSubmit,
 		reset,
 		formState: { errors },
 	} = useForm<TranslationForm>({
 		defaultValues: {
-			data: inputs.map((input) => ({ value: input.value_text as string, translationKeyId: input.translation_key_id })),
+			data: inputs.map((input) => ({ value: input.value_text, translationKeyId: input.translation_key_id })),
 		},
-		shouldUnregister: true,
+		mode: "all",
 	});
 
-	const { fields } = useFieldArray({
-		name: "data",
-		control,
-		shouldUnregister: true,
-	});
+	const onReset = useEffectEvent((inputs: TranslationFormProps["inputs"]) =>
+		reset({
+			data: inputs.map((input) => ({ value: input.value_text, translationKeyId: input.translation_key_id })),
+		}),
+	);
+
+	useEffect(() => {
+		onReset(inputs);
+	}, [inputs]);
 
 	const formMutation = useMutation({
 		mutationFn: async (formData: TranslationForm) => {
@@ -49,13 +54,13 @@ const SectionTranslationsForm = ({ inputs, locale, section }: TranslationFormPro
 
 			// refresh the query for this language+section
 			queryClient.invalidateQueries({
-				queryKey: ["section-translations", locale, section],
+				predicate: (query) => query.queryKey[0] === "translations",
 			});
-			toast.success("Changes saved");
+			customToast("Changes saved", "success");
 		},
 		onError: (error) => {
 			console.error(error);
-			toast.error("Failed to save changes!");
+			customToast("Failed to save changes!", "error");
 		},
 	});
 
@@ -66,20 +71,34 @@ const SectionTranslationsForm = ({ inputs, locale, section }: TranslationFormPro
 	return (
 		<div className="scrollbar-hidden flex h-full w-full items-start justify-center overflow-y-scroll">
 			<form onSubmit={handleSubmit(onSubmit)} className="flex w-4/5 flex-col items-center gap-y-10">
-				{fields.map((field, index) => (
-					<div key={field.id} className="w-full">
-						<input type="hidden" {...register(`data.${index}.translationKeyId` as const)} />
-						<textarea
-							{...register(`data.${index}.value` as const, { required: true })}
-							rows={3}
-							className="w-full bg-white p-5"
-						/>
-					</div>
-				))}
-				{errors.data && <p>{errors.data?.root?.message}</p>}
+				{inputs.map((input, index) => {
+					const fieldError = errors.data?.[index]?.value;
+					return (
+						<div key={input.translation_key_id} className="w-full">
+							<input type="hidden" {...register(`data.${index}.translationKeyId` as const)} />
+							<textarea
+								{...register(`data.${index}.value` as const, {
+									required: "This field is required",
+									minLength: {
+										value: 20,
+										message: "This field must be at least 20 characters",
+									},
+								})}
+								autoFocus={index === 0}
+								spellCheck="false"
+								rows={input.value_text.length <= 100 ? 1 : 3}
+								className={cl(
+									"outline-burgundy w-full bg-white p-5",
+									fieldError && "border-input-error border-2 outline-none",
+								)}
+							/>
+							{fieldError && <span className="text-input-error">{fieldError.message}</span>}
+						</div>
+					);
+				})}
 				<button
 					type="submit"
-					className="hover:bg-burgundy rounded-full bg-white px-5 py-3 text-black hover:cursor-pointer hover:text-white disabled:cursor-not-allowed"
+					className="hover:bg-burgundy text-burgundy rounded-full bg-white px-5 py-3 font-bold hover:cursor-pointer hover:text-white disabled:cursor-not-allowed"
 				>
 					Save changes
 				</button>

@@ -1,8 +1,9 @@
-import { Link, Outlet } from "react-router";
+import { Link, Outlet, useLocation } from "react-router";
 
+import { dashboardNavlinks } from "@/constants";
 import { useAuth } from "@/hooks/useAuth";
 import { useSession } from "@/hooks/useSession";
-import { toast } from "react-toastify";
+import { cl, customToast } from "@/utils/utils";
 import DashboardLogin from "../dashboard/auth/DashboardLogin";
 import LanguageSwitcher from "../language-switcher/LanguageSwitcher";
 import LoadingSpinner from "../ui/LoadingSpinner";
@@ -10,12 +11,17 @@ import LoadingSpinner from "../ui/LoadingSpinner";
 const Dashboard = () => {
 	const { session, sessionLoading } = useSession();
 	const { logout } = useAuth();
+	const { pathname } = useLocation();
 
 	const handleLogout = () => {
 		logout.mutate(undefined, {
-			onSuccess: () => toast.success("Logged out successfully"),
-			onError: (error) => toast.error(`Logout failed: ${error.message}`),
+			onSuccess: () => customToast("Logged out successfully", "success"),
+			onError: (error) => customToast(`Logout failed: ${error.message}`, "error"),
 		});
+	};
+
+	const isCurrentLink = (href: string) => {
+		return href === pathname;
 	};
 
 	if (sessionLoading) return <LoadingSpinner />;
@@ -24,27 +30,37 @@ const Dashboard = () => {
 
 	return (
 		<div className="flex h-screen w-full flex-row">
-			<aside className="h-full w-[10%] bg-amber-400">
+			<aside className="h-full w-[10%] bg-[#570b1b]">
 				<nav className="flex flex-col items-center gap-y-5">
-					<ul className="flex flex-col items-center gap-y-5">
-						<li>
-							<Link to="/dashboard">Home Editor</Link>
-						</li>
-						<li>
-							<Link to="/dashboard/catalog">Catalog Manager</Link>
-						</li>
+					<ul className="flex flex-col items-center gap-y-5 pt-6 text-white">
+						{dashboardNavlinks.map((link) => (
+							<li key={link.href}>
+								<Link
+									to={link.href}
+									className={cl(
+										"hover:font-bold hover:underline hover:underline-offset-4",
+										isCurrentLink(link.href) && "font-bold underline underline-offset-4",
+									)}
+								>
+									{link.name}
+								</Link>
+							</li>
+						))}
 					</ul>
-					<button onClick={handleLogout} className="hover:cursor-pointer">
+					<button
+						onClick={handleLogout}
+						className="text-white hover:cursor-pointer hover:font-bold hover:underline hover:underline-offset-4"
+					>
 						Logout
 					</button>
 				</nav>
 			</aside>
 			<div className="flex h-full w-full flex-col">
-				<header className="bg-emerald-400">
-					<h2 className="text-center">Dashboard</h2>
+				<header className="bg-primary-dark flex items-center justify-between p-5">
+					<h2 className="self-start text-2xl font-bold text-white">Dashboard</h2>
 					<LanguageSwitcher />
 				</header>
-				<main className="flex-1 overflow-hidden bg-teal-400">
+				<main className="flex-1 overflow-hidden">
 					<Outlet />
 				</main>
 			</div>

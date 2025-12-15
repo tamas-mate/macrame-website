@@ -21,6 +21,22 @@ export const navlinks = [
 	},
 ];
 
+// TODO: Add names to locale resources
+export const dashboardNavlinks = [
+	{
+		name: "Home Editor",
+		href: "/dashboard",
+	},
+	{
+		name: "Catalog Manager",
+		href: "/dashboard/catalog",
+	},
+	{
+		name: "Back to Home",
+		href: "/",
+	},
+];
+
 export const categories = ["earrings", "necklaces", "bracelets", "rings", "decorations", "sets"];
 
 export const sections = [

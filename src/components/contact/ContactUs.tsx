@@ -1,23 +1,23 @@
 import emailjs from "@emailjs/browser";
-import { useRef, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
-import { useForm } from "react-hook-form";
-import { toast } from "react-toastify";
+import { useForm, type FieldErrors } from "react-hook-form";
 
 import { useDbTranslations } from "@/hooks/useDbTranslations";
 import type { ContactForm } from "@/types";
-import { cl, collapseTrim, getFormattedDate, initObserver, INPUTLIMITS } from "@/utils/utils";
+import { cl, collapseTrim, customToast, getFormattedDate, initObserver, INPUTLIMITS } from "@/utils/utils";
 import FieldErrorMsg from "./FieldErrorMsg";
 
 export const ContactUs = () => {
 	const recaptcha = useRef<ReCAPTCHA | null>(null);
+	const isMounted = useRef(false);
 	const [isPending, setIsPending] = useState(false);
 	const { t } = useDbTranslations();
 	const {
 		register,
 		handleSubmit,
 		reset,
-		formState: { errors },
+		formState: { errors, isSubmitting },
 	} = useForm<ContactForm>({
 		defaultValues: {
 			name: "",
@@ -27,60 +27,75 @@ export const ContactUs = () => {
 		},
 	});
 
+	useEffect(() => {
+		isMounted.current = true;
+		return () => {
+			isMounted.current = false;
+		};
+	}, []);
+
+	const safeSetPending = (v: boolean) => {
+		if (isMounted.current) setIsPending(v);
+	};
+
 	const onSubmit = async (data: ContactForm) => {
+		safeSetPending(true);
+
+		let shouldResetRecaptcha = false;
+
 		try {
-			setIsPending(true);
-
-			if (errors.name || errors.email || errors.subject || errors.message) {
-				toast.error(t("contact_footer.validation.check_inputs"));
-				setIsPending(false);
-				return;
-			}
-
 			initObserver();
+
 			const token = recaptcha.current?.getValue();
 
 			if (!token) {
-				toast.error(t("contact_footer.validation.recaptcha_failed"));
-				setIsPending(false);
+				customToast(t("contact_footer.validation.recaptcha_failed"), "error");
 				return;
 			}
 
-			const templateParams = {
-				name: data.name,
-				email: data.email,
-				title: data.subject,
-				message: data.message,
-				time: getFormattedDate(),
-				"g-recaptcha-response": token,
-			};
+			shouldResetRecaptcha = true;
 
-			const response = await emailjs.send("contact_service", "contact_form", templateParams, {
-				publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-			});
+			const response = await emailjs.send(
+				"contact_service",
+				"contact_form",
+				{
+					name: data.name,
+					email: data.email,
+					title: data.subject,
+					message: data.message,
+					time: getFormattedDate(),
+					"g-recaptcha-response": token,
+				},
+				{
+					publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+				},
+			);
 
 			if (response.status === 200) {
-				toast.success(t("contact_footer.validation.success"));
+				customToast(t("contact_footer.validation.success"), "success");
 				reset();
-				setIsPending(false);
+			} else {
+				customToast(t("contact_footer.validation.send_failed"), "error");
 			}
 		} catch (error) {
-			toast.error(t("contact_footer.validation.send_failed"));
+			customToast(t("contact_footer.validation.send_failed"), "error");
 			console.error("Failed to send the message! Error:", error);
-			setIsPending(false);
+		} finally {
+			if (shouldResetRecaptcha) recaptcha.current?.reset();
+			safeSetPending(false);
 		}
-
-		recaptcha.current?.reset();
 	};
 
-	const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
-		handleSubmit(onSubmit)(event);
+	const onInvalid = (formErrors: FieldErrors<ContactForm>) => {
+		if (Object.keys(formErrors).length > 0) {
+			customToast(t("contact_footer.validation.check_inputs"), "error");
+		}
 	};
 
 	return (
 		<div className="xsm:px-0 xsm:w-auto flex w-full flex-col gap-y-10 px-5">
 			<h2 className="self-center text-2xl text-black md:self-start">{t("contact_footer.title")}</h2>
-			<form className="flex flex-col gap-y-3" onSubmit={handleFormSubmit} aria-busy={isPending}>
+			<form className="flex flex-col gap-y-3" onSubmit={handleSubmit(onSubmit, onInvalid)} aria-busy={isPending}>
 				<label htmlFor="name" className="text-black">
 					{t("contact_footer.form.name")}:
 				</label>
@@ -177,7 +192,7 @@ export const ContactUs = () => {
 				<div className="flex items-center justify-center">
 					<button
 						type="submit"
-						disabled={isPending}
+						disabled={isPending || isSubmitting}
 						aria-disabled={isPending}
 						className="hover:bg-burgundy w-1/3 rounded-full bg-white px-5 py-3 text-black hover:cursor-pointer hover:text-white disabled:cursor-not-allowed"
 					>

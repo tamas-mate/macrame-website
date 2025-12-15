@@ -1,13 +1,8 @@
 import supabase from "@/lib/supabase";
 import { useQuery } from "@tanstack/react-query";
-import { useDbTranslations } from "./useDbTranslations";
 
-export const useSectionTranslations = (currentSection: string) => {
-	console.log("currentSection", currentSection);
-	const { i18n, ready } = useDbTranslations();
-	const currentLanguage = i18n.resolvedLanguage ?? i18n.language;
-
-	const { isLoading, isError, data, error } = useQuery({
+export const useSectionTranslations = (currentSection: string, currentLanguage: string, ready: boolean) => {
+	return useQuery({
 		queryKey: ["section-translations", currentLanguage, currentSection],
 		enabled: ready && !!currentSection,
 		queryFn: async () => {
@@ -27,10 +22,4 @@ export const useSectionTranslations = (currentSection: string) => {
 			return data ?? [];
 		},
 	});
-
-	if (isError) {
-		console.error("Error fetching section translations:", error);
-	}
-
-	return { isLoading, data, error };
 };

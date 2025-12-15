@@ -1,61 +1,48 @@
-import supabase from "@/lib/supabase";
-import type { StringMap, UseDbTranslationsResult } from "@/types";
-import { useQuery } from "@tanstack/react-query";
+import type { InterpolationOptions } from "i18next";
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
+
+import { useTranslationsContext } from "@/context/translations/translations-context";
+import type { UseDbTranslationsResult } from "@/types";
 
 export const useDbTranslations = (): UseDbTranslationsResult => {
 	const base = useTranslation();
 	const { i18n, t: baseT } = base;
-	const currentLanguage = i18n.resolvedLanguage ?? i18n.language;
-
-	const {
-		data: overrides,
-		isError,
-		error,
-	} = useQuery({
-		queryKey: ["translations", currentLanguage],
-		queryFn: async () => {
-			const { data, error } = await supabase
-				.from("translations")
-				.select("value_text, translation_keys:translation_key_id (path)")
-				.eq("locale", currentLanguage);
-
-			if (error) throw error;
-
-			const map: StringMap = {};
-
-			for (const row of data ?? []) {
-				const path = row.translation_keys?.path;
-				if (!path || row.value_text == null) continue;
-				map[path] = row.value_text;
-			}
-
-			return map;
-		},
-	});
-
-	if (isError) {
-		console.error("Error fetching translations:", error);
-	}
+	const { translationsMap } = useTranslationsContext();
 
 	const t = useMemo(() => {
-		const overrideMap = overrides ?? {};
+		const interpolationOptions: InterpolationOptions = i18n.options?.interpolation ?? {};
 
-		// We build a function that takes exactly the same parameters as baseT:
-		// Otherwise, just delegate everything to the original t()
 		const wrapped = ((...args: Parameters<typeof baseT>) => {
-			const [key] = args;
+			const [key, secondArg] = args;
 
-			if (typeof key === "string" && overrideMap[key] != null) {
-				return overrideMap[key] as ReturnType<typeof baseT>;
+			// Only override simple string keys that exist in DB overrides
+			if (typeof key === "string" && translationsMap[key] != null) {
+				const raw = translationsMap[key] as string;
+				const maybeOptions =
+					secondArg && typeof secondArg === "object" && !Array.isArray(secondArg)
+						? (secondArg as Record<string, unknown>)
+						: undefined;
+
+				if (maybeOptions) {
+					const interpolated = i18n.services.interpolator.interpolate(
+						raw,
+						maybeOptions,
+						i18n.language,
+						interpolationOptions,
+					);
+
+					return interpolated as ReturnType<typeof baseT>;
+				}
+
+				return raw as ReturnType<typeof baseT>;
 			}
 
 			return baseT(...args);
 		}) as typeof baseT;
 
 		return wrapped;
-	}, [overrides, baseT]);
+	}, [translationsMap, baseT, i18n]);
 
 	return {
 		...base,

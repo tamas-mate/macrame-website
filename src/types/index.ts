@@ -9,6 +9,12 @@ export type UseDbTranslationsResult = Omit<BaseUseTranslation, "t"> & {
 
 export type StringMap = Record<string, string>;
 
+export type TranslationsContextValue = {
+	translationsMap: StringMap;
+	translationsLoading: boolean;
+	translationsError: Error | null;
+};
+
 export type ChildrenType = {
 	children: ReactNode;
 };
@@ -46,14 +52,13 @@ export type LoginForm = {
 
 export type TranslationFormProps = {
 	inputs: {
-		value_text: string | null;
+		value_text: string;
 		translation_key_id: number;
 		translation_keys: {
 			path: string;
 		};
 	}[];
 	locale: string;
-	section: string;
 };
 
 export type TranslationForm = {
