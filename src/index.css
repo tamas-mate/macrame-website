@@ -99,3 +99,19 @@
 		display: none;
 	}
 }
+
+@utility col-items-center {
+	@apply flex flex-col items-center;
+}
+
+@utility input {
+	@apply focus:ring-burgundy bg-white p-3 text-black outline-none focus:ring-2;
+}
+
+@utility input-error {
+	@apply ring-input-error focus:ring-input-error ring-2;
+}
+
+@utility submit-btn {
+	@apply hover:bg-burgundy focus:outline-burgundy rounded-full bg-white px-5 py-3 font-bold hover:cursor-pointer hover:text-white disabled:cursor-not-allowed;
+}

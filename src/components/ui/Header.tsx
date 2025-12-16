@@ -28,12 +28,12 @@ const Header = ({ isHome }: HeaderType) => {
 	const isCurrentLink = (href: string) => pathname === "/" && hash === href;
 
 	return (
-		<header className="bg-burgundy sticky top-0 z-20 flex h-28 w-full items-center justify-between px-5 py-5 sm:h-17 sm:px-10">
+		<header className="bg-burgundy sticky top-0 z-20 flex h-28 w-full items-center justify-between p-5 sm:h-17 sm:px-10">
 			<div className="flex-1">
 				<Link
 					to="/"
 					aria-label={t("home.aria_home")}
-					className="flex h-15 w-15 items-center justify-center rounded-full bg-white hover:cursor-pointer sm:h-13 sm:w-13"
+					className="flex size-15 items-center justify-center rounded-full bg-white hover:cursor-pointer sm:size-13"
 				>
 					<img src={imageMap.logo} alt="" aria-hidden className="h-9.5 sm:h-8.5" />
 				</Link>
@@ -82,7 +82,7 @@ const Header = ({ isHome }: HeaderType) => {
 						<span className="text-lg leading-none">{t("header.nav.back")}</span>
 					</Link>
 				)}
-				<LanguageSwitcher />
+				<LanguageSwitcher bgColor="bg-burgundy" />
 				<button
 					ref={menuBtnRef}
 					type="button"
@@ -108,7 +108,7 @@ const Header = ({ isHome }: HeaderType) => {
 				onClick={handleMenuOverlayClick}
 			>
 				<nav aria-label={t("header.aria_mobile_nav")} className="w-full pt-30">
-					<ul className="flex w-full flex-col items-center gap-y-7.5">
+					<ul className="col-items-center w-full gap-y-7.5">
 						{navlinks.map((link) => (
 							<li key={link.name}>
 								<Link

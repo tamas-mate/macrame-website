@@ -69,8 +69,8 @@ const SectionTranslationsForm = ({ inputs, locale }: TranslationFormProps) => {
 	};
 
 	return (
-		<div className="scrollbar-hidden flex h-full w-full items-start justify-center overflow-y-scroll">
-			<form onSubmit={handleSubmit(onSubmit)} className="flex w-4/5 flex-col items-center gap-y-10">
+		<div className="scrollbar-hidden text-burgundy flex h-full w-full items-start justify-center overflow-y-scroll">
+			<form onSubmit={handleSubmit(onSubmit)} className="flex w-4/5 flex-col items-center gap-y-10 pt-1">
 				{inputs.map((input, index) => {
 					const fieldError = errors.data?.[index]?.value;
 					return (
@@ -79,27 +79,21 @@ const SectionTranslationsForm = ({ inputs, locale }: TranslationFormProps) => {
 							<textarea
 								{...register(`data.${index}.value` as const, {
 									required: "This field is required",
-									minLength: {
-										value: 20,
-										message: "This field must be at least 20 characters",
-									},
+									// minLength: {
+									// 	value: 20,
+									// 	message: "This field must be at least 20 characters",
+									// },
 								})}
 								autoFocus={index === 0}
 								spellCheck="false"
 								rows={input.value_text.length <= 100 ? 1 : 3}
-								className={cl(
-									"outline-burgundy w-full bg-white p-5",
-									fieldError && "border-input-error border-2 outline-none",
-								)}
+								className={cl("input w-full", fieldError && "input-error")}
 							/>
 							{fieldError && <span className="text-input-error">{fieldError.message}</span>}
 						</div>
 					);
 				})}
-				<button
-					type="submit"
-					className="hover:bg-burgundy text-burgundy rounded-full bg-white px-5 py-3 font-bold hover:cursor-pointer hover:text-white disabled:cursor-not-allowed"
-				>
+				<button type="submit" className="submit-btn">
 					Save changes
 				</button>
 			</form>

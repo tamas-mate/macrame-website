@@ -93,12 +93,15 @@ export const ContactUs = () => {
 	};
 
 	return (
-		<div className="xsm:px-0 xsm:w-auto flex w-full flex-col gap-y-10 px-5">
-			<h2 className="self-center text-2xl text-black md:self-start">{t("contact_footer.title")}</h2>
-			<form className="flex flex-col gap-y-3" onSubmit={handleSubmit(onSubmit, onInvalid)} aria-busy={isPending}>
-				<label htmlFor="name" className="text-black">
-					{t("contact_footer.form.name")}:
-				</label>
+		<div className="xsm:px-0 xsm:w-auto text-burgundy flex w-full flex-col gap-y-10 px-5">
+			<h2 className="self-center text-2xl md:self-start">{t("contact_footer.title")}</h2>
+			<form
+				className="flex flex-col gap-y-3"
+				onSubmit={handleSubmit(onSubmit, onInvalid)}
+				aria-busy={isPending}
+				spellCheck="false"
+			>
+				<label htmlFor="name">{t("contact_footer.form.name")}:</label>
 				<input
 					{...register("name", {
 						setValueAs: collapseTrim,
@@ -106,7 +109,7 @@ export const ContactUs = () => {
 						maxLength: { value: INPUTLIMITS.name.max, message: "contact_footer.validation.name_max" },
 					})}
 					id="name"
-					className={cl("bg-white p-3 text-black outline-none", errors.name && "border-input-error border-2")}
+					className={cl("input", errors.name && "input-error")}
 					type="text"
 					autoComplete="name"
 					placeholder={t("contact_footer.form.name_placeholder")}
@@ -114,9 +117,7 @@ export const ContactUs = () => {
 					aria-describedby={errors.name ? "name-error" : undefined}
 				/>
 				<FieldErrorMsg id="name-error" field="name" error={errors.name} t={t} />
-				<label htmlFor="email" className="text-black">
-					{t("contact_footer.form.e_mail")}:
-				</label>
+				<label htmlFor="email">{t("contact_footer.form.e_mail")}:</label>
 				<input
 					{...register("email", {
 						setValueAs: collapseTrim,
@@ -129,7 +130,7 @@ export const ContactUs = () => {
 						maxLength: { value: INPUTLIMITS.email.max, message: "contact_footer.validation.e_mail_max" },
 					})}
 					id="email"
-					className={cl("bg-white p-3 text-black outline-none", errors.email && "border-input-error border-2")}
+					className={cl("input", errors.email && "input-error")}
 					type="email"
 					autoComplete="email"
 					placeholder={t("contact_footer.form.e_mail_placeholder")}
@@ -137,9 +138,7 @@ export const ContactUs = () => {
 					aria-describedby={errors.email ? "email-error" : undefined}
 				/>
 				<FieldErrorMsg id="email-error" field="email" error={errors.email} t={t} />
-				<label htmlFor="subject" className="text-black">
-					{t("contact_footer.form.subject")}:
-				</label>
+				<label htmlFor="subject">{t("contact_footer.form.subject")}:</label>
 				<input
 					{...register("subject", {
 						setValueAs: collapseTrim,
@@ -147,7 +146,7 @@ export const ContactUs = () => {
 						maxLength: { value: INPUTLIMITS.subject.max, message: "contact_footer.validation.subject_max" },
 					})}
 					id="subject"
-					className={cl("bg-white p-3 text-black outline-none", errors.subject && "border-input-error border-2")}
+					className={cl("input", errors.subject && "input-error")}
 					type="text"
 					autoComplete="off"
 					placeholder={t("contact_footer.form.subject")}
@@ -155,9 +154,7 @@ export const ContactUs = () => {
 					aria-describedby={errors.subject ? "subject-error" : undefined}
 				/>
 				<FieldErrorMsg id="subject-error" field="subject" error={errors.subject} t={t} />
-				<label htmlFor="message" className="text-black">
-					{t("contact_footer.form.message")}:
-				</label>
+				<label htmlFor="message">{t("contact_footer.form.message")}:</label>
 				<textarea
 					{...register("message", {
 						required: "contact_footer.validation.message_required",
@@ -166,10 +163,7 @@ export const ContactUs = () => {
 						maxLength: { value: INPUTLIMITS.message.max, message: "contact_footer.validation.message_max" },
 					})}
 					id="message"
-					className={cl(
-						"resize-y bg-white p-3 text-black outline-none",
-						errors.message && "border-input-error border-2",
-					)}
+					className={cl("input resize-y", errors.message && "input-error")}
 					autoComplete="off"
 					placeholder={t("contact_footer.form.message_placeholder")}
 					aria-invalid={!!errors.message}
@@ -194,7 +188,7 @@ export const ContactUs = () => {
 						type="submit"
 						disabled={isPending || isSubmitting}
 						aria-disabled={isPending}
-						className="hover:bg-burgundy w-1/3 rounded-full bg-white px-5 py-3 text-black hover:cursor-pointer hover:text-white disabled:cursor-not-allowed"
+						className="submit-btn w-1/3"
 					>
 						<span>{isPending ? t("contact_footer.button.sending") : t("contact_footer.button.send")}</span>
 					</button>

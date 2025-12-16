@@ -15,16 +15,17 @@ const HomeEditor = () => {
 	const options = !selectedOption ? sections : sections.filter((section) => section.id !== 1);
 	const currentOptionLabel = options.find((option) => option.value === selectedOption)?.name;
 
-	if (isError) return <div className="text-red-500">{error?.message}</div>;
+	if (isError)
+		return <div className="text-input-error flex h-full w-full items-center justify-center">{error?.message}</div>;
 
 	return (
-		<div className="flex h-full flex-col items-center gap-y-5 py-10">
-			<h3 className="text-burgundy self-center text-xl font-bold">
+		<div className="text-burgundy flex h-full flex-col items-center gap-y-5 py-10">
+			<h3 className="self-center text-xl font-bold">
 				{!selectedOption ? "Please select a section to edit" : `Now editing the ${currentOptionLabel} section`}
 			</h3>
 			<select
 				name="section"
-				className="text-burgundy text-lg hover:cursor-pointer hover:font-bold"
+				className="text-lg hover:cursor-pointer hover:font-bold"
 				disabled={isLoading}
 				value={selectedOption}
 				onChange={(e) => setSelectedOption(e.target.value)}

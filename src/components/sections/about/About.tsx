@@ -13,11 +13,11 @@ const About = () => {
 					alt="Máté Ilona"
 					className="msm:w-3/4 self-center rounded-lg sm:w-2/3 lg:h-76 lg:w-auto lg:self-auto"
 				/>
-				<div className="flex flex-col gap-y-3">
-					<p className="text-pretty">{t("home.meet_ilona.body.p1")}</p>
-					<p className="text-pretty">{t("home.meet_ilona.body.p2")}</p>
-					<p className="text-pretty">{t("home.meet_ilona.body.p3")}</p>
-					<p className="text-pretty">{t("home.meet_ilona.body.p4")}</p>
+				<div className="flex flex-col gap-y-3 text-pretty">
+					<p>{t("home.meet_ilona.body.p1")}</p>
+					<p>{t("home.meet_ilona.body.p2")}</p>
+					<p>{t("home.meet_ilona.body.p3")}</p>
+					<p>{t("home.meet_ilona.body.p4")}</p>
 				</div>
 			</div>
 		</section>

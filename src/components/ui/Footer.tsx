@@ -10,10 +10,10 @@ const Footer = () => {
 		<footer
 			id="contact"
 			tabIndex={-1}
-			className="bg-ghost-gray border-light-beige flex w-full flex-col items-center gap-y-7.5 border-t-2 border-solid pt-7.5 text-white"
+			className="bg-ghost-gray border-light-beige col-items-center w-full gap-y-7.5 border-t-2 border-solid pt-7.5 text-white"
 		>
 			<ContactUs />
-			<div className="bg-burgundy flex w-full flex-col items-center gap-y-5 py-5 sm:flex-row sm:justify-center sm:gap-x-5 sm:gap-y-0">
+			<div className="bg-burgundy col-items-center w-full gap-y-5 py-5 sm:flex-row sm:justify-center sm:gap-x-5 sm:gap-y-0">
 				<small className="sm:border-r sm:border-white sm:pr-5">
 					&copy; {new Date().getFullYear()} Máté Ilona {t("contact_footer.copyright")}
 				</small>

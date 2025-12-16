@@ -29,10 +29,10 @@ const Dashboard = () => {
 	if (!session) return <DashboardLogin />;
 
 	return (
-		<div className="flex h-screen w-full flex-row">
+		<div className="flex h-screen w-full flex-row text-white">
 			<aside className="h-full w-[10%] bg-[#570b1b]">
-				<nav className="flex flex-col items-center gap-y-5">
-					<ul className="flex flex-col items-center gap-y-5 pt-6 text-white">
+				<nav className="col-items-center gap-y-5">
+					<ul className="col-items-center gap-y-5 pt-6">
 						{dashboardNavlinks.map((link) => (
 							<li key={link.href}>
 								<Link
@@ -49,7 +49,7 @@ const Dashboard = () => {
 					</ul>
 					<button
 						onClick={handleLogout}
-						className="text-white hover:cursor-pointer hover:font-bold hover:underline hover:underline-offset-4"
+						className="hover:cursor-pointer hover:font-bold hover:underline hover:underline-offset-4"
 					>
 						Logout
 					</button>
@@ -57,8 +57,8 @@ const Dashboard = () => {
 			</aside>
 			<div className="flex h-full w-full flex-col">
 				<header className="bg-primary-dark flex items-center justify-between p-5">
-					<h2 className="self-start text-2xl font-bold text-white">Dashboard</h2>
-					<LanguageSwitcher />
+					<h2 className="self-start text-2xl font-bold">Dashboard</h2>
+					<LanguageSwitcher bgColor="bg-primary-dark" />
 				</header>
 				<main className="flex-1 overflow-hidden">
 					<Outlet />

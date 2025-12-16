@@ -23,17 +23,14 @@ const App = () => {
 	}, [location.pathname]);
 
 	return (
-		<div className="custom-background flex min-h-screen flex-col items-center justify-between gap-y-7.5">
+		<div className="custom-background col-items-center min-h-screen justify-between gap-y-7.5">
 			<ScrollToAnchor />
 			<Header isHome={isHome} />
 			<main
 				id="main"
 				ref={mainRef}
 				tabIndex={-1}
-				className={cl(
-					"flex w-full flex-col items-center px-5 outline-none sm:container sm:px-10",
-					isHome ? "gap-y-15" : "",
-				)}
+				className={cl("col-items-center w-full px-5 outline-none sm:container sm:px-10", isHome ? "gap-y-15" : "")}
 			>
 				<Outlet />
 			</main>

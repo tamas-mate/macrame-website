@@ -1,5 +1,3 @@
-import { useMemo } from "react";
-
 import { useDbTranslations } from "@/hooks/useDbTranslations";
 import type { ProductCategoriesType } from "@/types";
 import { imageMap } from "@/utils/utils";
@@ -9,7 +7,7 @@ const getCategoryImages = (categories: string[]) => categories.map((catImg) => i
 
 const ProductCategories = ({ categories }: ProductCategoriesType) => {
 	const { t } = useDbTranslations();
-	const categoryImages = useMemo(() => getCategoryImages(categories), [categories]);
+	const categoryImages = getCategoryImages(categories);
 
 	return (
 		<div className="msm:w-3/4 grid grid-cols-1 justify-items-center gap-4 self-center sm:w-auto sm:grid-cols-2 lg:grid-cols-3 2xl:max-w-7xl">

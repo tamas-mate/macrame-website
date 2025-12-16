@@ -31,9 +31,9 @@ const DashboardLogin = () => {
 	};
 
 	return (
-		<div className="flex h-screen items-center justify-center">
+		<div className="text-burgundy flex h-screen items-center justify-center">
 			<div className="flex flex-col gap-7.5">
-				<h2 className="text-burgundy text-2xl font-bold">Log in to access the dashboard</h2>
+				<h2 className="text-2xl font-bold">Log in to access the dashboard</h2>
 				<form className="flex flex-col gap-7.5" onSubmit={handleSubmit(onSubmit)}>
 					<input
 						{...register("email", {
@@ -47,7 +47,7 @@ const DashboardLogin = () => {
 							maxLength: { value: INPUTLIMITS.email.max, message: "Maximum 100 characters!" },
 						})}
 						id="email"
-						className={cl("bg-white p-3 text-black outline-none", errors.email && "border-input-error border-2")}
+						className={cl("input", errors.email && "input-error")}
 						type="email"
 						autoComplete="email"
 						autoFocus
@@ -61,23 +61,19 @@ const DashboardLogin = () => {
 							maxLength: { value: 64, message: "Maximum 64 characters!" },
 						})}
 						id="password"
-						className={cl("bg-white p-3 text-black outline-none", errors.email && "border-input-error border-2")}
+						className={cl("input", errors.email && "input-error")}
 						type="password"
 						autoComplete="off"
 						placeholder="Your Password"
 					/>
 					{errors.password && <span className="text-input-error text-xs">{errors.password.message}</span>}
 					<div className="flex items-center justify-center">
-						<button
-							type="submit"
-							disabled={login.isPending}
-							className="hover:bg-burgundy text-burgundy w-2/5 rounded-full bg-white px-5 py-3 font-bold hover:cursor-pointer hover:text-white disabled:cursor-not-allowed"
-						>
+						<button type="submit" disabled={login.isPending} className="submit-btn w-2/5">
 							<span>{login.isPending ? "Logging in..." : "Log in"}</span>
 						</button>
 					</div>
 				</form>
-				<Link to="/" className="text-burgundy self-center hover:cursor-pointer hover:font-bold">
+				<Link to="/" className="focus:outline-burgundy self-center hover:cursor-pointer hover:font-bold">
 					Back to Home
 				</Link>
 			</div>

@@ -1,7 +1,7 @@
 import LocalizationIcon from "@/assets/icons/LocalizationIcon";
 import { useDbTranslations } from "@/hooks/useDbTranslations";
 
-const LanguageSwitcher = () => {
+const LanguageSwitcher = ({ bgColor }: { bgColor: string }) => {
 	const { i18n } = useDbTranslations();
 
 	const handleLanguageChange = async (lang: string) => {
@@ -16,18 +16,12 @@ const LanguageSwitcher = () => {
 			<select
 				defaultValue={i18n.language}
 				name="language"
-				className="text-white outline-none hover:cursor-pointer hover:font-bold"
+				className={`text-white outline-none hover:cursor-pointer hover:font-bold ${bgColor}`}
 				onChange={(e) => handleLanguageChange(e.target.value)}
 			>
-				<option value="hu" className="bg-burgundy">
-					HU
-				</option>
-				<option value="ro" className="bg-burgundy">
-					RO
-				</option>
-				<option value="en" className="bg-burgundy">
-					EN
-				</option>
+				<option value="hu">HU</option>
+				<option value="ro">RO</option>
+				<option value="en">EN</option>
 			</select>
 		</div>
 	);
