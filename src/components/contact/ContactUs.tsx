@@ -2,8 +2,8 @@ import emailjs from "@emailjs/browser";
 import { useEffect, useRef, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useForm, type FieldErrors } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 
-import { useDbTranslations } from "@/hooks/useDbTranslations";
 import type { ContactForm } from "@/types";
 import { cl, collapseTrim, customToast, getFormattedDate, initObserver, INPUTLIMITS } from "@/utils/utils";
 import FieldErrorMsg from "./FieldErrorMsg";
@@ -12,7 +12,7 @@ export const ContactUs = () => {
 	const recaptcha = useRef<ReCAPTCHA | null>(null);
 	const isMounted = useRef(false);
 	const [isPending, setIsPending] = useState(false);
-	const { t } = useDbTranslations();
+	const { t } = useTranslation();
 	const {
 		register,
 		handleSubmit,

@@ -1,10 +1,11 @@
-import { useDbTranslations } from "@/hooks/useDbTranslations";
+import { useTranslation } from "react-i18next";
+
 import About from "../sections/about/About";
 import Macrame from "../sections/macrame/Macrame";
 import Products from "../sections/products/Products";
 
 const Home = () => {
-	const { t } = useDbTranslations();
+	const { t } = useTranslation();
 
 	return (
 		<>

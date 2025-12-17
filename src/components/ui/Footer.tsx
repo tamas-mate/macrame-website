@@ -1,10 +1,11 @@
+import { useTranslation } from "react-i18next";
+
 import FacebookIcon from "@/assets/icons/FacebookIcon";
 import InstagramIcon from "@/assets/icons/InstagramIcon";
-import { useDbTranslations } from "@/hooks/useDbTranslations";
 import { ContactUs } from "../contact/ContactUs";
 
 const Footer = () => {
-	const { t } = useDbTranslations();
+	const { t } = useTranslation();
 
 	return (
 		<footer

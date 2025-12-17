@@ -1,8 +1,9 @@
+import { useTranslation } from "react-i18next";
+
 import LocalizationIcon from "@/assets/icons/LocalizationIcon";
-import { useDbTranslations } from "@/hooks/useDbTranslations";
 
 const LanguageSwitcher = ({ bgColor }: { bgColor: string }) => {
-	const { i18n } = useDbTranslations();
+	const { i18n } = useTranslation();
 
 	const handleLanguageChange = async (lang: string) => {
 		await i18n.changeLanguage(lang).then(() => {

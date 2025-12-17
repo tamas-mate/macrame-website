@@ -1,15 +1,15 @@
 import { type MouseEvent } from "react";
+import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router";
 
 import { navlinks } from "@/constants";
-import { useDbTranslations } from "@/hooks/useDbTranslations";
 import { useMobileMenu } from "@/hooks/useMobileMenu";
 import type { HeaderType } from "@/types";
 import { cl, imageMap } from "@/utils/utils";
 import LanguageSwitcher from "../language-switcher/LanguageSwitcher";
 
 const Header = ({ isHome }: HeaderType) => {
-	const { t } = useDbTranslations();
+	const { t } = useTranslation();
 	const { pathname, hash } = useLocation();
 	const { isMenuOpen, toggleMenu, closeMenu, menuBtnRef, menuRef } = useMobileMenu();
 

@@ -6,7 +6,7 @@ import type { StringMap } from "@/types";
 
 export const useTranslationsQuery = () => {
 	const { i18n } = useTranslation();
-	const currentLanguage = i18n.resolvedLanguage ?? i18n.language;
+	const currentLanguage = i18n.language;
 
 	return useQuery({
 		queryKey: ["translations", currentLanguage],
@@ -25,6 +25,8 @@ export const useTranslationsQuery = () => {
 				if (!path || row.value_text == null) continue;
 				map[path] = row.value_text;
 			}
+
+			i18n.addResourceBundle(currentLanguage, "backend", map);
 
 			return map;
 		},

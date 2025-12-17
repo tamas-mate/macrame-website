@@ -12,8 +12,7 @@ import CatalogManager from "./components/pages/CatalogManager.tsx";
 import Category from "./components/pages/Category.tsx";
 import Home from "./components/pages/Home.tsx";
 import HomeEditor from "./components/pages/HomeEditor.tsx";
-import LoadingSpinner from "./components/ui/LoadingSpinner.tsx";
-import { TranslationsProvider } from "./context/translations/TranslationsProvider.tsx";
+import { TranslationsWrapper } from "./components/TranslationsWrapper.tsx";
 import { toastContainerConfig } from "./utils/utils.ts";
 
 const queryClient = new QueryClient({
@@ -29,22 +28,22 @@ const LazyToastContainer = lazy(() => import("react-toastify").then((module) => 
 createRoot(document.getElementById("root")!).render(
 	<StrictMode>
 		<QueryClientProvider client={queryClient}>
-			<Suspense fallback={<LoadingSpinner isFullscreen />}>
-				<TranslationsProvider>
-					<BrowserRouter>
-						<Routes>
-							<Route path="/" element={<MainLayout />}>
-								<Route index element={<Home />} />
-								<Route path="/categories/:category" element={<Category />} />
-							</Route>
-							<Route path="/dashboard" element={<DashboardLayout />}>
-								<Route index element={<HomeEditor />} />
-								<Route path="/dashboard/catalog" element={<CatalogManager />} />
-							</Route>
-							<Route path="*" element={<NotFound />} />
-						</Routes>
-					</BrowserRouter>
-				</TranslationsProvider>
+			<TranslationsWrapper>
+				<BrowserRouter>
+					<Routes>
+						<Route path="/" element={<MainLayout />}>
+							<Route index element={<Home />} />
+							<Route path="/categories/:category" element={<Category />} />
+						</Route>
+						<Route path="/dashboard" element={<DashboardLayout />}>
+							<Route index element={<HomeEditor />} />
+							<Route path="/dashboard/catalog" element={<CatalogManager />} />
+						</Route>
+						<Route path="*" element={<NotFound />} />
+					</Routes>
+				</BrowserRouter>
+			</TranslationsWrapper>
+			<Suspense fallback={null}>
 				<LazyToastContainer {...toastContainerConfig} />
 			</Suspense>
 		</QueryClientProvider>

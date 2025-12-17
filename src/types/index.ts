@@ -1,19 +1,6 @@
 import type { ReactNode, Ref } from "react";
-import type { useTranslation } from "react-i18next";
-
-type BaseUseTranslation = ReturnType<typeof useTranslation>;
-
-export type UseDbTranslationsResult = Omit<BaseUseTranslation, "t"> & {
-	t: BaseUseTranslation["t"];
-};
 
 export type StringMap = Record<string, string>;
-
-export type TranslationsContextValue = {
-	translationsMap: StringMap;
-	translationsLoading: boolean;
-	translationsError: Error | null;
-};
 
 export type ChildrenType = {
 	children: ReactNode;

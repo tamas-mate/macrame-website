@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 import supabase from "@/lib/supabase";
 import type { TranslationForm, TranslationFormProps } from "@/types";
 import { cl, customToast } from "@/utils/utils";
-import { useEffect, useEffectEvent } from "react";
 
 const SectionTranslationsForm = ({ inputs, locale }: TranslationFormProps) => {
 	"use no memo";
@@ -17,21 +16,11 @@ const SectionTranslationsForm = ({ inputs, locale }: TranslationFormProps) => {
 		reset,
 		formState: { errors },
 	} = useForm<TranslationForm>({
-		defaultValues: {
+		values: {
 			data: inputs.map((input) => ({ value: input.value_text, translationKeyId: input.translation_key_id })),
 		},
 		mode: "all",
 	});
-
-	const onReset = useEffectEvent((inputs: TranslationFormProps["inputs"]) =>
-		reset({
-			data: inputs.map((input) => ({ value: input.value_text, translationKeyId: input.translation_key_id })),
-		}),
-	);
-
-	useEffect(() => {
-		onReset(inputs);
-	}, [inputs]);
 
 	const formMutation = useMutation({
 		mutationFn: async (formData: TranslationForm) => {

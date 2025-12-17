@@ -1,4 +1,5 @@
-import { useDbTranslations } from "@/hooks/useDbTranslations";
+import { useTranslation } from "react-i18next";
+
 import type { ProductCategoriesType } from "@/types";
 import { imageMap } from "@/utils/utils";
 import ProductCategoryItem from "./ProductCategoryItem";
@@ -6,7 +7,7 @@ import ProductCategoryItem from "./ProductCategoryItem";
 const getCategoryImages = (categories: string[]) => categories.map((catImg) => imageMap[catImg]);
 
 const ProductCategories = ({ categories }: ProductCategoriesType) => {
-	const { t } = useDbTranslations();
+	const { t } = useTranslation();
 	const categoryImages = getCategoryImages(categories);
 
 	return (
