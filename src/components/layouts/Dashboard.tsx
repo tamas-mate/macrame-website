@@ -24,7 +24,7 @@ const Dashboard = () => {
 		return href === pathname;
 	};
 
-	if (sessionLoading) return <LoadingSpinner />;
+	if (sessionLoading) return <LoadingSpinner isFullscreen />;
 
 	if (!session) return <DashboardLogin />;
 

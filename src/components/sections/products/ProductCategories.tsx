@@ -7,7 +7,7 @@ import ProductCategoryItem from "./ProductCategoryItem";
 const getCategoryImages = (categories: string[]) => categories.map((catImg) => imageMap[catImg]);
 
 const ProductCategories = ({ categories }: ProductCategoriesType) => {
-	const { t } = useTranslation();
+	const { t } = useTranslation("backend");
 	const categoryImages = getCategoryImages(categories);
 
 	return (

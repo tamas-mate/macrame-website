@@ -9,7 +9,7 @@ import { cl, imageMap } from "@/utils/utils";
 import LanguageSwitcher from "../language-switcher/LanguageSwitcher";
 
 const Header = ({ isHome }: HeaderType) => {
-	const { t } = useTranslation();
+	const { t } = useTranslation("backend");
 	const { pathname, hash } = useLocation();
 	const { isMenuOpen, toggleMenu, closeMenu, menuBtnRef, menuRef } = useMobileMenu();
 

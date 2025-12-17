@@ -4,7 +4,7 @@ import { categories } from "@/constants";
 import ProductCategories from "./ProductCategories";
 
 const Products = () => {
-	const { t } = useTranslation();
+	const { t } = useTranslation("backend");
 
 	return (
 		<section id="products" className="flex flex-col gap-y-7.5 text-pretty">

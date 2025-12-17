@@ -4,19 +4,16 @@ import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import { useTranslationsQuery } from "@/hooks/useTranslationsQuery";
 
 export const TranslationsWrapper = ({ children }: { children: ReactNode }) => {
-	const { isLoading, isError, data, error } = useTranslationsQuery();
+	const { isLoading, isFetching, isError, data, error } = useTranslationsQuery();
 
-	if (isError) {
-		console.error("Error fetching translations:", error.message);
-	}
+	if (isError) console.error("Error fetching translations:", error.message);
 
-	if (isLoading) {
-		return <LoadingSpinner isFullscreen />;
-	}
+	if (isLoading && !data) return <LoadingSpinner isFullscreen />;
 
-	if (!data) {
-		return null;
-	}
-
-	return <>{children}</>;
+	return (
+		<>
+			{children}
+			{isFetching && <LoadingSpinner isFullscreen />}
+		</>
+	);
 };

@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { imageMap } from "@/utils/utils";
 
 const About = () => {
-	const { t } = useTranslation();
+	const { t } = useTranslation("backend");
 
 	return (
 		<section id="about" className="flex flex-col gap-y-7.5">

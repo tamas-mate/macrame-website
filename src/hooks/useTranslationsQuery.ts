@@ -1,5 +1,5 @@
 import supabase from "@/lib/supabase";
-import { useQuery } from "@tanstack/react-query";
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 
 import type { StringMap } from "@/types";
@@ -31,5 +31,6 @@ export const useTranslationsQuery = () => {
 			return map;
 		},
 		staleTime: 5 * 60 * 1000,
+		placeholderData: keepPreviousData,
 	});
 };

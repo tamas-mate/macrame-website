@@ -12,7 +12,7 @@ export const ContactUs = () => {
 	const recaptcha = useRef<ReCAPTCHA | null>(null);
 	const isMounted = useRef(false);
 	const [isPending, setIsPending] = useState(false);
-	const { t } = useTranslation();
+	const { t } = useTranslation("backend");
 	const {
 		register,
 		handleSubmit,

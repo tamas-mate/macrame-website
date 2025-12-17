@@ -5,7 +5,7 @@ import Macrame from "../sections/macrame/Macrame";
 import Products from "../sections/products/Products";
 
 const Home = () => {
-	const { t } = useTranslation();
+	const { t } = useTranslation("backend");
 
 	return (
 		<>

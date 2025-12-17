@@ -5,7 +5,7 @@ import InstagramIcon from "@/assets/icons/InstagramIcon";
 import { ContactUs } from "../contact/ContactUs";
 
 const Footer = () => {
-	const { t } = useTranslation();
+	const { t } = useTranslation("backend");
 
 	return (
 		<footer

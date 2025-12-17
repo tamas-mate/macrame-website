@@ -8,8 +8,8 @@ import { sections } from "@/constants";
 import { useSectionTranslations } from "@/hooks/useSectionTranslations";
 
 const HomeEditor = () => {
-	const { i18n, ready } = useTranslation();
-	const currentLanguage = i18n.resolvedLanguage ?? i18n.language;
+	const { i18n, ready } = useTranslation("backend");
+	const currentLanguage = i18n.language;
 	const [selectedOption, setSelectedOption] = useState(sections[0].value);
 	const { isLoading, isError, data, error } = useSectionTranslations(selectedOption, currentLanguage, ready);
 	const options = !selectedOption ? sections : sections.filter((section) => section.id !== 1);
