@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 
 const cwd = process.cwd();
-const filePaths = ["src/locales/src/i18n/en.json", "src/locales/src/i18n/hu.json", "src/locales/src/i18n/ro.json"];
+const filePaths = ["src/i18n/locales/en.json", "src/i18n/locales/hu.json", "src/i18n/locales/ro.json"];
 
 const flatten = (obj: Record<string, string>, prefix = "") => {
 	const output = {} as Record<string, string>;
