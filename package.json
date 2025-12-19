@@ -6,10 +6,10 @@
 	"scripts": {
 		"dev": "vite --host",
 		"build": "vite build",
-		"analyze": "cross-env ANALYZE=true vite build",
+		"preview": "vite preview --host",
 		"lint": "eslint .",
-		"preview": "vite preview",
-		"pretty": "prettier --write \"./**/*.{js,ts,jsx,tsx,css,json,cjs,cts,mjs,mts,vue,astro}\""
+		"pretty": "prettier --write \"./**/*.{js,ts,jsx,tsx,css,json,cjs,cts,mjs,mts,vue,astro}\"",
+		"analyze": "cross-env ANALYZE=true vite build"
 	},
 	"dependencies": {
 		"@emailjs/browser": "^4.4.1",
@@ -53,4 +53,3 @@
 		"vite": "^7.2.6"
 	}
 }
-
