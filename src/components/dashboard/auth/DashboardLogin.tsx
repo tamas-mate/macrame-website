@@ -3,9 +3,10 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
 
 import FieldErrorMsg from "@/components/contact/FieldErrorMsg";
+import { INPUTLIMITS } from "@/constants";
 import { useAuth } from "@/hooks/useAuth";
 import type { LoginForm } from "@/types";
-import { cl, collapseTrim, customToast, INPUTLIMITS } from "@/utils/utils";
+import { cl, collapseTrim, customToast } from "@/utils/utils";
 
 const DashboardLogin = () => {
 	const {

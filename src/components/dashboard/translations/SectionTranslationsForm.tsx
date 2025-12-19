@@ -3,9 +3,10 @@ import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
 import FieldErrorMsg from "@/components/contact/FieldErrorMsg";
+import { INPUTLIMITS } from "@/constants";
 import supabase from "@/lib/supabase";
 import type { TranslationForm, TranslationFormProps } from "@/types";
-import { cl, customToast, INPUTLIMITS } from "@/utils/utils";
+import { cl, customToast } from "@/utils/utils";
 
 const SectionTranslationsForm = ({ inputs, locale }: TranslationFormProps) => {
 	"use no memo";

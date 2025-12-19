@@ -1,6 +1,5 @@
+import { INPUTLIMITS } from "@/constants";
 import type { FieldError } from "react-hook-form";
-
-import { INPUTLIMITS } from "@/utils/utils";
 
 const FieldErrorMsg = ({
 	id,

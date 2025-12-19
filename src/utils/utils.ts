@@ -2,27 +2,6 @@ import clsx, { type ClassValue } from "clsx";
 import { Bounce, toast, type ToastContainerProps } from "react-toastify";
 import { twMerge } from "./../../node_modules/tailwind-merge/src/lib/tw-merge";
 
-import logo from "@/assets/images/logo.png";
-import type { StringMap } from "@/types";
-import categoryBracelet from "../assets/images/category-bracelets.jpg";
-import categoryDecorations from "../assets/images/category-decorations.jpg";
-import categoryEarringst from "../assets/images/category-earrings.jpg";
-import categoryNecklaces from "../assets/images/category-necklaces.jpg";
-import categoryRings from "../assets/images/category-rings.jpg";
-import categorySets from "../assets/images/category-sets.jpg";
-import about from "../assets/images/mi.jpg";
-
-export const imageMap: StringMap = {
-	logo,
-	bracelets: categoryBracelet,
-	decorations: categoryDecorations,
-	earrings: categoryEarringst,
-	necklaces: categoryNecklaces,
-	rings: categoryRings,
-	sets: categorySets,
-	about,
-};
-
 export const cl = (...classes: ClassValue[]) => {
 	return twMerge(clsx(...classes));
 };
@@ -30,14 +9,8 @@ export const cl = (...classes: ClassValue[]) => {
 export const toastContainerConfig: ToastContainerProps = {
 	["aria-label"]: "Form Notification",
 	position: "bottom-right",
-	autoClose: 5000,
-	hideProgressBar: false,
-	newestOnTop: false,
 	closeOnClick: true,
-	rtl: false,
-	pauseOnFocusLoss: true,
 	draggable: true,
-	pauseOnHover: true,
 	transition: Bounce,
 };
 
@@ -61,15 +34,6 @@ export const getFormattedDate = () => {
 			hour12: false,
 		})
 		.replace(",", "");
-};
-
-export const INPUTLIMITS = {
-	name: { max: 50 },
-	email: { min: 3, max: 100 },
-	subject: { max: 100 },
-	message: { min: 10, max: 1000 },
-	password: { min: 6, max: 100 },
-	section: { min: 10, max: 10000 },
 };
 
 export const collapseTrim = (value: unknown) => (typeof value === "string" ? value.replace(/\s+/g, " ").trim() : value);

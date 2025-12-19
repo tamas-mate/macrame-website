@@ -4,8 +4,9 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { useForm, type FieldErrors } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
+import { INPUTLIMITS } from "@/constants";
 import type { ContactForm } from "@/types";
-import { cl, collapseTrim, customToast, getFormattedDate, initObserver, INPUTLIMITS } from "@/utils/utils";
+import { cl, collapseTrim, customToast, getFormattedDate, initObserver } from "@/utils/utils";
 import FieldErrorMsg from "./FieldErrorMsg";
 
 export const ContactUs = () => {

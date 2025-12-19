@@ -1,6 +1,5 @@
+import { imageMap } from "@/constants";
 import { useTranslation } from "react-i18next";
-
-import { imageMap } from "@/utils/utils";
 
 const About = () => {
 	const { t } = useTranslation("backend");

@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 
+import { imageMap } from "@/constants";
 import type { ProductCategoriesType } from "@/types";
-import { imageMap } from "@/utils/utils";
 import ProductCategoryItem from "./ProductCategoryItem";
 
 const getCategoryImages = (categories: string[]) => categories.map((catImg) => imageMap[catImg]);

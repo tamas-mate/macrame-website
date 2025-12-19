@@ -2,10 +2,10 @@ import { type MouseEvent } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router";
 
-import { navlinks } from "@/constants";
+import { imageMap, navlinks } from "@/constants";
 import { useMobileMenu } from "@/hooks/useMobileMenu";
 import type { HeaderType } from "@/types";
-import { cl, imageMap } from "@/utils/utils";
+import { cl } from "@/utils/utils";
 import LanguageSwitcher from "../language-switcher/LanguageSwitcher";
 
 const Header = ({ isHome }: HeaderType) => {
