@@ -23,7 +23,7 @@ const HomeEditor = () => {
 			<h2 className="self-center text-xl font-bold">
 				{!selectedOption
 					? t("dashboard.home.sections.cta")
-					: t("dashboard.home.sections.info", { selected: currentOptionLabel })}
+					: t("dashboard.home.sections.info", { selected: t(currentOptionLabel as string) })}
 			</h2>
 			<select
 				name="section"

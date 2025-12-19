@@ -14,11 +14,11 @@
 				"subject": "Subiect",
 				"message": "Mesaj",
 				"password": "Parolă",
-				"this": "acest câmp"
+				"this": "Acest câmp"
 			}
 		},
 		"validation": {
-			"required": "Câmp obligatoriu: {{field}}!",
+			"required": "{{field}} este obligatoriu!",
 			"min": "{{field}} trebuie să aibă cel puțin {{value}} caractere!",
 			"max": "{{field}} trebuie să aibă mai puțin de {{value}} caractere!",
 			"email_invalid": "Format de email invalid!"

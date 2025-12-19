@@ -104,7 +104,7 @@
 	},
 	"contact_footer": {
 		"form": {
-			"title": "Írj üzenetet",
+			"title": "Írjon üzenetet",
 			"fields": {
 				"name": { "placeholder": "Az ön neve" },
 				"email": { "placeholder": "Az ön e-mail címe" },
