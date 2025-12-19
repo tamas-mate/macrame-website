@@ -94,82 +94,106 @@ export const ContactUs = () => {
 
 	return (
 		<div className="xsm:px-0 xsm:w-auto text-burgundy flex w-full flex-col gap-y-10 px-5">
-			<h2 className="self-center text-2xl md:self-start">{t("contact_footer.title")}</h2>
+			<h2 className="self-center text-2xl md:self-start">{t("contact_footer.form.title")}</h2>
 			<form
-				className="flex flex-col gap-y-3"
 				onSubmit={handleSubmit(onSubmit, onInvalid)}
+				className="flex flex-col gap-y-3"
 				aria-busy={isPending}
 				spellCheck="false"
 			>
-				<label htmlFor="name">{t("contact_footer.form.name")}:</label>
+				<label htmlFor="name">{t("common.fields.label.name")}:</label>
 				<input
 					{...register("name", {
 						setValueAs: collapseTrim,
-						required: { value: true, message: "contact_footer.validation.name_required" },
-						maxLength: { value: INPUTLIMITS.name.max, message: "contact_footer.validation.name_max" },
+						required: { value: true, message: "common.validation.required" },
+						maxLength: { value: INPUTLIMITS.name.max, message: "common.validation.max" },
 					})}
 					id="name"
 					className={cl("input", errors.name && "input-error")}
 					type="text"
 					autoComplete="name"
-					placeholder={t("contact_footer.form.name_placeholder")}
+					placeholder={t("contact_footer.form.fields.name.placeholder")}
 					aria-invalid={!!errors.name}
 					aria-describedby={errors.name ? "name-error" : undefined}
 				/>
-				<FieldErrorMsg id="name-error" field="name" error={errors.name} t={t} />
-				<label htmlFor="email">{t("contact_footer.form.e_mail")}:</label>
+				<FieldErrorMsg
+					id="name-error"
+					field="name"
+					fieldLabel={t("common.fields.for_validation.name")}
+					error={errors.name}
+					t={t}
+				/>
+				<label htmlFor="email">{t("common.fields.label.email")}:</label>
 				<input
 					{...register("email", {
 						setValueAs: collapseTrim,
-						required: { value: true, message: "contact_footer.validation.e_mail_required" },
+						required: { value: true, message: "common.validation.required" },
 						pattern: {
 							value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-							message: "contact_footer.validation.e_mail_invalid",
+							message: "common.validation.email_invalid",
 						},
-						minLength: { value: INPUTLIMITS.email.min, message: "contact_footer.validation.e_mail_min" },
-						maxLength: { value: INPUTLIMITS.email.max, message: "contact_footer.validation.e_mail_max" },
+						minLength: { value: INPUTLIMITS.email.min, message: "common.validation.min" },
+						maxLength: { value: INPUTLIMITS.email.max, message: "common.validation.max" },
 					})}
 					id="email"
 					className={cl("input", errors.email && "input-error")}
 					type="email"
 					autoComplete="email"
-					placeholder={t("contact_footer.form.e_mail_placeholder")}
+					placeholder={t("contact_footer.form.fields.email.placeholder")}
 					aria-invalid={!!errors.email}
 					aria-describedby={errors.email ? "email-error" : undefined}
 				/>
-				<FieldErrorMsg id="email-error" field="email" error={errors.email} t={t} />
-				<label htmlFor="subject">{t("contact_footer.form.subject")}:</label>
+				<FieldErrorMsg
+					id="email-error"
+					field="email"
+					fieldLabel={t("common.fields.for_validation.email")}
+					error={errors.email}
+					t={t}
+				/>
+				<label htmlFor="subject">{t("common.fields.label.subject")}:</label>
 				<input
 					{...register("subject", {
 						setValueAs: collapseTrim,
-						required: "contact_footer.validation.subject_required",
-						maxLength: { value: INPUTLIMITS.subject.max, message: "contact_footer.validation.subject_max" },
+						required: { value: true, message: "common.validation.required" },
+						maxLength: { value: INPUTLIMITS.subject.max, message: "common.validation.max" },
 					})}
 					id="subject"
 					className={cl("input", errors.subject && "input-error")}
 					type="text"
 					autoComplete="off"
-					placeholder={t("contact_footer.form.subject")}
+					placeholder={t("common.fields.label.subject")}
 					aria-invalid={!!errors.subject}
 					aria-describedby={errors.subject ? "subject-error" : undefined}
 				/>
-				<FieldErrorMsg id="subject-error" field="subject" error={errors.subject} t={t} />
-				<label htmlFor="message">{t("contact_footer.form.message")}:</label>
+				<FieldErrorMsg
+					id="subject-error"
+					field="subject"
+					fieldLabel={t("common.fields.for_validation.subject")}
+					error={errors.subject}
+					t={t}
+				/>
+				<label htmlFor="message">{t("common.fields.label.message")}:</label>
 				<textarea
 					{...register("message", {
-						required: "contact_footer.validation.message_required",
+						required: "common.validation.required",
 						setValueAs: collapseTrim,
-						minLength: { value: INPUTLIMITS.message.min, message: "contact_footer.validation.message_min" },
-						maxLength: { value: INPUTLIMITS.message.max, message: "contact_footer.validation.message_max" },
+						minLength: { value: INPUTLIMITS.message.min, message: "common.validation.min" },
+						maxLength: { value: INPUTLIMITS.message.max, message: "common.validation.max" },
 					})}
 					id="message"
 					className={cl("input resize-y", errors.message && "input-error")}
 					autoComplete="off"
-					placeholder={t("contact_footer.form.message_placeholder")}
+					placeholder={t("contact_footer.form.fields.message.placeholder")}
 					aria-invalid={!!errors.message}
 					aria-describedby={errors.message ? "message-error" : undefined}
 				/>
-				<FieldErrorMsg id="message-error" field="message" error={errors.message} t={t} />
+				<FieldErrorMsg
+					id="message-error"
+					field="message"
+					fieldLabel={t("common.fields.for_validation.message")}
+					error={errors.message}
+					t={t}
+				/>
 				<div className="xsm:w-auto xsm:overflow-auto min-h-19.5 w-full overflow-hidden">
 					<div id="captcha-help" className="sr-only">
 						{t("contact_footer.form.recaptcha")}
@@ -180,17 +204,19 @@ export const ContactUs = () => {
 						aria-describedby="captcha-help"
 					/>
 				</div>
-				<span id="form-status" aria-live="polite" className="sr-only">
-					{isPending ? t("contact_footer.button.sending") : ""}
+				<span id="contact-status" role="status" aria-live="polite" className="sr-only">
+					{isPending ? t("contact_footer.form.buttons.sending") : ""}
 				</span>
 				<div className="flex items-center justify-center">
 					<button
 						type="submit"
 						disabled={isPending || isSubmitting}
+						aria-busy={isPending}
 						aria-disabled={isPending}
+						aria-describedby="contact-status"
 						className="submit-btn w-1/3"
 					>
-						<span>{isPending ? t("contact_footer.button.sending") : t("contact_footer.button.send")}</span>
+						<span>{isPending ? t("contact_footer.form.buttons.sending") : t("contact_footer.form.buttons.send")}</span>
 					</button>
 				</div>
 			</form>

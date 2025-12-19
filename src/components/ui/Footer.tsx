@@ -16,9 +16,9 @@ const Footer = () => {
 			<ContactUs />
 			<div className="bg-burgundy col-items-center w-full gap-y-5 py-5 sm:flex-row sm:justify-center sm:gap-x-5 sm:gap-y-0">
 				<small className="sm:border-r sm:border-white sm:pr-5">
-					&copy; {new Date().getFullYear()} Máté Ilona {t("contact_footer.copyright")}
+					&copy; {new Date().getFullYear()} Máté Ilona {t("contact_footer.footer.copyright")}
 				</small>
-				<nav aria-label={t("contact_footer.aria-social")}>
+				<nav aria-label={t("contact_footer.footer.aria_social")}>
 					<ul className="flex items-center gap-x-5">
 						<li>
 							<a

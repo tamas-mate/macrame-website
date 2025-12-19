@@ -1,4 +1,29 @@
 {
+	"common": {
+		"fields": {
+			"label": {
+				"name": "Nume",
+				"email": "E-mail",
+				"subject": "Subiect",
+				"message": "Mesaj",
+				"password": "Parolă"
+			},
+			"for_validation": {
+				"name": "Nume",
+				"email": "E-mail",
+				"subject": "Subiect",
+				"message": "Mesaj",
+				"password": "Parolă",
+				"this": "acest câmp"
+			}
+		},
+		"validation": {
+			"required": "Câmp obligatoriu: {{field}}!",
+			"min": "{{field}} trebuie să aibă cel puțin {{value}} caractere!",
+			"max": "{{field}} trebuie să aibă mai puțin de {{value}} caractere!",
+			"email_invalid": "Format de email invalid!"
+		}
+	},
 	"not_found": {
 		"description": "Ne pare rău, dar pagina pe care o cauți nu există."
 	},
@@ -78,39 +103,61 @@
 		}
 	},
 	"contact_footer": {
-		"title": "Trimite un mesaj",
 		"form": {
-			"name": "Nume",
-			"name_placeholder": "Numele dumneavoastră",
-			"e_mail": "E-mail",
-			"e_mail_placeholder": "Adresa de e-mail",
-			"subject": "Subiect",
-			"message": "Mesaj",
-			"message_placeholder": "Mesajul dumneavoastră",
-			"recaptcha": "Completează reCAPTCHA"
+			"title": "Trimite un mesaj",
+			"fields": {
+				"name": { "placeholder": "Numele dumneavoastră" },
+				"email": { "placeholder": "Adresa de e-mail" },
+				"message": { "placeholder": "Mesajul dumneavoastră" }
+			},
+			"recaptcha": "Completează reCAPTCHA",
+			"buttons": {
+				"send": "Trimite",
+				"sending": "Se trimite…"
+			}
 		},
-		"validation": {
-			"check_inputs": "Vă rugăm să verificați datele introduse!",
-			"recaptcha_failed": "Verificarea reCAPTCHA a eșuat!",
-			"success": "Mesajul a fost trimis cu succes!",
-			"send_failed": "Trimiterea mesajului a eșuat!",
-			"name_required": "Numele este obligatoriu!",
-			"name_max": "Numele trebuie să aibă mai puțin de {{value}} caractere!",
-			"e_mail_required": "E-mailul este obligatoriu!",
-			"e_mail_invalid": "Format de email invalid!",
-			"e_mail_min": "E-mailul trebuie să aibă cel puțin {{value}} caractere!",
-			"e_mail_max": "E-mailul trebuie să aibă mai puțin de {{value}} caractere!",
-			"subject_required": "Subiectul este obligatoriu!",
-			"subject_max": "Subiectul trebuie să aibă mai puțin de {{value}} caractere!",
-			"message_required": "Mesajul este obligatoriu!",
-			"message_min": "Mesajul trebuie să aibă cel puțin {{value}} caractere!",
-			"message_max": "Mesajul trebuie să aibă mai puțin de {{value}} caractere!"
+		"footer": {
+			"copyright": "Toate drepturile rezervate",
+			"aria_social": "Rețele sociale"
+		}
+	},
+	"dashboard": {
+		"auth": {
+			"title": "Conectați-vă pentru a accesa panoul de control",
+			"fields": {
+				"email": { "placeholder": "Introduceti adresa de email" },
+				"password": { "placeholder": "Introduceti parola" }
+			},
+			"buttons": {
+				"login": "Autentificare",
+				"logging_in": "Autentificare…"
+			},
+			"login_error": "Autentificare eșuată: {{error}}!",
+			"logout_success": "Deconectare cu succes!",
+			"logout_error": "Deconectare eșuată: {{error}}!"
 		},
-		"button": {
-			"send": "Trimite",
-			"sending": "Se trimite…"
+		"nav": {
+			"home": "Editor pagină principală",
+			"catalog": "Manager catalog",
+			"back_to_home": "Înapoi la pagina principală",
+			"logout": "Deconectare"
 		},
-		"copyright": "Toate drepturile rezervate",
-		"aria-social": "Rețele sociale"
+		"header": {
+			"title": "Panou de control"
+		},
+		"home": {
+			"sections": {
+				"cta": "Alege o secțiune pentru editare",
+				"info": "Acum editați secțiunea: {{selected}}",
+				"option_default": "Alege o secțiune",
+				"option_category": "Categorie",
+				"buttons": {
+					"save": "Salvează",
+					"saving": "Se salvează…"
+				},
+				"changes_saved": "Modificări salvate!",
+				"changes_failed": "Eroare la salvarea modificăriilor: {{error}}!"
+			}
+		}
 	}
 }

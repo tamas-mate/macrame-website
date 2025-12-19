@@ -5,13 +5,15 @@ import { INPUTLIMITS } from "@/utils/utils";
 const FieldErrorMsg = ({
 	id,
 	field,
+	fieldLabel,
 	error,
 	t,
 }: {
 	id: string;
 	field: keyof typeof INPUTLIMITS;
+	fieldLabel: string;
 	error?: FieldError;
-	t: (k: string, o?: { value: number }) => string;
+	t: (k: string, o?: { field?: string; value?: number }) => string;
 }) => {
 	if (!error?.message) return null;
 
@@ -24,7 +26,10 @@ const FieldErrorMsg = ({
 
 	return (
 		<span id={id} role="alert" className="text-input-error text-xs">
-			{t(error.message as string, num ? { value: num } : undefined)}
+			{t(error.message as string, {
+				field: fieldLabel,
+				...(num ? { value: num } : {}),
+			})}
 		</span>
 	);
 };

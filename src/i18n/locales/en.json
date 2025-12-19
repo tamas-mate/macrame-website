@@ -1,4 +1,29 @@
 {
+	"common": {
+		"fields": {
+			"label": {
+				"name": "Name",
+				"email": "E-mail",
+				"subject": "Subject",
+				"message": "Message",
+				"password": "Password"
+			},
+			"for_validation": {
+				"name": "Name",
+				"email": "E-mail",
+				"subject": "Subject",
+				"message": "Message",
+				"password": "Password",
+				"this": "This field"
+			}
+		},
+		"validation": {
+			"required": "{{field}} is required!",
+			"min": "{{field}} must be at least {{value}} characters!",
+			"max": "{{field}} must be less than {{value}} characters!",
+			"email_invalid": "Invalid email format!"
+		}
+	},
 	"not_found": {
 		"description": "Sorry, but the page you are looking for does not exist."
 	},
@@ -78,39 +103,61 @@
 		}
 	},
 	"contact_footer": {
-		"title": "Leave a Message",
 		"form": {
-			"name": "Name",
-			"name_placeholder": "Your name",
-			"e_mail": "E-mail",
-			"e_mail_placeholder": "Your e-mail",
-			"subject": "Subject",
-			"message": "Message",
-			"message_placeholder": "Your message",
-			"recaptcha": "Complete the reCAPTCHA"
+			"title": "Leave a Message",
+			"fields": {
+				"name": { "placeholder": "Your name" },
+				"email": { "placeholder": "Your e-mail" },
+				"message": { "placeholder": "Your message" }
+			},
+			"recaptcha": "Complete the reCAPTCHA",
+			"buttons": {
+				"send": "Send",
+				"sending": "Sending…"
+			}
 		},
-		"validation": {
-			"check_inputs": "Please check your inputs!",
-			"recaptcha_failed": "Failed to verify reCAPTCHA!",
-			"success": "Message sent successfully!",
-			"send_failed": "Failed to send the message!",
-			"name_required": "Name is required!",
-			"name_max": "Name must be less than {{value}} characters!",
-			"e_mail_required": "E-mail is required!",
-			"e_mail_invalid": "Invalid email format!",
-			"e_mail_min": "E-mail must be at least {{value}} characters!",
-			"e_mail_max": "E-mail must be less than {{value}} characters!",
-			"subject_required": "Subject is required!",
-			"subject_max": "Subject must be less than {{value}} characters!",
-			"message_required": "Message is required!",
-			"message_min": "Message must be at least {{value}} characters!",
-			"message_max": "Message must be less than {{value}} characters!"
+		"footer": {
+			"copyright": "All rights reserved",
+			"aria_social": "Social media"
+		}
+	},
+	"dashboard": {
+		"auth": {
+			"title": "Log in to access the dashboard",
+			"fields": {
+				"email": { "placeholder": "Enter your email" },
+				"password": { "placeholder": "Enter your password" }
+			},
+			"buttons": {
+				"login": "Log In",
+				"logging_in": "Logging in…"
+			},
+			"login_error": "Login failed: {{error}}!",
+			"logout_success": "Logged out successfully!",
+			"logout_error": "Logout failed: {{error}}!"
 		},
-		"button": {
-			"send": "Send",
-			"sending": "Sending…"
+		"nav": {
+			"home": "Home Editor",
+			"catalog": "Catalog Manager",
+			"back_to_home": "Back to Home",
+			"logout": "Logout"
 		},
-		"copyright": "All Rights Reserved",
-		"aria-social": "Social media"
+		"header": {
+			"title": "Dashboard"
+		},
+		"home": {
+			"sections": {
+				"cta": "Please select a section to edit",
+				"info": "Now editing the section: {{selected}}",
+				"option_default": "Select a section",
+				"option_category": "Category",
+				"buttons": {
+					"save": "Save",
+					"saving": "Saving…"
+				},
+				"changes_saved": "Changes saved!",
+				"changes_failed": "Failed to save changes: {{error}}!"
+			}
+		}
 	}
 }

@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 
 import LocalizationIcon from "@/assets/icons/LocalizationIcon";
+import { languages } from "@/constants";
 
 const LanguageSwitcher = ({ bgColor }: { bgColor: string }) => {
 	const { i18n } = useTranslation();
@@ -20,9 +21,11 @@ const LanguageSwitcher = ({ bgColor }: { bgColor: string }) => {
 				className={`text-white outline-none hover:cursor-pointer hover:font-bold ${bgColor}`}
 				onChange={(e) => handleLanguageChange(e.target.value)}
 			>
-				<option value="hu">HU</option>
-				<option value="ro">RO</option>
-				<option value="en">EN</option>
+				{languages.map(({ value, label }) => (
+					<option key={value} value={value}>
+						{label}
+					</option>
+				))}
 			</select>
 		</div>
 	);

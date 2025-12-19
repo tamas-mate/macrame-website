@@ -1,4 +1,29 @@
 {
+	"common": {
+		"fields": {
+			"label": {
+				"name": "Név",
+				"email": "E-mail",
+				"subject": "Tárgy",
+				"message": "Üzenet",
+				"password": "Jelszó"
+			},
+			"for_validation": {
+				"name": "A név",
+				"email": "Az e-mail",
+				"subject": "A tárgy",
+				"message": "Az üzenet",
+				"password": "A jelszó",
+				"this": "Ez a mező"
+			}
+		},
+		"validation": {
+			"required": "{{field}} kötelező!",
+			"min": "{{field}} legalább {{value}} karakter kell legyen!",
+			"max": "{{field}} legfeljebb {{value}} karakter lehet!",
+			"email_invalid": "Érvénytelen email!"
+		}
+	},
 	"not_found": {
 		"description": "Sajnáljuk, de az általad keresett oldal nem létezik."
 	},
@@ -78,39 +103,61 @@
 		}
 	},
 	"contact_footer": {
-		"title": "Írj üzenetet",
 		"form": {
-			"name": "Név",
-			"name_placeholder": "Az ön neve",
-			"e_mail": "E-mail",
-			"e_mail_placeholder": "Az ön e-mail címe",
-			"subject": "Tárgy",
-			"message": "Üzenet",
-			"message_placeholder": "Az ön üzenete",
-			"recaptcha": "Töltse ki a reCAPTCHA-t"
+			"title": "Írj üzenetet",
+			"fields": {
+				"name": { "placeholder": "Az ön neve" },
+				"email": { "placeholder": "Az ön e-mail címe" },
+				"message": { "placeholder": "Az ön üzenete" }
+			},
+			"recaptcha": "Töltse ki a reCAPTCHA-t",
+			"buttons": {
+				"send": "Küldés",
+				"sending": "Küldés…"
+			}
 		},
-		"validation": {
-			"check_inputs": "Kérjük, ellenőrizze a megadott adatokat!",
-			"recaptcha_failed": "A reCAPTCHA ellenőrzése sikertelen!",
-			"success": "Üzenet sikeresen elküldve!",
-			"send_failed": "Az üzenet elküldése nem sikerült!",
-			"name_required": "A név megadása kötelező!",
-			"name_max": "A név legfeljebb {{value}} karakter lehet!",
-			"e_mail_required": "Az e-mail megadása kötelező!",
-			"e_mail_invalid": "Érvénytelen email!",
-			"e_mail_min": "Az e-mailnek legalább {{value}} karakterből kell állnia!",
-			"e_mail_max": "Az e-mail legfeljebb {{value}} karakter lehet!",
-			"subject_required": "A tárgy megadása kötelező!",
-			"subject_max": "A tárgy legfeljebb {{value}} karakter lehet!",
-			"message_required": "Az üzenet megadása kötelező!",
-			"message_min": "Az üzenetnek legalább {{value}} karakterből kell állnia!",
-			"message_max": "Az üzenet legfennebb {{value}} karakter lehet!"
+		"footer": {
+			"copyright": "Minden jog fenntartva",
+			"aria_social": "Közösségi média"
+		}
+	},
+	"dashboard": {
+		"auth": {
+			"title": "Jelentkezzen be az irányítópultba",
+			"fields": {
+				"email": { "placeholder": "Adja meg az e-mail címét" },
+				"password": { "placeholder": "Adja meg a jelszavát" }
+			},
+			"buttons": {
+				"login": "Bejelentkezés",
+				"logging_in": "Bejelentkezés…"
+			},
+			"login_error": "Sikertelen bejelentkezés: {{error}}!",
+			"logout_success": "Sikeres kijelentkezés!",
+			"logout_error": "Sikertelen kijelentkezés: {{error}}!"
 		},
-		"button": {
-			"send": "Küldés",
-			"sending": "Küldés…"
+		"nav": {
+			"home": "Kezdőlap szerkesztő",
+			"catalog": "Katalógus kezelő",
+			"back_to_home": "Vissza a főoldalra",
+			"logout": "Kijelentkezés"
 		},
-		"copyright": "Minden jog fenntartva",
-		"aria-social": "Közösségi média"
+		"header": {
+			"title": "Irányítópult"
+		},
+		"home": {
+			"sections": {
+				"cta": "Válasszon egy szerkeszteni kívánt szekciót",
+				"info": "A jelenleg szerkesztett szekció: {{selected}}",
+				"option_default": "Válasszon egy szekciót",
+				"option_category": "Kategória",
+				"buttons": {
+					"save": "Mentés",
+					"saving": "Mentés…"
+				},
+				"changes_saved": "Változtatások elmentve!",
+				"changes_failed": "A változtatások elmentése sikertelen: {{error}}!"
+			}
+		}
 	}
 }

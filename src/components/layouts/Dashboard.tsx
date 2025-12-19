@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Link, Outlet, useLocation } from "react-router";
 
 import { dashboardNavlinks } from "@/constants";
@@ -12,11 +13,12 @@ const Dashboard = () => {
 	const { session, sessionLoading } = useSession();
 	const { logout } = useAuth();
 	const { pathname } = useLocation();
+	const { t } = useTranslation("backend");
 
 	const handleLogout = () => {
 		logout.mutate(undefined, {
-			onSuccess: () => customToast("Logged out successfully", "success"),
-			onError: (error) => customToast(`Logout failed: ${error.message}`, "error"),
+			onSuccess: () => customToast(t("dashboard.auth.logout_success"), "success"),
+			onError: (error) => customToast(t("dashboard.auth.logout_error", { error: error.message }), "error"),
 		});
 	};
 
@@ -30,7 +32,7 @@ const Dashboard = () => {
 
 	return (
 		<div className="flex h-screen w-full flex-row text-white">
-			<aside className="h-full w-[10%] bg-[#570b1b]">
+			<aside className="h-full w-[15%] bg-[#570b1b]">
 				<nav className="col-items-center gap-y-5">
 					<ul className="col-items-center gap-y-5 pt-6">
 						{dashboardNavlinks.map((link) => (
@@ -42,7 +44,7 @@ const Dashboard = () => {
 										isCurrentLink(link.href) && "font-bold underline underline-offset-4",
 									)}
 								>
-									{link.name}
+									{t(link.name)}
 								</Link>
 							</li>
 						))}
@@ -51,13 +53,13 @@ const Dashboard = () => {
 						onClick={handleLogout}
 						className="hover:cursor-pointer hover:font-bold hover:underline hover:underline-offset-4"
 					>
-						Logout
+						{t("dashboard.nav.logout")}
 					</button>
 				</nav>
 			</aside>
 			<div className="flex h-full w-full flex-col">
 				<header className="bg-primary-dark flex items-center justify-between p-5">
-					<h2 className="self-start text-2xl font-bold">Dashboard</h2>
+					<h2 className="self-start text-2xl font-bold">{t("dashboard.header.title")}</h2>
 					<LanguageSwitcher bgColor="bg-primary-dark" />
 				</header>
 				<main className="flex-1 overflow-hidden">

@@ -8,7 +8,7 @@ import { sections } from "@/constants";
 import { useSectionTranslations } from "@/hooks/useSectionTranslations";
 
 const HomeEditor = () => {
-	const { i18n, ready } = useTranslation("backend");
+	const { t, i18n, ready } = useTranslation("backend");
 	const currentLanguage = i18n.language;
 	const [selectedOption, setSelectedOption] = useState(sections[0].value);
 	const { isLoading, isError, data, error } = useSectionTranslations(selectedOption, currentLanguage, ready);
@@ -20,9 +20,11 @@ const HomeEditor = () => {
 
 	return (
 		<div className="text-burgundy flex h-full flex-col items-center gap-y-5 py-10">
-			<h3 className="self-center text-xl font-bold">
-				{!selectedOption ? "Please select a section to edit" : `Now editing the ${currentOptionLabel} section`}
-			</h3>
+			<h2 className="self-center text-xl font-bold">
+				{!selectedOption
+					? t("dashboard.home.sections.cta")
+					: t("dashboard.home.sections.info", { selected: currentOptionLabel })}
+			</h2>
 			<select
 				name="section"
 				className="text-lg hover:cursor-pointer hover:font-bold"
@@ -32,7 +34,7 @@ const HomeEditor = () => {
 			>
 				{options.map((option) => (
 					<option key={option.id} value={option.value}>
-						{option.name}
+						{t(option.name)}
 					</option>
 				))}
 			</select>

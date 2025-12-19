@@ -21,48 +21,53 @@ export const navlinks = [
 	},
 ];
 
-// TODO: Add names to locale resources
-export const dashboardNavlinks = [
-	{
-		name: "Home Editor",
-		href: "/dashboard",
-	},
-	{
-		name: "Catalog Manager",
-		href: "/dashboard/catalog",
-	},
-	{
-		name: "Back to Home",
-		href: "/",
-	},
+export const languages = [
+	{ label: "HU", value: "hu" },
+	{ label: "RO", value: "ro" },
+	{ label: "EN", value: "en" },
 ];
 
 export const categories = ["earrings", "necklaces", "bracelets", "rings", "decorations", "sets"];
+
+export const dashboardNavlinks = [
+	{
+		name: "dashboard.nav.home",
+		href: "/dashboard",
+	},
+	{
+		name: "dashboard.nav.catalog",
+		href: "/dashboard/catalog",
+	},
+	{
+		name: "dashboard.nav.back_to_home",
+		href: "/",
+	},
+];
 
 export const sections = [
 	{
 		id: 1,
 		value: "",
-		name: "Select a section",
+		name: "dashboard.home.sections.option_default",
 	},
 	{
 		id: 2,
 		value: "home.macrame_intro",
-		name: "Macrame",
+		name: "header.nav.macrame",
 	},
 	{
 		id: 3,
 		value: "home.meet_ilona",
-		name: "About",
+		name: "header.nav.about",
 	},
 	{
 		id: 4,
 		value: "home.collection_overview",
-		name: "Products",
+		name: "header.nav.products",
 	},
 	{
 		id: 5,
 		value: "category.titles",
-		name: "Category",
+		name: "dashboard.home.sections.option_category",
 	},
 ];

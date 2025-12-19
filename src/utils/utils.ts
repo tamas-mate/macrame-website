@@ -68,6 +68,8 @@ export const INPUTLIMITS = {
 	email: { min: 3, max: 100 },
 	subject: { max: 100 },
 	message: { min: 10, max: 1000 },
+	password: { min: 6, max: 100 },
+	section: { min: 10, max: 10000 },
 };
 
 export const collapseTrim = (value: unknown) => (typeof value === "string" ? value.replace(/\s+/g, " ").trim() : value);
