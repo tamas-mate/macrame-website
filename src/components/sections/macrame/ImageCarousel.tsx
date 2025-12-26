@@ -5,7 +5,7 @@ import type { ImageGalleryType } from "@/types";
 import { cl } from "@/utils/utils";
 
 const renderItem = (item: ReactImageGalleryItem, isFullscreen: boolean) => {
-	const h = isFullscreen ? "h-screen" : "2xl:h-70";
+	const h = isFullscreen ? "h-screen" : "h-70";
 
 	return (
 		<div className={`${h}`}>
